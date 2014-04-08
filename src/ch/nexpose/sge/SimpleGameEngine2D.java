@@ -28,7 +28,7 @@ public class SimpleGameEngine2D implements Runnable {
     GameScene scene;
     BufferedImage frame;
     CollisionDetector collisionDetector;
-    List<SimpleGameLogic> gameLogics;
+    List<GameStory> gameStories;
 
     public GameScene getScene() {
         return scene;
@@ -49,10 +49,6 @@ public class SimpleGameEngine2D implements Runnable {
     public void addGameObject(Object2D gameObject) {
         gameObjects.add(gameObject);
     }
-
-    public void setGameObjects(ArrayList<Object2D> gameObjects) {
-        this.gameObjects = gameObjects;
-    }
     
     ArrayList<Object2D> gameObjects;
     Thread frameDrawer;
@@ -61,12 +57,12 @@ public class SimpleGameEngine2D implements Runnable {
     {
         gameObjects = new ArrayList<Object2D>();
         collisionDetector = new CollisionDetector();
-        gameLogics = new ArrayList<SimpleGameLogic>();
+        gameStories = new ArrayList<GameStory>();
         this.scene = scene;
     }
 
-    public void addGameLogic(SimpleGameLogic logic) {
-        gameLogics.add(logic);
+    public void addGameStory(GameStory story) {
+        gameStories.add(story);
     }
     
     public void startEngine()
@@ -110,8 +106,11 @@ public class SimpleGameEngine2D implements Runnable {
     private void NotifyGameLogic()
     {
         // Notify every game logic attached to this engine
-        for (SimpleGameLogic gameLogic : gameLogics)
-            gameLogic.nextGameStep();
+        if(isRunning())
+        {
+            for (GameStory gameStory : gameStories)
+                gameStory.nextFrame();
+        }
     }
     
     private Graphics2D getFrame()

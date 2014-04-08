@@ -1,10 +1,13 @@
 package ch.nexpose.sgetest;
 
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.SimpleGameLogic;
+import ch.nexpose.sge.StoryBoard;
 import ch.nexpose.sge.objects.StaticObject2D;
 import ch.nexpose.sge.ui.GameScene;
+import ch.nexpose.sgetest.space.MenuStory;
+import ch.nexpose.sgetest.space.SpaceGameStory;
 import ch.nexpose.sgetest.space.Starship;
+import com.sun.xml.internal.bind.v2.TODO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,24 +21,13 @@ import java.beans.PropertyChangeListener;
 public class GameForm
 {
     private JPanel mainPanel;
-    private JButton btnStart;
     private JPanel gamePanel;
     private SimpleGameEngine2D engine;
     JFrame frame;
     GameScene scene;
-    Starship ship;
 
     public GameForm()
     {
-        btnStart.addActionListener(new ActionListener()
-        {
-            @Override
-            public void actionPerformed(ActionEvent e)
-            {
-                createGUIBinding();
-            }
-        });
-
         gamePanel.addPropertyChangeListener(new PropertyChangeListener()
         {
             @Override
@@ -61,14 +53,9 @@ public class GameForm
         //Setup scene
         scene = new GameScene();
         scene.setBackgroundColor(Color.black);
-        scene.setSize(1, 1);
-
-        //Key listener
-        scene.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                ship.simpleSteering(evt.getKeyCode());
-            }
-        });
+        scene.setSize(new Dimension(600, 400));
+        //scene.setSize(this.gamePanel.getPreferredSize());
+        //TODO: Bug with set size
 
         gamePanel.add(scene);
         gamePanel.updateUI();
@@ -80,30 +67,14 @@ public class GameForm
     public void setupGame()
     {
         SimpleGameEngine2D engine = new SimpleGameEngine2D(scene);
-        engine.addGameLogic(new SimpleGameLogic()
-        {
-            @Override
-            public void nextGameStep()
-            {
-                GameLogic();
-            }
-        });
+        StoryBoard board = new StoryBoard();
 
-        ship = new Starship();
-        ship.setEngine(engine);
+        MenuStory menu = new MenuStory(engine, board);
+        SpaceGameStory game = new SpaceGameStory(engine, board);
 
-        StaticObject2D victimObject = new StaticObject2D();
-        victimObject.setLocation(new Point(400, 200));
-        victimObject.setColor(Color.green);
-        victimObject.setSize(new Dimension(50, 50));
+        board.addGameStory(menu);
+        board.addGameStory(game);
 
-        engine.addGameObject(ship);
-        engine.addGameObject(victimObject);
-        engine.startEngine();
-    }
-
-    public void GameLogic()
-    {
-        System.out.println("logic triggered");
+        board.getNextStory().runStory();
     }
 }
