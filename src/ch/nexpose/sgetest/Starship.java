@@ -16,6 +16,9 @@ import ch.nexpose.sge.objects.PlayerObject2D;
  */
 public class Starship extends PlayerObject2D {
     Image rocket;
+    Image rocket1;
+    Image rocket2;
+    boolean imageSwitcher = false;
 
 
     public Starship()
@@ -24,6 +27,8 @@ public class Starship extends PlayerObject2D {
         this.setSize(new Dimension(30, 30));
         this.setSpeed(4);
         rocket = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket.png"));
+        rocket1 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket1.png"));
+        rocket2 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket2.png"));
     }
     
     @Override
@@ -42,8 +47,11 @@ public class Starship extends PlayerObject2D {
     @Override
     public void paint(Graphics2D g)
     {
-        //g.setColor(this.getColor());
-        //g.fillOval(this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height);
-        g.drawImage(rocket, this.getLocation().x, this.getLocation().y, null);
+        if(imageSwitcher)
+            g.drawImage(rocket1, this.getLocation().x, this.getLocation().y, null);
+        else
+            g.drawImage(rocket2, this.getLocation().x, this.getLocation().y, null);
+
+        imageSwitcher = !imageSwitcher;
     }
 }

@@ -110,7 +110,7 @@
       <file leaf-file-name="Starship.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/Starship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="5" selection-start="974" selection-end="974" vertical-scroll-proportion="0.56989247" vertical-offset="177" max-vertical-offset="735">
+            <state line="42" column="53" selection-start="1237" selection-end="1237" vertical-scroll-proportion="0.5967742" vertical-offset="207" max-vertical-offset="855">
               <folding />
             </state>
           </provider>
@@ -137,9 +137,9 @@
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/GameForm.form" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/ui/GameScene.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/GameForm.java" />
-        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/Starship.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/objects/Object2D.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/Bullet.java" />
+        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/Starship.java" />
       </list>
     </option>
   </component>
@@ -729,7 +729,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/Starship.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="5" selection-start="974" selection-end="974" vertical-scroll-proportion="0.56989247" vertical-offset="177" max-vertical-offset="735">
+        <state line="42" column="53" selection-start="1237" selection-end="1237" vertical-scroll-proportion="0.5967742" vertical-offset="207" max-vertical-offset="855">
           <folding />
         </state>
       </provider>
