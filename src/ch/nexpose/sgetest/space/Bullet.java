@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package ch.nexpose.sgetest;
+package ch.nexpose.sgetest.space;
 
 import java.awt.*;
 

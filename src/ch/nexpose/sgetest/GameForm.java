@@ -4,12 +4,13 @@ import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.SimpleGameLogic;
 import ch.nexpose.sge.objects.StaticObject2D;
 import ch.nexpose.sge.ui.GameScene;
+import ch.nexpose.sgetest.space.Starship;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
+import java.awt.event.*;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
 /**
  * Created by cansik on 08/04/14.
@@ -26,29 +27,22 @@ public class GameForm
 
     public GameForm()
     {
-
         btnStart.addActionListener(new ActionListener()
         {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                //Stup scene
-                scene = new GameScene();
-                scene.setBackgroundColor(Color.black);
-                scene.setSize(gamePanel.getWidth(), gamePanel.getHeight());
+                createGUIBinding();
+            }
+        });
 
-                //Key listener
-                scene.addKeyListener(new java.awt.event.KeyAdapter() {
-                    public void keyPressed(java.awt.event.KeyEvent evt) {
-                        ship.simpleSteering(evt.getKeyCode());
-                    }
-                });
-
-                gamePanel.add(scene);
-                gamePanel.updateUI();
-                scene.requestFocus();
-
-                setupGame();
+        gamePanel.addPropertyChangeListener(new PropertyChangeListener()
+        {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt)
+            {
+                if("ancestor".equals(evt.getPropertyName()))
+                    createGUIBinding();
             }
         });
     }
@@ -60,6 +54,27 @@ public class GameForm
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+    }
+
+    public void createGUIBinding()
+    {
+        //Setup scene
+        scene = new GameScene();
+        scene.setBackgroundColor(Color.black);
+        scene.setSize(1, 1);
+
+        //Key listener
+        scene.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ship.simpleSteering(evt.getKeyCode());
+            }
+        });
+
+        gamePanel.add(scene);
+        gamePanel.updateUI();
+        scene.requestFocus();
+
+        setupGame();
     }
 
     public void setupGame()
@@ -86,7 +101,6 @@ public class GameForm
         engine.addGameObject(victimObject);
         engine.startEngine();
     }
-
 
     public void GameLogic()
     {
