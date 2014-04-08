@@ -63,8 +63,6 @@ public class GameScene extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    int framecount = 0;
-
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -78,8 +76,6 @@ public class GameScene extends javax.swing.JPanel {
         if (backgroundImage != null) {
             g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
         }
-
-        System.out.println("draw frame " + framecount++);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -20,6 +20,7 @@ public class GameForm
     private SimpleGameEngine2D engine;
     JFrame frame;
     GameScene scene;
+    Starship ship;
 
     public GameForm()
     {
@@ -29,12 +30,21 @@ public class GameForm
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                //Stup scene
                 scene = new GameScene();
                 scene.setBackgroundColor(Color.black);
                 scene.setSize(gamePanel.getWidth(), gamePanel.getHeight());
 
+                //Key listener
+                scene.addKeyListener(new java.awt.event.KeyAdapter() {
+                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                        ship.simpleSteering(evt.getKeyCode());
+                    }
+                });
+
                 gamePanel.add(scene);
                 gamePanel.updateUI();
+                scene.requestFocus();
 
                 setupGame();
             }
@@ -53,6 +63,10 @@ public class GameForm
     public void setupGame()
     {
         SimpleGameEngine2D engine = new SimpleGameEngine2D(scene);
+        ship = new Starship();
+        ship.setEngine(engine);
+
+        engine.getGameObjects().add(ship);
         engine.startEngine();
     }
 }
