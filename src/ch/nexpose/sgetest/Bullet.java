@@ -6,9 +6,8 @@
 
 package ch.nexpose.sgetest;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Point;
+import java.awt.*;
+
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.objects.MovingObject2D;
 import ch.nexpose.sge.objects.Object2D;
@@ -26,7 +25,7 @@ public class Bullet extends MovingObject2D {
         this.setSpeed(60);
         this.setSize(new Dimension(10, 10));
         this.setDirection(Direction.RIGHT);
-        this.setLocation(new Point(shooter.getLocation().x + shooter.getSize().width, shooter.getLocation().y));
+        this.setLocation(new Point(shooter.getLocation().x + shooter.getSize().width, shooter.getCenterLocation().y));
     }
     
     @Override
@@ -39,5 +38,12 @@ public class Bullet extends MovingObject2D {
         {
             this.setAlive(false);
         }
+    }
+
+    @Override
+    public void paint(Graphics2D g)
+    {
+        g.setColor(this.getColor());
+        g.fillOval(this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height);
     }
 }

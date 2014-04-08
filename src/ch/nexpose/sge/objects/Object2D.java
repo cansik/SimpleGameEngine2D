@@ -71,6 +71,11 @@ public abstract class Object2D {
     public void setLocation(Point location) {
         this.location = location;
     }
+
+    public Point getCenterLocation()
+    {
+        return new Point(location.x + (int)(size.width / 2), location.y + (int)(size.height / 2));
+    }
     
     public void move()
     {
