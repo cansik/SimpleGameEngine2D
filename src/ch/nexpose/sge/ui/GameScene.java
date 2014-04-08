@@ -38,6 +38,7 @@ public class GameScene extends javax.swing.JPanel {
      * Creates new form GameScene
      */
     public GameScene() {
+        super();
         initComponents();
     }
 
@@ -62,8 +63,12 @@ public class GameScene extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    int framecount = 0;
+
     @Override
     public void paint(Graphics g) {
+        super.paint(g);
+
         if(g != null)
         {
             g.setColor(backgroundColor);
@@ -73,6 +78,8 @@ public class GameScene extends javax.swing.JPanel {
         if (backgroundImage != null) {
             g.drawImage(backgroundImage, 0, 0, this.getWidth(), this.getHeight(), this);
         }
+
+        System.out.println("draw frame " + framecount++);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
