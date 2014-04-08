@@ -1,6 +1,8 @@
 package ch.nexpose.sgetest;
 
 import ch.nexpose.sge.SimpleGameEngine2D;
+import ch.nexpose.sge.SimpleGameLogic;
+import ch.nexpose.sge.objects.StaticObject2D;
 import ch.nexpose.sge.ui.GameScene;
 
 import javax.swing.*;
@@ -63,10 +65,31 @@ public class GameForm
     public void setupGame()
     {
         SimpleGameEngine2D engine = new SimpleGameEngine2D(scene);
+        engine.addGameLogic(new SimpleGameLogic()
+        {
+            @Override
+            public void nextGameStep()
+            {
+                GameLogic();
+            }
+        });
+
         ship = new Starship();
         ship.setEngine(engine);
 
-        engine.getGameObjects().add(ship);
+        StaticObject2D victimObject = new StaticObject2D();
+        victimObject.setLocation(new Point(400, 200));
+        victimObject.setColor(Color.green);
+        victimObject.setSize(new Dimension(50, 50));
+
+        engine.addGameObject(ship);
+        engine.addGameObject(victimObject);
         engine.startEngine();
+    }
+
+
+    public void GameLogic()
+    {
+        System.out.println("logic triggered");
     }
 }

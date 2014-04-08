@@ -10,6 +10,6 @@ package ch.nexpose.sge.objects;
  *
  * @author cansik
  */
-public abstract class StaticObject2D extends Object2D {
+public class StaticObject2D extends Object2D {
     
 }

@@ -42,7 +42,7 @@ public class Starship extends PlayerObject2D {
         {
             Bullet b = new Bullet(this);
             b.setEngine(this.getEngine());
-            this.getEngine().getGameObjects().add(b);
+            this.getEngine().addGameObject(b);
         }
     }
 
@@ -51,6 +51,7 @@ public class Starship extends PlayerObject2D {
     {
         if(this.getDirection() == Direction.RIGHT)
         {
+            //On boost show animation
             if(imageSwitcher)
                 g.drawImage(rocket1, this.getLocation().x, this.getLocation().y, null);
             else

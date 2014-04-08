@@ -10,14 +10,16 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import ch.nexpose.sge.Collision;
+import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.SimpleGameEngine2D;
+import ch.nexpose.sge.collisions.CollisionListener;
 
 /**
  *
  * @author cansik
  */
-public abstract class Object2D {
+public abstract class Object2D implements CollisionListener
+{
 
     boolean alive;
     Point location;
@@ -77,10 +79,6 @@ public abstract class Object2D {
         return new Point(location.x + (int)(size.width / 2), location.y + (int)(size.height / 2));
     }
     
-    public void move()
-    {
-    }
-    
     public void paint(Graphics2D g)
     {
         g.setColor(color);
@@ -100,5 +98,14 @@ public abstract class Object2D {
         }
         
         return c;
+    }
+
+
+    public void move()
+    {
+    }
+
+    public void collisionDetected(Collision c)
+    {
     }
 }

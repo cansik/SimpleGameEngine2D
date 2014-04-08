@@ -6,10 +6,13 @@
 
 package ch.nexpose.sge;
 
+import ch.nexpose.sge.collisions.Collision;
+import ch.nexpose.sge.collisions.CollisionDetector;
 import ch.nexpose.sge.objects.Object2D;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import ch.nexpose.sge.ui.GameScene;
@@ -24,6 +27,8 @@ public class SimpleGameEngine2D implements Runnable {
     boolean running;
     GameScene scene;
     BufferedImage frame;
+    CollisionDetector collisionDetector;
+    List<SimpleGameLogic> gameLogics;
 
     public GameScene getScene() {
         return scene;
@@ -41,8 +46,8 @@ public class SimpleGameEngine2D implements Runnable {
         this.running = running;
     }
 
-    public ArrayList<Object2D> getGameObjects() {
-        return gameObjects;
+    public void addGameObject(Object2D gameObject) {
+        gameObjects.add(gameObject);
     }
 
     public void setGameObjects(ArrayList<Object2D> gameObjects) {
@@ -55,7 +60,13 @@ public class SimpleGameEngine2D implements Runnable {
     public SimpleGameEngine2D(GameScene scene)
     {
         gameObjects = new ArrayList<Object2D>();
+        collisionDetector = new CollisionDetector();
+        gameLogics = new ArrayList<SimpleGameLogic>();
         this.scene = scene;
+    }
+
+    public void addGameLogic(SimpleGameLogic logic) {
+        gameLogics.add(logic);
     }
     
     public void startEngine()
@@ -73,8 +84,14 @@ public class SimpleGameEngine2D implements Runnable {
     public void run()
     {
         while(running)
-        {   
-            game();
+        {
+            //collision detection
+            collisionDetector.detectCollisions(gameObjects);
+
+            //run gamelogic
+            NotifyGameLogic();
+
+            //repainting
             Graphics2D g = this.getFrame();
             repaint(g);
             g.dispose();
@@ -89,19 +106,18 @@ public class SimpleGameEngine2D implements Runnable {
             }
         }
     }
+
+    private void NotifyGameLogic()
+    {
+        // Notify every game logic attached to this engine
+        for (SimpleGameLogic gameLogic : gameLogics)
+            gameLogic.nextGameStep();
+    }
     
     private Graphics2D getFrame()
     {
         frame = new BufferedImage(this.scene.getWidth(), this.scene.getHeight(), BufferedImage.TYPE_INT_ARGB);
         return frame.createGraphics();
-    }
-    
-    private void game()
-    {
-       for(Collision c : CollisionDetector.detectCollisions(gameObjects))
-       {
-           System.out.println("collision: " + c.firstObject + " -> " + c.secondObject);    
-       }
     }
     
     private void repaint(Graphics2D g)

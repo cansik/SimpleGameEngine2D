@@ -9,6 +9,7 @@ package ch.nexpose.sgetest;
 import java.awt.*;
 
 import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.objects.MovingObject2D;
 import ch.nexpose.sge.objects.Object2D;
 
@@ -45,5 +46,13 @@ public class Bullet extends MovingObject2D {
     {
         g.setColor(this.getColor());
         g.fillOval(this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height);
+    }
+
+    @Override
+    public void collisionDetected(Collision c)
+    {
+        c.getFirstObject().setAlive(false);
+        c.getSecondObject().setAlive(false);
+        System.out.println("object killed!");
     }
 }
