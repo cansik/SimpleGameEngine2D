@@ -71,17 +71,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameForm.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="GameForm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/GameForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="21" selection-start="737" selection-end="737" vertical-scroll-proportion="0.443038" vertical-offset="0" max-vertical-offset="1125">
+            <state line="50" column="46" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
               <folding>
-                <element signature="imports" expanded="true" />
                 <element signature="method#showForm#0;class#GameForm#0" expanded="false" />
-                <element signature="e#1765#1783#0" expanded="true" />
-                <element signature="e#1832#1842#0" expanded="true" />
-                <element signature="e#1878#1887#0" expanded="true" />
-                <element signature="e#1933#1947#0" expanded="true" />
+                <element signature="e#1610#1628#0" expanded="true" />
+                <element signature="e#1677#1687#0" expanded="true" />
+                <element signature="e#1723#1732#0" expanded="true" />
+                <element signature="e#1778#1792#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,14 +108,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuStory.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MenuStory.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="35" selection-start="949" selection-end="949" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="990">
+            <state line="30" column="3" selection-start="811" selection-end="811" vertical-scroll-proportion="0.43037975" vertical-offset="42" max-vertical-offset="990">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#673#831#0" expanded="true" />
-                <element signature="e#820#821#0" expanded="true" />
                 <element signature="e#843#855#0" expanded="true" />
               </folding>
             </state>
@@ -221,8 +219,8 @@
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/SimpleGameEngine2D.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/GameForm.form" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/objects/TextObject2D.java" />
-        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/GameForm.java" />
+        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java" />
       </list>
     </option>
   </component>
@@ -428,6 +426,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -611,8 +610,8 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1624305" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2266244" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1624305" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2266244" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -652,12 +651,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="44" column="0" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="975">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#showForm#0;class#GameForm#0" expanded="false" />
-            <element signature="e#1765#1783#0" expanded="true" />
-            <element signature="e#1832#1842#0" expanded="true" />
-            <element signature="e#1878#1887#0" expanded="true" />
-            <element signature="e#1933#1947#0" expanded="true" />
+            <element signature="e#1610#1628#0" expanded="true" />
+            <element signature="e#1677#1687#0" expanded="true" />
+            <element signature="e#1723#1732#0" expanded="true" />
+            <element signature="e#1778#1792#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -736,12 +734,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="21" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="555">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#showForm#0;class#GameForm#0" expanded="false" />
-            <element signature="e#1765#1783#0" expanded="true" />
-            <element signature="e#1832#1842#0" expanded="true" />
-            <element signature="e#1878#1887#0" expanded="true" />
-            <element signature="e#1933#1947#0" expanded="true" />
+            <element signature="e#1610#1628#0" expanded="true" />
+            <element signature="e#1677#1687#0" expanded="true" />
+            <element signature="e#1723#1732#0" expanded="true" />
+            <element signature="e#1778#1792#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -793,12 +790,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="31" selection-start="463" selection-end="463" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="420">
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#showForm#0;class#GameForm#0" expanded="false" />
-            <element signature="e#1765#1783#0" expanded="true" />
-            <element signature="e#1832#1842#0" expanded="true" />
-            <element signature="e#1878#1887#0" expanded="true" />
-            <element signature="e#1933#1947#0" expanded="true" />
+            <element signature="e#1610#1628#0" expanded="true" />
+            <element signature="e#1677#1687#0" expanded="true" />
+            <element signature="e#1723#1732#0" expanded="true" />
+            <element signature="e#1778#1792#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -955,18 +951,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="35" selection-start="949" selection-end="949" vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="990">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#673#831#0" expanded="true" />
-            <element signature="e#820#821#0" expanded="true" />
-            <element signature="e#843#855#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/GameForm.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
@@ -992,14 +976,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/GameForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="21" selection-start="737" selection-end="737" vertical-scroll-proportion="0.443038" vertical-offset="0" max-vertical-offset="1125">
+        <state line="50" column="46" selection-start="1305" selection-end="1305" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
+          <folding>
+            <element signature="method#showForm#0;class#GameForm#0" expanded="false" />
+            <element signature="e#1610#1628#0" expanded="true" />
+            <element signature="e#1677#1687#0" expanded="true" />
+            <element signature="e#1723#1732#0" expanded="true" />
+            <element signature="e#1778#1792#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="3" selection-start="811" selection-end="811" vertical-scroll-proportion="0.43037975" vertical-offset="42" max-vertical-offset="990">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#showForm#0;class#GameForm#0" expanded="false" />
-            <element signature="e#1765#1783#0" expanded="true" />
-            <element signature="e#1832#1842#0" expanded="true" />
-            <element signature="e#1878#1887#0" expanded="true" />
-            <element signature="e#1933#1947#0" expanded="true" />
+            <element signature="e#673#831#0" expanded="true" />
+            <element signature="e#843#855#0" expanded="true" />
           </folding>
         </state>
       </provider>

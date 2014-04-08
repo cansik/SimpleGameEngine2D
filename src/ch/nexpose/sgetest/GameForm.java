@@ -2,16 +2,12 @@ package ch.nexpose.sgetest;
 
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.StoryBoard;
-import ch.nexpose.sge.objects.StaticObject2D;
 import ch.nexpose.sge.ui.GameScene;
 import ch.nexpose.sgetest.space.MenuStory;
 import ch.nexpose.sgetest.space.SpaceGameStory;
-import ch.nexpose.sgetest.space.Starship;
-import com.sun.xml.internal.bind.v2.TODO;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 

@@ -32,7 +32,7 @@ public class MenuStory implements GameStory
         });
 
         TextObject2D startText = new TextObject2D("press any key to start!");
-
+        startText.setColor(Color.green);
         startText.setLocation(new Point((this.engine.getScene().getWidth() / 2) - (int)(startText.getSize().width / 2),
                 (int)(this.engine.getScene().getHeight() / 2) - (int)(startText.getSize().height / 2)));
 
