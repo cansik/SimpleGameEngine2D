@@ -8,6 +8,8 @@ package ch.nexpose.sgetest;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+
+import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.objects.PlayerObject2D;
 
 /**
@@ -47,11 +49,16 @@ public class Starship extends PlayerObject2D {
     @Override
     public void paint(Graphics2D g)
     {
-        if(imageSwitcher)
-            g.drawImage(rocket1, this.getLocation().x, this.getLocation().y, null);
-        else
-            g.drawImage(rocket2, this.getLocation().x, this.getLocation().y, null);
+        if(this.getDirection() == Direction.RIGHT)
+        {
+            if(imageSwitcher)
+                g.drawImage(rocket1, this.getLocation().x, this.getLocation().y, null);
+            else
+                g.drawImage(rocket2, this.getLocation().x, this.getLocation().y, null);
 
-        imageSwitcher = !imageSwitcher;
+            imageSwitcher = !imageSwitcher;
+        }
+
+        g.drawImage(rocket, this.getLocation().x, this.getLocation().y, null);
     }
 }
