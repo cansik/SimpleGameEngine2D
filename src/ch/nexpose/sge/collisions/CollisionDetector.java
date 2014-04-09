@@ -22,13 +22,16 @@ public class CollisionDetector {
         {
             for(int i = c + 1; i < objects.size(); i++)            
             {
-               Collision col = objects.get(c).detectCollision(objects.get(i));
-               if(col != null)
-               {
-                   //Event to Objects
-                   objects.get(c).collisionDetected((col));
-                   objects.get(i).collisionDetected((col));
-               }
+                if(objects.get(c).isCollisionable() && objects.get(i).isCollisionable())
+                {
+                   Collision col = objects.get(c).detectCollision(objects.get(i));
+                   if(col != null)
+                   {
+                       //Event to Objects
+                       objects.get(c).collisionDetected((col));
+                       objects.get(i).collisionDetected((col));
+                   }
+                }
             }
         }
     }

@@ -6,10 +6,8 @@
 
 package ch.nexpose.sge.objects;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.Point;
+import java.awt.*;
+
 import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.collisions.CollisionListener;
@@ -24,14 +22,39 @@ public abstract class Object2D implements CollisionListener
     boolean alive;
     Point location;
     Dimension size;
+    Rectangle hitbox;
     Color color;
     SimpleGameEngine2D engine;
+    boolean collisionable;
+
     
     public Object2D()
     {
         this.alive = true;
+        this.collisionable = true;
         this.location = new Point(0, 0);
         this.size = new Dimension(1, 1);
+        this.hitbox = null;
+    }
+
+    public Rectangle getHitbox()
+    {
+        return hitbox;
+    }
+
+    public void setHitbox(Rectangle hitbox)
+    {
+        this.hitbox = hitbox;
+    }
+
+    public boolean isCollisionable()
+    {
+        return collisionable;
+    }
+
+    public void setCollisionable(boolean collisionable)
+    {
+        this.collisionable = collisionable;
     }
 
     public boolean isAlive() {
@@ -82,17 +105,25 @@ public abstract class Object2D implements CollisionListener
     public void paint(Graphics2D g)
     {
         g.setColor(color);
-        g.fillRect(this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height);
+        g.drawRect(this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height);
     }
     
     public Collision detectCollision(Object2D object)
     {
         Collision c = null;
+        Rectangle localHitbox = new Rectangle(this.getLocation(), this.getSize());
+        Rectangle objectHitbox = new Rectangle(object.getLocation(), object.getSize());
+
+        if(hitbox != null)
+            localHitbox = this.hitbox;
+
+        if(object.hitbox != null)
+            objectHitbox = object.hitbox;
         
-        if(this.getLocation().x < object.getLocation().x + object.getSize().width  &&
-            object.getLocation().x < this.getLocation().x + this.getSize().width  &&
-            this.getLocation().y < object.getLocation().y + object.getSize().height &&
-            object.getLocation().y < this.getLocation().y + this.getSize().height)
+        if(localHitbox.x < objectHitbox.x + objectHitbox.width  &&
+                objectHitbox.x < localHitbox.x + localHitbox.width  &&
+                localHitbox.y < objectHitbox.y + objectHitbox.height &&
+                objectHitbox.y < localHitbox.y + localHitbox.height)
         {
             c = new Collision(this, object);
         }

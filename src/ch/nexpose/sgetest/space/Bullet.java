@@ -12,6 +12,7 @@ import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.objects.MovingObject2D;
 import ch.nexpose.sge.objects.Object2D;
+import ch.nexpose.sge.objects.StaticObject2D;
 
 /**
  *
@@ -39,6 +40,13 @@ public class Bullet extends MovingObject2D {
         {
             this.setAlive(false);
         }
+
+        //hitbox upadte
+        int rightSpeed = (int)(this.getSpeed() / 2);
+        this.setHitbox(new Rectangle(
+                new Point(this.getLocation().x - rightSpeed, this.getLocation().y),
+                new Dimension(this.getSize().width + rightSpeed, this.getSize().height)
+        ));
     }
 
     @Override

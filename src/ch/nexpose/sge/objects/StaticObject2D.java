@@ -6,10 +6,26 @@
 
 package ch.nexpose.sge.objects;
 
+import java.awt.*;
+
 /**
  *
  * @author cansik
  */
 public class StaticObject2D extends Object2D {
-    
+    int livecout = 0;
+
+
+    @Override
+    public void paint(Graphics2D g)
+    {
+        super.paint(g);
+
+        if(livecout > 120)
+        {
+            this.setAlive(false);
+        }
+
+        livecout++;
+    }
 }

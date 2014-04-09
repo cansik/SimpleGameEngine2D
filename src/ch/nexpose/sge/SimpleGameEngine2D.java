@@ -22,7 +22,7 @@ import ch.nexpose.sge.ui.GameScene;
  * @author cansik
  */
 public class SimpleGameEngine2D implements Runnable {
-    final int FRAMERATE = 40; //24 Frames;
+    final int FRAMERATE = 24; //24 Frames;
     
     boolean running;
     GameScene scene;
@@ -96,7 +96,7 @@ public class SimpleGameEngine2D implements Runnable {
             scene.repaint();
             
             try {
-                Thread.sleep(FRAMERATE);
+                Thread.sleep((int)1000 / FRAMERATE);
             } catch (InterruptedException ex) {
                 Logger.getLogger(SimpleGameEngine2D.class.getName()).log(Level.SEVERE, null, ex);
             }

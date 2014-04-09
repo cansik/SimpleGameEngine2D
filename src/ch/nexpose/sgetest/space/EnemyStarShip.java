@@ -15,7 +15,7 @@ public class EnemyStarShip extends MovingObject2D
     public EnemyStarShip()
     {
         this.setColor(Color.blue);
-        this.setSize(new Dimension(30, 30));
+        this.setSize(new Dimension(50, 50));
         this.setDirection(Direction.LEFT);
         this.setSpeed(3);
         enemyImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/enemy.png"));
