@@ -26,7 +26,7 @@ public class Starship extends PlayerObject2D {
     public Starship()
     {
         this.setColor(Color.MAGENTA);
-        this.setSize(new Dimension(30, 30));
+        this.setSize(new Dimension(50, 50));
         this.setSpeed(6);
         rocket = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket.png"));
         rocket1 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket1.png"));
@@ -61,5 +61,11 @@ public class Starship extends PlayerObject2D {
         }
 
         g.drawImage(rocket, this.getLocation().x, this.getLocation().y, null);
+    }
+
+    @Override
+    public void move()
+    {
+        super.move();
     }
 }

@@ -35,7 +35,7 @@ public class EnemyStarShip extends MovingObject2D
         //check out of bound
         if(this.getLocation().x < (0 - this.getSize().width))
         {
-            this.setAlive(false);
+            //this.setAlive(false);
         }
     }
 }

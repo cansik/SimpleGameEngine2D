@@ -5,7 +5,8 @@
  */
 package ch.nexpose.sge.objects;
 
-import java.awt.Point;
+import java.awt.*;
+
 import ch.nexpose.sge.Direction;
 
 /**
@@ -16,6 +17,7 @@ public class MovingObject2D extends Object2D {
 
     int speed;
     Direction direction;
+    boolean bordercheck;
 
     public MovingObject2D() {
         super();
@@ -25,6 +27,13 @@ public class MovingObject2D extends Object2D {
 
     @Override
     public void move() {
+
+        if(!isBordercheck() || isOnScene())
+            this.location = getNextLocation();
+    }
+
+    public Point getNextLocation()
+    {
         int dx = 0, dy = 0;
 
         switch (this.direction) {
@@ -45,7 +54,27 @@ public class MovingObject2D extends Object2D {
                 break;
         }
 
-        this.location = new Point(this.location.x + dx, this.location.y + dy);
+        return new Point(this.location.x + dx, this.location.y + dy);
+    }
+
+    public boolean isOnScene()
+    {
+        //check bounds
+        Point futureLocation = this.getNextLocation();
+        Dimension sceneSize = this.getEngine().getScene().getSize();
+
+        return ((futureLocation.x >= 0 && futureLocation.x + this.getSize().width <= sceneSize.width) &&
+                (futureLocation.y >= 0 && futureLocation.y + this.getSize().height <= sceneSize.height));
+    }
+
+    public boolean isBordercheck()
+    {
+        return bordercheck;
+    }
+
+    public void setBordercheck(boolean bordercheck)
+    {
+        this.bordercheck = bordercheck;
     }
 
     public Direction getDirection() {

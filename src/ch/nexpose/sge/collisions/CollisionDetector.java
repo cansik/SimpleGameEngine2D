@@ -22,7 +22,8 @@ public class CollisionDetector {
         {
             for(int i = c + 1; i < objects.size(); i++)            
             {
-                if(objects.get(c).isCollisionable() && objects.get(i).isCollisionable())
+                if((objects.get(c).isCollisionable() && objects.get(i).isCollisionable()) &&
+                        objects.get(c).isAlive() && objects.get(i).isAlive())
                 {
                    Collision col = objects.get(c).detectCollision(objects.get(i));
                    if(col != null)

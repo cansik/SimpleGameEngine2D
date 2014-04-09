@@ -22,7 +22,7 @@ import ch.nexpose.sge.ui.GameScene;
  * @author cansik
  */
 public class SimpleGameEngine2D implements Runnable {
-    final int FRAMERATE = 24; //24 Frames;
+    final int FRAMERATE = 48; //24 Frames;
     
     boolean running;
     GameScene scene;
@@ -121,6 +121,8 @@ public class SimpleGameEngine2D implements Runnable {
     
     private void repaint(Graphics2D g)
     {
+        System.out.println("Size: " + gameObjects.size());
+
         for(int i = 0; i < gameObjects.size(); i++)
         {
             if(gameObjects.get(i).isAlive())

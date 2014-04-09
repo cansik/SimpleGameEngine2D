@@ -28,14 +28,9 @@ public class SpaceGameStory implements GameStory
     {
         ship = new Starship();
         ship.setEngine(engine);
-
-        StaticObject2D victimObject = new StaticObject2D();
-        victimObject.setLocation(new Point(400, 200));
-        victimObject.setColor(Color.green);
-        victimObject.setSize(new Dimension(50, 50));
+        ship.setBordercheck(true);
 
         engine.addGameObject(ship);
-        engine.addGameObject(victimObject);
 
         //Key listener
         engine.getScene().addKeyListener(new java.awt.event.KeyAdapter()
@@ -58,7 +53,7 @@ public class SpaceGameStory implements GameStory
     @Override
     public void nextFrame()
     {
-        if(randInt(0, 20) == 1)
+        if(randInt(0, 1) == 1)
         {
             EnemyStarShip enemy = new EnemyStarShip();
             enemy.setEngine(engine);

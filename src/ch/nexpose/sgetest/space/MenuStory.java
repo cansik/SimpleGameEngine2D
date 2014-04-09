@@ -33,6 +33,7 @@ public class MenuStory implements GameStory
         });
 
         FlashingText startText = new FlashingText("insert coin to start!");
+        startText.setEngine(engine);
         startText.setColor(Color.green);
         startText.setLocation(new Point((this.engine.getScene().getWidth() / 2) - (int)(startText.getSize().width / 2),
                 (int)(this.engine.getScene().getHeight() / 2) - (int)(startText.getSize().height / 2)));
