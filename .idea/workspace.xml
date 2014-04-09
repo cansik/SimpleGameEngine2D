@@ -67,7 +67,7 @@
       <file leaf-file-name="FlashingText.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/FlashingText.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+            <state line="32" column="9" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
               <folding />
             </state>
           </provider>
@@ -76,26 +76,29 @@
       <file leaf-file-name="SpaceGameStory.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="19" selection-start="983" selection-end="983" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
+            <state line="43" column="39" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Bullet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/Bullet.java">
+      <file leaf-file-name="Starship.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/Starship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="9" selection-start="1077" selection-end="1077" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
+            <state line="45" column="36" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0" vertical-offset="100" max-vertical-offset="1050">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuStory.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MenuStory.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="34" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="930">
-              <folding />
+            <state line="61" column="9" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.85157895" vertical-offset="1" max-vertical-offset="1005">
+              <folding>
+                <element signature="e#738#958#0" expanded="true" />
+                <element signature="e#947#948#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,10 +134,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EngineDebugger.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EngineDebugger.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/EngineDebugger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="406" selection-end="406" vertical-scroll-proportion="0.26842105" vertical-offset="0" max-vertical-offset="950">
+            <state line="22" column="22" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
               <folding />
             </state>
           </provider>
@@ -199,10 +202,10 @@
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/FlashingText.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/GameStory.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/AnimatedStarship.java" />
-        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java" />
-        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/Starship.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/EngineDebugger.java" />
+        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java" />
+        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java" />
       </list>
     </option>
   </component>
@@ -617,7 +620,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12509929" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12509929" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22503962" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -826,11 +829,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/ui/GameScene.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="46" selection-start="1852" selection-end="1852" vertical-scroll-proportion="0.3218391" vertical-offset="597" max-vertical-offset="1155" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/collisions/CollisionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="0" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
@@ -872,13 +870,6 @@
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/objects/Object2D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="34" selection-start="746" selection-end="746" vertical-scroll-proportion="0.42509136" vertical-offset="26" max-vertical-offset="1635">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/objects/PlayerObject2D.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="414" selection-end="497" vertical-scroll-proportion="0.21924482" vertical-offset="0" max-vertical-offset="821">
           <folding />
         </state>
       </provider>
@@ -936,13 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/FlashingText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="287" selection-end="287" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="36" selection-start="154" selection-end="154" vertical-scroll-proportion="0.1278928" vertical-offset="0" max-vertical-offset="821">
@@ -966,27 +950,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="34" selection-start="1565" selection-end="1565" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="930">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="19" selection-start="983" selection-end="983" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/Starship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="45" column="36" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.40194884" vertical-offset="210" max-vertical-offset="1050">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="39" column="9" selection-start="1077" selection-end="1077" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="930">
@@ -996,8 +959,53 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/EngineDebugger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="406" selection-end="406" vertical-scroll-proportion="0.26842105" vertical-offset="0" max-vertical-offset="950">
+        <state line="22" column="22" selection-start="493" selection-end="493" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/ui/GameScene.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="0" selection-start="1353" selection-end="1353" vertical-scroll-proportion="0.0" vertical-offset="175" max-vertical-offset="1125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/objects/PlayerObject2D.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="17" selection-start="593" selection-end="609" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/Starship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="36" selection-start="1267" selection-end="1267" vertical-scroll-proportion="0.0" vertical-offset="100" max-vertical-offset="1050">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/FlashingText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="9" selection-start="739" selection-end="739" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="39" selection-start="1222" selection-end="1222" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="9" selection-start="1851" selection-end="1851" vertical-scroll-proportion="0.85157895" vertical-offset="1" max-vertical-offset="1005">
+          <folding>
+            <element signature="e#738#958#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

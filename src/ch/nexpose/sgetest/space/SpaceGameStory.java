@@ -28,6 +28,8 @@ public class SpaceGameStory implements GameStory
     {
         ship = new Starship(engine);
         ship.setBordercheck(true);
+        ship.setLocation(new Point(0,
+                (int)(this.engine.getScene().getHeight() / 2) - (int)(ship.getSize().height / 2)));
 
         engine.addGameObject(ship);
 
