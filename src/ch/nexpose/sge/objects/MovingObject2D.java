@@ -12,7 +12,7 @@ import ch.nexpose.sge.Direction;
  *
  * @author cansik
  */
-public abstract class MovingObject2D extends Object2D {
+public class MovingObject2D extends Object2D {
 
     int speed;
     Direction direction;

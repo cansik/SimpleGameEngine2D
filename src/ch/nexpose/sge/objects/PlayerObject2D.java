@@ -13,7 +13,7 @@ import ch.nexpose.sge.Direction;
  *
  * @author cansik
  */
-public abstract class PlayerObject2D extends MovingObject2D {
+public class PlayerObject2D extends MovingObject2D {
     
     public void simpleSteering(int keyCode)
     {

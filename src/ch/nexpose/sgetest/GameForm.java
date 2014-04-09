@@ -39,6 +39,7 @@ public class GameForm
     {
         frame = new JFrame("Starship Game");
         frame.setContentPane(new GameForm().mainPanel);
+        frame.setLocation(300, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
