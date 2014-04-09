@@ -53,7 +53,7 @@ public class SpaceGameStory implements GameStory
     @Override
     public void nextFrame()
     {
-        if(randInt(0, 1) == 1)
+        if(randInt(0, 20) == 1)
         {
             EnemyStarShip enemy = new EnemyStarShip();
             enemy.setEngine(engine);
