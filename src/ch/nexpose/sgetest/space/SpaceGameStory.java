@@ -26,8 +26,7 @@ public class SpaceGameStory implements GameStory
 
     private void initStory()
     {
-        ship = new Starship();
-        ship.setEngine(engine);
+        ship = new Starship(engine);
         ship.setBordercheck(true);
 
         engine.addGameObject(ship);
@@ -55,8 +54,7 @@ public class SpaceGameStory implements GameStory
     {
         if(randInt(0, 20) == 1)
         {
-            EnemyStarShip enemy = new EnemyStarShip();
-            enemy.setEngine(engine);
+            EnemyStarShip enemy = new EnemyStarShip(engine);
             enemy.setLocation(new Point(engine.getScene().getWidth(), randInt(0, engine.getScene().getHeight())));
 
             engine.addGameObject(enemy);

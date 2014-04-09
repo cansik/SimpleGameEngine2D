@@ -6,6 +6,8 @@
 
 package ch.nexpose.sge.objects;
 
+import ch.nexpose.sge.SimpleGameEngine2D;
+
 import java.awt.*;
 
 /**
@@ -15,6 +17,10 @@ import java.awt.*;
 public class StaticObject2D extends Object2D {
     int livecout = 0;
 
+    public StaticObject2D(SimpleGameEngine2D engine)
+    {
+        super(engine);
+    }
 
     @Override
     public void paint(Graphics2D g)

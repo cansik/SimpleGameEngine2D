@@ -22,7 +22,7 @@ public class Bullet extends MovingObject2D {
     
     public Bullet(Object2D shooter)
     {
-        super();
+        super(shooter.getEngine());
         this.setColor(Color.yellow);
         this.setSpeed(60);
         this.setSize(new Dimension(10, 10));

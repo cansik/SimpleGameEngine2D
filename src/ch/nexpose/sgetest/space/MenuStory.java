@@ -32,15 +32,12 @@ public class MenuStory implements GameStory
             }
         });
 
-        FlashingText startText = new FlashingText("insert coin to start!");
-        startText.setEngine(engine);
+        FlashingText startText = new FlashingText(engine, "insert coin to start!");
         startText.setColor(Color.green);
         startText.setLocation(new Point((this.engine.getScene().getWidth() / 2) - (int)(startText.getSize().width / 2),
                 (int)(this.engine.getScene().getHeight() / 2) - (int)(startText.getSize().height / 2)));
 
-        AnimatedStarship animatedStarship = new AnimatedStarship();
-        animatedStarship.setEngine(engine);
-
+        AnimatedStarship animatedStarship = new AnimatedStarship(engine);
         animatedStarship.setLocation(new Point(0 - animatedStarship.getSize().width, 200));
         animatedStarship.setDirection(Direction.RIGHT);
 

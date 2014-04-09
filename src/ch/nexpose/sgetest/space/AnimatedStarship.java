@@ -1,5 +1,7 @@
 package ch.nexpose.sgetest.space;
 
+import ch.nexpose.sge.SimpleGameEngine2D;
+
 import java.awt.*;
 
 /**
@@ -7,6 +9,11 @@ import java.awt.*;
  */
 public class AnimatedStarship extends Starship
 {
+    public AnimatedStarship(SimpleGameEngine2D engine)
+    {
+        super(engine);
+    }
+
     @Override
     public void move()
     {

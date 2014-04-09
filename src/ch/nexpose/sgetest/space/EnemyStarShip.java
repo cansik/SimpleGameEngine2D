@@ -1,6 +1,7 @@
 package ch.nexpose.sgetest.space;
 
 import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.MovingObject2D;
 
 import java.awt.*;
@@ -12,8 +13,10 @@ public class EnemyStarShip extends MovingObject2D
 {
     Image enemyImage;
 
-    public EnemyStarShip()
+    public EnemyStarShip(SimpleGameEngine2D engine)
     {
+        super(engine);
+
         this.setColor(Color.blue);
         this.setSize(new Dimension(50, 50));
         this.setDirection(Direction.LEFT);

@@ -28,13 +28,14 @@ public abstract class Object2D implements CollisionListener
     boolean collisionable;
 
     
-    public Object2D()
+    public Object2D(SimpleGameEngine2D engine)
     {
         this.alive = true;
         this.collisionable = true;
         this.location = new Point(0, 0);
         this.size = new Dimension(1, 1);
         this.hitbox = null;
+        this.engine = engine;
     }
 
     public Rectangle getHitbox()

@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.PlayerObject2D;
 
 /**
@@ -23,8 +24,10 @@ public class Starship extends PlayerObject2D {
     boolean imageSwitcher = false;
 
 
-    public Starship()
+    public Starship(SimpleGameEngine2D engine)
     {
+        super(engine);
+
         this.setColor(Color.MAGENTA);
         this.setSize(new Dimension(50, 50));
         this.setSpeed(6);
@@ -41,7 +44,6 @@ public class Starship extends PlayerObject2D {
         if(keyCode == KeyEvent.VK_SPACE)
         {
             Bullet b = new Bullet(this);
-            b.setEngine(this.getEngine());
             this.getEngine().addGameObject(b);
         }
     }

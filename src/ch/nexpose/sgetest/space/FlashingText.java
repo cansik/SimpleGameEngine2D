@@ -1,5 +1,6 @@
 package ch.nexpose.sgetest.space;
 
+import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.TextObject2D;
 
 import java.awt.*;
@@ -13,9 +14,9 @@ public class FlashingText extends TextObject2D
     int currentAlpha = 255;
 
 
-    public FlashingText(String text)
+    public FlashingText(SimpleGameEngine2D engine, String text)
     {
-        super(text);
+        super(engine, text);
     }
 
     @Override

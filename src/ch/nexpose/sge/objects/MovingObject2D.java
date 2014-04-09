@@ -8,6 +8,7 @@ package ch.nexpose.sge.objects;
 import java.awt.*;
 
 import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.SimpleGameEngine2D;
 
 /**
  *
@@ -19,8 +20,8 @@ public class MovingObject2D extends Object2D {
     Direction direction;
     boolean bordercheck;
 
-    public MovingObject2D() {
-        super();
+    public MovingObject2D(SimpleGameEngine2D engine) {
+        super(engine);
         this.direction = Direction.NONE;
         this.speed = 0;
     }

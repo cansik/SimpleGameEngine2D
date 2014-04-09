@@ -51,6 +51,10 @@ public class SimpleGameEngine2D implements Runnable {
     public void addGameObject(Object2D gameObject) {
         gameObjects.add(gameObject);
     }
+
+    public void addGameStory(GameStory story) {
+        gameStories.add(story);
+    }
     
     ArrayList<Object2D> gameObjects;
     Thread frameDrawer;
@@ -61,10 +65,6 @@ public class SimpleGameEngine2D implements Runnable {
         collisionDetector = new CollisionDetector();
         gameStories = new ArrayList<GameStory>();
         this.scene = scene;
-    }
-
-    public void addGameStory(GameStory story) {
-        gameStories.add(story);
     }
     
     public void startEngine()

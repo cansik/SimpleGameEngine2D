@@ -8,13 +8,19 @@ package ch.nexpose.sge.objects;
 
 import java.awt.event.KeyEvent;
 import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.SimpleGameEngine2D;
 
 /**
  *
  * @author cansik
  */
 public class PlayerObject2D extends MovingObject2D {
-    
+
+    public PlayerObject2D(SimpleGameEngine2D engine)
+    {
+        super(engine);
+    }
+
     public void simpleSteering(int keyCode)
     {
         switch (keyCode) {

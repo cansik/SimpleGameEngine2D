@@ -1,5 +1,7 @@
 package ch.nexpose.sge.objects;
 
+import ch.nexpose.sge.SimpleGameEngine2D;
+
 import java.awt.*;
 
 /**
@@ -12,8 +14,14 @@ public class TextObject2D extends MovingObject2D
     String text;
     Font font;
 
-    public TextObject2D(String text)
+    public TextObject2D(SimpleGameEngine2D engine)
     {
+        this(engine, "");
+    }
+
+    public TextObject2D(SimpleGameEngine2D engine, String text)
+    {
+        super(engine);
         this.text = text;
         this.font = new Font(DEFAULT_FONT, Font.PLAIN, 20);
     }

@@ -18,12 +18,12 @@ class EngineDebugger implements GameStory
     public EngineDebugger(SimpleGameEngine2D engine)
     {
         this.engine = engine;
-        debugText = new TextObject2D("FPS: detecting");
+
+        debugText = new TextObject2D(engine, "FPS: detecting");
         debugText.setColor(Color.white);
-        debugText.setEngine(engine);
         debugText.setLocation(new Point(10, 20));
         debugText.setCollisionable(false);
-        debugText.setFont(new Font("Courier New", Font.PLAIN, 20));
+        debugText.setFont(new Font("Verdana", Font.PLAIN, 12));
 
         this.engine.addGameObject(debugText);
 
