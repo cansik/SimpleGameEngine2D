@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import ch.nexpose.sge.objects.TextObject2D;
 import ch.nexpose.sge.ui.GameScene;
 
 /**
@@ -79,6 +81,9 @@ public class SimpleGameEngine2D implements Runnable {
     
     public void run()
     {
+        //debug
+        EngineDebugger debugger = new EngineDebugger(this);
+
         while(running)
         {
             //collision detection
