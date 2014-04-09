@@ -27,7 +27,7 @@ public class Starship extends PlayerObject2D {
     {
         this.setColor(Color.MAGENTA);
         this.setSize(new Dimension(30, 30));
-        this.setSpeed(4);
+        this.setSpeed(6);
         rocket = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket.png"));
         rocket1 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket1.png"));
         rocket2 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket2.png"));
