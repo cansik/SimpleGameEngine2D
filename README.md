@@ -9,3 +9,4 @@ Points to implement:
 - moving background image
 - 2d jump'n' run example
 - point system for spaceships
+- key and mouse controller
