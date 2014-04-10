@@ -6,8 +6,8 @@
 
 package ch.nexpose.sge;
 
-import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.collisions.CollisionDetector;
+import ch.nexpose.sge.controls.InputManager;
 import ch.nexpose.sge.objects.Object2D;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import ch.nexpose.sge.objects.TextObject2D;
 import ch.nexpose.sge.ui.GameScene;
 
 /**
@@ -31,6 +30,12 @@ public class SimpleGameEngine2D implements Runnable {
     BufferedImage frame;
     CollisionDetector collisionDetector;
     List<GameStory> gameStories;
+    InputManager inputManager;
+
+    public InputManager getInputManager()
+    {
+        return inputManager;
+    }
 
     public GameScene getScene() {
         return scene;
@@ -61,21 +66,25 @@ public class SimpleGameEngine2D implements Runnable {
     
     public SimpleGameEngine2D(GameScene scene)
     {
+        this.scene = scene;
+
         gameObjects = new ArrayList<Object2D>();
         collisionDetector = new CollisionDetector();
         gameStories = new ArrayList<GameStory>();
-        this.scene = scene;
+        inputManager = new InputManager(scene);
     }
     
     public void startEngine()
     {
         running = true;
+        inputManager.openInputManager();
         frameDrawer = new Thread(this);
         frameDrawer.start();
     }
     
     public void stopEngine()
     {
+        inputManager.closeInputManager();
         running = false;
     }
     
@@ -131,7 +140,7 @@ public class SimpleGameEngine2D implements Runnable {
         {
             if(gameObjects.get(i).isAlive())
             {
-                gameObjects.get(i).move();
+                gameObjects.get(i).action();
                 gameObjects.get(i).paint(g);
             }
             else

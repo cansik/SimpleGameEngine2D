@@ -31,9 +31,9 @@ public class EnemyStarShip extends MovingObject2D
     }
 
     @Override
-    public void move()
+    public void action()
     {
-        super.move();
+        super.action();
 
         //check out of bound
         if(this.getLocation().x < (0 - this.getSize().width))

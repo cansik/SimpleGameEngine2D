@@ -66,8 +66,8 @@ public class Starship extends PlayerObject2D {
     }
 
     @Override
-    public void move()
+    public void action()
     {
-        super.move();
+        super.action();
     }
 }

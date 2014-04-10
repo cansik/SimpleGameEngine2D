@@ -15,9 +15,9 @@ public class AnimatedStarship extends Starship
     }
 
     @Override
-    public void move()
+    public void action()
     {
-        super.move();
+        super.action();
         if(getLocation().x > this.getEngine().getScene().getWidth())
         {
             setLocation(new Point(0 - getSize().width, getLocation().y));

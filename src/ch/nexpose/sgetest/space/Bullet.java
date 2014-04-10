@@ -12,7 +12,6 @@ import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.objects.MovingObject2D;
 import ch.nexpose.sge.objects.Object2D;
-import ch.nexpose.sge.objects.StaticObject2D;
 
 /**
  *
@@ -31,9 +30,9 @@ public class Bullet extends MovingObject2D {
     }
     
     @Override
-    public void move()
+    public void action()
     {
-        super.move();
+        super.action();
         
         //check out of bound
         if(this.getLocation().x > this.getEngine().getScene().getWidth())

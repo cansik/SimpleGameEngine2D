@@ -133,7 +133,7 @@ public abstract class Object2D implements CollisionListener
     }
 
 
-    public void move()
+    public void action()
     {
     }
 

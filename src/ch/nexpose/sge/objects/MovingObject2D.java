@@ -27,7 +27,7 @@ public class MovingObject2D extends Object2D {
     }
 
     @Override
-    public void move() {
+    public void action() {
 
         if(!isBordercheck() || isOnScene())
             this.location = getNextLocation();

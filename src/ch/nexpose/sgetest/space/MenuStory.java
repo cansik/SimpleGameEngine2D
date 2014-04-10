@@ -26,14 +26,6 @@ public class MenuStory implements GameStory
 
     private void initMenu()
     {
-        //Key listener
-        engine.getScene().addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                if(evt.getKeyCode() == KeyEvent.VK_SPACE)
-                    keyPressed = true;
-            }
-        });
-
         FlashingText startText = new FlashingText(engine, "press space to start!");
         startText.setColor(Color.green);
         startText.setLocation(new Point((this.engine.getScene().getWidth() / 2) - (int)(startText.getSize().width / 2),
@@ -58,7 +50,7 @@ public class MenuStory implements GameStory
     @Override
     public void nextFrame()
     {
-        if(keyPressed)
+        if(engine.getInputManager().isKeyPressed(KeyEvent.VK_SPACE))
         {
             engine.stopEngine();
             engine.getScene().removeAll();
