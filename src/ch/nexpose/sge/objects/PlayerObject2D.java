@@ -23,13 +23,13 @@ public class PlayerObject2D extends MovingObject2D {
 
     public void simpleSteering()
     {
-        if(getEngine().getInputManager().isKeyPressed(KeyEvent.VK_LEFT))
+        if(getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_LEFT))
             this.setDirection(Direction.LEFT);
-        if(getEngine().getInputManager().isKeyPressed(KeyEvent.VK_RIGHT))
+        if(getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_RIGHT))
             this.setDirection(Direction.RIGHT);
-        if(getEngine().getInputManager().isKeyPressed(KeyEvent.VK_UP))
+        if(getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_UP))
             this.setDirection(Direction.UP);
-        if(getEngine().getInputManager().isKeyPressed(KeyEvent.VK_DOWN))
+        if(getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_DOWN))
             this.setDirection(Direction.DOWN);
     }
 

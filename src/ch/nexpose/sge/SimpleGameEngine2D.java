@@ -7,7 +7,7 @@
 package ch.nexpose.sge;
 
 import ch.nexpose.sge.collisions.CollisionDetector;
-import ch.nexpose.sge.controls.InputManager;
+import ch.nexpose.sge.controls.InputTracker;
 import ch.nexpose.sge.objects.Object2D;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -30,11 +30,11 @@ public class SimpleGameEngine2D implements Runnable {
     BufferedImage frame;
     CollisionDetector collisionDetector;
     List<GameStory> gameStories;
-    InputManager inputManager;
+    InputTracker inputTracker;
 
-    public InputManager getInputManager()
+    public InputTracker getInputTracker()
     {
-        return inputManager;
+        return inputTracker;
     }
 
     public GameScene getScene() {
@@ -71,20 +71,20 @@ public class SimpleGameEngine2D implements Runnable {
         gameObjects = new ArrayList<Object2D>();
         collisionDetector = new CollisionDetector();
         gameStories = new ArrayList<GameStory>();
-        inputManager = new InputManager(scene);
+        inputTracker = new InputTracker(scene);
     }
     
     public void startEngine()
     {
         running = true;
-        inputManager.openInputManager();
+        inputTracker.openInputManager();
         frameDrawer = new Thread(this);
         frameDrawer.start();
     }
     
     public void stopEngine()
     {
-        inputManager.closeInputManager();
+        inputTracker.closeInputManager();
         running = false;
     }
     

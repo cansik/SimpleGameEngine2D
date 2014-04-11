@@ -10,13 +10,13 @@ import java.util.HashSet;
 /**
  * Created by cansik on 10/04/14.
  */
-public class InputManager
+public class InputTracker
 {
     HashSet<Integer> keyBoardEvents;
     GameScene scene;
     java.awt.event.KeyAdapter keyAdapter;
 
-    public InputManager(GameScene scene)
+    public InputTracker(GameScene scene)
     {
         this.scene = scene;
         this.keyBoardEvents = new HashSet<Integer>();

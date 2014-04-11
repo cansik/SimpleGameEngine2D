@@ -4,7 +4,6 @@ import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.GameStory;
 import ch.nexpose.sge.StoryBoard;
-import ch.nexpose.sge.objects.TextObject2D;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -50,7 +49,7 @@ public class MenuStory implements GameStory
     @Override
     public void nextFrame()
     {
-        if(engine.getInputManager().isKeyPressed(KeyEvent.VK_SPACE))
+        if(engine.getInputTracker().isKeyPressed(KeyEvent.VK_SPACE))
         {
             engine.stopEngine();
             engine.getScene().removeAll();

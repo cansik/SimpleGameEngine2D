@@ -41,13 +41,13 @@ public class Starship extends PlayerObject2D {
     {
         super.simpleSteering();
         
-        if(getEngine().getInputManager().isKeyPressed(KeyEvent.VK_SPACE))
+        if(getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_SPACE))
         {
             Bullet b = new Bullet(this);
             this.getEngine().addGameObject(b);
 
             //release space
-            getEngine().getInputManager().releaseKey(KeyEvent.VK_SPACE);
+            getEngine().getInputTracker().releaseKey(KeyEvent.VK_SPACE);
         }
     }
 
