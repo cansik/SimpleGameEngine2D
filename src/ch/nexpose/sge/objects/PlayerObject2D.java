@@ -21,23 +21,22 @@ public class PlayerObject2D extends MovingObject2D {
         super(engine);
     }
 
-    public void simpleSteering(int keyCode)
+    public void simpleSteering()
     {
-        switch (keyCode) {
-            case KeyEvent.VK_LEFT:
-                this.setDirection(Direction.LEFT);
-                break;
+        if(getEngine().getInputManager().isKeyPressed(KeyEvent.VK_LEFT))
+            this.setDirection(Direction.LEFT);
+        if(getEngine().getInputManager().isKeyPressed(KeyEvent.VK_RIGHT))
+            this.setDirection(Direction.RIGHT);
+        if(getEngine().getInputManager().isKeyPressed(KeyEvent.VK_UP))
+            this.setDirection(Direction.UP);
+        if(getEngine().getInputManager().isKeyPressed(KeyEvent.VK_DOWN))
+            this.setDirection(Direction.DOWN);
+    }
 
-            case KeyEvent.VK_RIGHT:
-                this.setDirection(Direction.RIGHT);
-                break;
-            case KeyEvent.VK_UP:
-                this.setDirection(Direction.UP);
-                break;
-
-            case KeyEvent.VK_DOWN:
-                this.setDirection(Direction.DOWN);
-                break;
-        }
+    @Override
+    public void action()
+    {
+        simpleSteering();
+        super.action();
     }
 }

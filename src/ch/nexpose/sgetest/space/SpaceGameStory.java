@@ -33,14 +33,14 @@ public class SpaceGameStory implements GameStory
 
         engine.addGameObject(ship);
 
-        //Key listener
+        /*//Key listener
         engine.getScene().addKeyListener(new java.awt.event.KeyAdapter()
         {
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
                 ship.simpleSteering(evt.getKeyCode());
             }
-        });
+        });*/
         this.engine.addGameStory(this);
     }
 

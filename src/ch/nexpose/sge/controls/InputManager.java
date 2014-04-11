@@ -5,20 +5,21 @@ import ch.nexpose.sge.ui.GameScene;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * Created by cansik on 10/04/14.
  */
 public class InputManager
 {
-    ArrayList<KeyEvent> keyBoardEvents;
+    HashSet<Integer> keyBoardEvents;
     GameScene scene;
     java.awt.event.KeyAdapter keyAdapter;
 
     public InputManager(GameScene scene)
     {
         this.scene = scene;
-        this.keyBoardEvents = new ArrayList<KeyEvent>();
+        this.keyBoardEvents = new HashSet<Integer>();
     }
 
     public void openInputManager()
@@ -28,13 +29,13 @@ public class InputManager
             @Override
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                keyBoardEvents.add(evt);
+                keyBoardEvents.add(evt.getKeyCode());
             }
 
             @Override
             public void keyReleased(java.awt.event.KeyEvent evt)
             {
-                keyBoardEvents.remove(evt);
+                keyBoardEvents.remove(evt.getKeyCode());
             }
         });
 
@@ -48,13 +49,13 @@ public class InputManager
 
     public boolean isKeyPressed(int keyCode)
     {
-        for(KeyEvent ke : keyBoardEvents)
-        {
-            if(ke.getKeyCode() == keyCode)
-                return true;
-        }
+        return keyBoardEvents.contains(keyCode);
+    }
 
-        return false;
+    public void releaseKey(int keyCode)
+    {
+        if(isKeyPressed(keyCode))
+            keyBoardEvents.remove(keyCode);
     }
 
 }

@@ -23,7 +23,7 @@ import ch.nexpose.sge.ui.GameScene;
  * @author cansik
  */
 public class SimpleGameEngine2D implements Runnable {
-    final int FRAMERATE = 48;
+    final int FRAMERATE = 24;
     
     boolean running;
     GameScene scene;
