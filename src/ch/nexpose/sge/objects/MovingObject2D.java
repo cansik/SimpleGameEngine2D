@@ -42,13 +42,13 @@ public class MovingObject2D extends Object2D {
                 dx = -1 * speed;
                 break;
             case RIGHT:
-                dx = 1 * speed;
+                dx = speed;
                 break;
             case UP:
                 dy = -1 * speed;
                 break;
             case DOWN:
-                dy = 1 * speed;
+                dy = speed;
                 break;
             case NONE:
                 //nothing

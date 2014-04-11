@@ -3,7 +3,6 @@ package ch.nexpose.sge;
 import ch.nexpose.sge.objects.TextObject2D;
 
 import java.awt.*;
-import java.util.Date;
 
 /**
  * Created by cansik on 09/04/14.

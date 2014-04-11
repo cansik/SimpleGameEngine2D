@@ -8,7 +8,6 @@ package ch.nexpose.sge.collisions;
 
 import ch.nexpose.sge.objects.Object2D;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
