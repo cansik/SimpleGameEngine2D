@@ -3,13 +3,14 @@ package ch.nexpose.sgetest.space;
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.MovingObject2D;
+import ch.nexpose.sge.objects.TexturedObject2D;
 
 import java.awt.*;
 
 /**
  * Created by cansik on 09/04/14.
  */
-public class EnemyStarShip extends MovingObject2D
+public class EnemyStarShip extends TexturedObject2D
 {
     Image enemyImage;
 
@@ -21,13 +22,7 @@ public class EnemyStarShip extends MovingObject2D
         this.setSize(new Dimension(50, 50));
         this.setDirection(Direction.LEFT);
         this.setSpeed(3);
-        enemyImage = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/enemy.png"));
-    }
-
-    @Override
-    public void paint(Graphics2D g)
-    {
-        g.drawImage(enemyImage, this.getLocation().x, this.getLocation().y, null);
+        this.setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/enemy.png")));
     }
 
     @Override

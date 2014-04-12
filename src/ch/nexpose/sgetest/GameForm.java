@@ -41,6 +41,7 @@ public class GameForm
         frame.setContentPane(new GameForm().mainPanel);
         frame.setLocation(300, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setUndecorated(true);
         frame.pack();
         frame.setVisible(true);
     }

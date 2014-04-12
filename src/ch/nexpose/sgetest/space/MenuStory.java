@@ -4,6 +4,7 @@ import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.GameStory;
 import ch.nexpose.sge.StoryBoard;
+import ch.nexpose.sge.objects.TexturedObject2D;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -34,8 +35,9 @@ public class MenuStory implements GameStory
         animatedStarship.setLocation(new Point(0 - animatedStarship.getSize().width, 200));
         animatedStarship.setDirection(Direction.RIGHT);
 
-        engine.addGameObject(startText);
         engine.addGameObject(animatedStarship);
+        engine.addGameObject(startText);
+
         engine.addGameStory(this);
     }
 

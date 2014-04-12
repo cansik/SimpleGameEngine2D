@@ -1,9 +1,11 @@
 package ch.nexpose.sgetest.space;
 
+import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.GameStory;
 import ch.nexpose.sge.StoryBoard;
 import ch.nexpose.sge.objects.StaticObject2D;
+import ch.nexpose.sge.objects.TexturedObject2D;
 import ch.nexpose.sge.ui.GameScene;
 
 import java.awt.*;
@@ -31,16 +33,12 @@ public class SpaceGameStory implements GameStory
         ship.setLocation(new Point(0,
                 (int)(this.engine.getScene().getViewPortSize().getHeight() / 2) - (int)(ship.getSize().height / 2)));
 
+        Image bg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/background.png"));
+        MovingBackground background = new MovingBackground(engine, bg, new Dimension(1000, 480));
+
+        engine.addGameObject(background);
         engine.addGameObject(ship);
 
-        /*//Key listener
-        engine.getScene().addKeyListener(new java.awt.event.KeyAdapter()
-        {
-            public void keyPressed(java.awt.event.KeyEvent evt)
-            {
-                ship.simpleSteering(evt.getKeyCode());
-            }
-        });*/
         this.engine.addGameStory(this);
     }
 
@@ -57,7 +55,7 @@ public class SpaceGameStory implements GameStory
         if(randInt(0, 20) == 1)
         {
             EnemyStarShip enemy = new EnemyStarShip(engine);
-            enemy.setLocation(new Point((int)engine.getScene().getViewPortSize().getWidth(), randInt(0, (int)engine.getScene().getViewPortSize().getHeight())));
+            enemy.setLocation(new Point((int)engine.getScene().getViewPortSize().getWidth(), randInt(enemy.getSize().height, (int)engine.getScene().getViewPortSize().getHeight() - enemy.getSize().height)));
 
             engine.addGameObject(enemy);
         }
