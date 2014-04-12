@@ -4,6 +4,7 @@ import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.GameStory;
 import ch.nexpose.sge.StoryBoard;
+import ch.nexpose.sge.objects.AnimatedObject2D;
 import ch.nexpose.sge.objects.TexturedObject2D;
 
 import java.awt.*;
@@ -17,6 +18,7 @@ public class MenuStory implements GameStory
     StoryBoard storyBoard;
     SimpleGameEngine2D engine;
     boolean keyPressed = false;
+    AnimatedObject2D aniDemo;
 
     public MenuStory(SimpleGameEngine2D engine, StoryBoard storyBoard)
     {
@@ -35,8 +37,23 @@ public class MenuStory implements GameStory
         animatedStarship.setLocation(new Point(0 - animatedStarship.getSize().width, 200));
         animatedStarship.setDirection(Direction.RIGHT);
 
+
+        //DEMO
+        Image rocket = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket.png"));
+        Image rocket1 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket1.png"));
+        Image rocket2 = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/rocket2.png"));
+
+        aniDemo = new AnimatedObject2D(engine, rocket);
+        aniDemo.getAnimation().setSpeed(2);
+        aniDemo.getAnimation().getFrames().add(rocket1);
+        aniDemo.getAnimation().getFrames().add(rocket2);
+        aniDemo.getAnimation().getFrames().add(rocket1);
+        aniDemo.getAnimation().getFrames().add(rocket2);
+        aniDemo.setSize(new Dimension(50, 50));
+
         engine.addGameObject(animatedStarship);
         engine.addGameObject(startText);
+        engine.addGameObject(aniDemo);
 
         engine.addGameStory(this);
     }
@@ -56,6 +73,11 @@ public class MenuStory implements GameStory
             engine.stopEngine();
             engine.getScene().removeAll();
             storyBoard.getNextStory().runStory();
+        }
+
+        if(engine.getInputTracker().isKeyPressed(KeyEvent.VK_A))
+        {
+            aniDemo.playAnimation();
         }
     }
 }

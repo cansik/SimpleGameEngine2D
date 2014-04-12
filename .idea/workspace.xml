@@ -130,7 +130,7 @@
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-              <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
+              <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
               <folding>
                 <element signature="e#988#993#0" expanded="true" />
                 <element signature="e#1095#1111#0" expanded="true" />
@@ -139,26 +139,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameForm.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/GameForm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="1050">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnimatedObject2D.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AnimatedObject2D.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/objects/AnimatedObject2D.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23099133" vertical-offset="0" max-vertical-offset="1039">
-              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1185">
+              <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#429#430#0" expanded="true" />
-                <element signature="e#483#484#0" expanded="true" />
-                <element signature="e#853#858#0" expanded="true" />
+                <element signature="e#395#396#0" expanded="true" />
+                <element signature="e#427#428#0" expanded="true" />
+                <element signature="e#484#485#0" expanded="true" />
+                <element signature="e#526#527#0" expanded="true" />
+                <element signature="e#565#566#0" expanded="true" />
+                <element signature="e#596#597#0" expanded="true" />
+                <element signature="e#673#674#0" expanded="true" />
+                <element signature="e#727#728#0" expanded="true" />
+                <element signature="e#1097#1102#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,23 +163,26 @@
       <file leaf-file-name="Animation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/Animation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-              <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+              <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#391#392#0" expanded="true" />
-                <element signature="e#438#439#0" expanded="true" />
-                <element signature="e#503#504#0" expanded="true" />
+                <element signature="e#267#268#0" expanded="true" />
+                <element signature="e#295#296#0" expanded="true" />
+                <element signature="e#338#339#0" expanded="true" />
+                <element signature="e#372#373#0" expanded="true" />
+                <element signature="e#572#573#0" expanded="true" />
+                <element signature="e#619#620#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameScene.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/ui/GameScene.java">
+      <file leaf-file-name="AnimatedStarship.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/AnimatedStarship.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1545">
-              <caret line="120" column="85" selection-start-line="120" selection-start-column="85" selection-end-line="120" selection-end-column="85" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -193,20 +192,23 @@
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/Starship.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="1050">
-              <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
+              <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuStory.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MenuStory.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.14821944" vertical-offset="146" max-vertical-offset="1215">
+              <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
               <folding>
-                <element signature="e#686#698#0" expanded="true" />
-                <element signature="e#1083#1099#0" expanded="true" />
+                <element signature="e#764#776#0" expanded="true" />
+                <element signature="e#1161#1177#0" expanded="true" />
+                <element signature="e#1400#1405#0" expanded="true" />
+                <element signature="e#1507#1512#0" expanded="true" />
+                <element signature="e#1616#1621#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -238,11 +240,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MovingObject2D.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/objects/MovingObject2D.java">
+      <file leaf-file-name="EnemyStarShip.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/EnemyStarShip.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1215">
-              <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+              <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlashingText.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/FlashingText.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+              <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -295,11 +307,11 @@
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/EnemyStarShip.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/objects/TexturedObject2D.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MovingBackground.java" />
-        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/GameForm.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/Animation.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/objects/AnimatedObject2D.java" />
+        <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java" />
       </list>
     </option>
   </component>
@@ -1122,30 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/FlashingText.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/EnemyStarShip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/AnimatedStarship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="23" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/SimpleGameEngine2D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="911" max-vertical-offset="1950">
@@ -1159,38 +1147,6 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="705" max-vertical-offset="1545">
           <caret line="120" column="85" selection-start-line="120" selection-start-column="85" selection-end-line="120" selection-end-column="85" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MovingBackground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
-          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#686#698#0" expanded="true" />
-            <element signature="e#1083#1099#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
-          <folding>
-            <element signature="e#988#993#0" expanded="true" />
-            <element signature="e#1095#1111#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1210,14 +1166,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/Starship.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="1050">
-          <caret line="56" column="21" selection-start-line="56" selection-start-column="21" selection-end-line="56" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/objects/TexturedObject2D.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
@@ -1230,28 +1178,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/Starship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="1050">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/Animation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945">
+          <caret line="41" column="5" selection-start-line="41" selection-start-column="5" selection-end-line="41" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
-            <element signature="e#438#439#0" expanded="true" />
-            <element signature="e#503#504#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#338#339#0" expanded="true" />
+            <element signature="e#372#373#0" expanded="true" />
+            <element signature="e#572#573#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/objects/AnimatedObject2D.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23099133" vertical-offset="0" max-vertical-offset="1039">
-          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1185">
+          <caret line="59" column="13" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#853#858#0" expanded="true" />
+            <element signature="e#395#396#0" expanded="true" />
+            <element signature="e#427#428#0" expanded="true" />
+            <element signature="e#484#485#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
+            <element signature="e#565#566#0" expanded="true" />
+            <element signature="e#596#597#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#1097#1102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/AnimatedStarship.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/FlashingText.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="32" column="9" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/EnemyStarShip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="25" column="5" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MovingBackground.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1020">
+          <caret line="32" column="34" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+          <folding>
+            <element signature="e#988#993#0" expanded="true" />
+            <element signature="e#1095#1111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sgetest/space/MenuStory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14821944" vertical-offset="146" max-vertical-offset="1215">
+          <caret line="28" column="27" selection-start-line="28" selection-start-column="27" selection-end-line="28" selection-end-column="27" />
+          <folding>
+            <element signature="e#764#776#0" expanded="true" />
+            <element signature="e#1161#1177#0" expanded="true" />
+            <element signature="e#1400#1405#0" expanded="true" />
+            <element signature="e#1507#1512#0" expanded="true" />
+            <element signature="e#1616#1621#0" expanded="true" />
           </folding>
         </state>
       </provider>

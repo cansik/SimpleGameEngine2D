@@ -9,7 +9,19 @@ import java.util.ArrayList;
 public class Animation
 {
     int frameIndex = 0;
+    int speedIndex = 0;
+    int speed = 1;
     ArrayList<Image> frames;
+
+    public int getSpeed()
+    {
+        return speed;
+    }
+
+    public void setSpeed(int speed)
+    {
+        this.speed = speed;
+    }
 
     public ArrayList<Image> getFrames()
     {
@@ -29,13 +41,23 @@ public class Animation
     public void play()
     {
         this.frameIndex = 0;
+        this.speedIndex = 0;
     }
 
     public Image next()
     {
-        if(frameIndex + 1 < frames.size())
-            return frames.get(frameIndex++);
+        if(++speedIndex > speed)
+        {
+            speedIndex = 0;
+
+            if (frameIndex + 1 < frames.size())
+                return frames.get(frameIndex++);
+            else
+                return null;
+        }
         else
-            return null;
+        {
+            return frames.get(frameIndex);
+        }
     }
 }

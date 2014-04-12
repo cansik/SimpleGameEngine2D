@@ -16,6 +16,21 @@ public class AnimatedObject2D extends TexturedObject2D
     Animation animation;
     boolean animated = false;
 
+    public Animation getAnimation()
+    {
+        return animation;
+    }
+
+    public void setAnimation(Animation animation)
+    {
+        this.animation = animation;
+    }
+
+    public boolean isAnimated()
+    {
+        return animated;
+    }
+
     public AnimatedObject2D(SimpleGameEngine2D engine, Image texture)
     {
         this(engine, texture, new Animation());
@@ -40,9 +55,15 @@ public class AnimatedObject2D extends TexturedObject2D
         {
             Image frame = animation.next();
             if(frame != null)
+            {
                 g.drawImage(frame, this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height, null);
+            }
             else
+            {
                 animated = false;
+                super.paint(g);
+            }
+
         }
         else
         {
