@@ -18,7 +18,7 @@ public class AnimatedStarship extends Starship
     public void action()
     {
         super.action();
-        if(getLocation().x > this.getEngine().getScene().getWidth())
+        if(getLocation().x > this.getEngine().getScene().getViewPortSize().getWidth())
         {
             setLocation(new Point(0 - getSize().width, getLocation().y));
         }

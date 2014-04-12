@@ -35,7 +35,7 @@ public class Bullet extends MovingObject2D {
         super.action();
         
         //check out of bound
-        if(this.getLocation().x > this.getEngine().getScene().getWidth())
+        if(this.getLocation().x > this.getEngine().getScene().getViewPortSize().getWidth())
         {
             this.setAlive(false);
         }

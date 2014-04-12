@@ -130,7 +130,7 @@ public class SimpleGameEngine2D implements Runnable {
     
     private Graphics2D getFrame()
     {
-        frame = new BufferedImage(this.scene.getWidth(), this.scene.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        frame = new BufferedImage((int)this.scene.getViewPortSize().getWidth(), (int)this.scene.getViewPortSize().getHeight(), BufferedImage.TYPE_INT_ARGB);
         return frame.createGraphics();
     }
     

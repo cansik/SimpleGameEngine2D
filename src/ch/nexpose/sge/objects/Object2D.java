@@ -133,11 +133,7 @@ public abstract class Object2D implements CollisionListener
     }
 
 
-    public void action()
-    {
-    }
+    public void action() {};
 
-    public void collisionDetected(Collision c)
-    {
-    }
+    public void collisionDetected(Collision c) {};
 }

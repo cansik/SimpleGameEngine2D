@@ -29,7 +29,7 @@ public class SpaceGameStory implements GameStory
         ship = new Starship(engine);
         ship.setBordercheck(true);
         ship.setLocation(new Point(0,
-                (int)(this.engine.getScene().getHeight() / 2) - (int)(ship.getSize().height / 2)));
+                (int)(this.engine.getScene().getViewPortSize().getHeight() / 2) - (int)(ship.getSize().height / 2)));
 
         engine.addGameObject(ship);
 
@@ -57,7 +57,7 @@ public class SpaceGameStory implements GameStory
         if(randInt(0, 20) == 1)
         {
             EnemyStarShip enemy = new EnemyStarShip(engine);
-            enemy.setLocation(new Point(engine.getScene().getWidth(), randInt(0, engine.getScene().getHeight())));
+            enemy.setLocation(new Point((int)engine.getScene().getViewPortSize().getWidth(), randInt(0, (int)engine.getScene().getViewPortSize().getHeight())));
 
             engine.addGameObject(enemy);
         }

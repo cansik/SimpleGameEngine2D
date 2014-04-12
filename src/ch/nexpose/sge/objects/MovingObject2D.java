@@ -62,7 +62,7 @@ public class MovingObject2D extends Object2D {
     {
         //check bounds
         Point futureLocation = this.getNextLocation();
-        Dimension sceneSize = this.getEngine().getScene().getSize();
+        Dimension sceneSize = this.getEngine().getScene().getViewPortSize();
 
         return ((futureLocation.x >= 0 && futureLocation.x + this.getSize().width <= sceneSize.width) &&
                 (futureLocation.y >= 0 && futureLocation.y + this.getSize().height <= sceneSize.height));

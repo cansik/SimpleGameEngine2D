@@ -5,8 +5,11 @@
  */
 package ch.nexpose.sge.ui;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import javafx.scene.input.KeyCode;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 /**
@@ -17,6 +20,17 @@ public class GameScene extends javax.swing.JPanel {
 
     BufferedImage backgroundImage;
     Color backgroundColor;
+    Dimension viewPortSize;
+
+    public Dimension getViewPortSize()
+    {
+        return viewPortSize;
+    }
+
+    public void setViewPortSize(Dimension viewPortSize)
+    {
+        this.viewPortSize = viewPortSize;
+    }
 
     public BufferedImage getBackgroundImage() {
         return backgroundImage;
@@ -40,6 +54,20 @@ public class GameScene extends javax.swing.JPanel {
     public GameScene() {
         super();
         initComponents();
+
+        this.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            @Override
+            public void keyPressed(java.awt.event.KeyEvent evt)
+            {
+                handleKeyBoardInputs(evt);
+            }
+        });
+    }
+
+    public GameScene(Dimension viewPortSize) {
+        this();
+        this.viewPortSize = viewPortSize;
     }
 
     /**
@@ -62,6 +90,22 @@ public class GameScene extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void handleKeyBoardInputs(java.awt.event.KeyEvent evt)
+    {
+        switch (evt.getKeyCode())
+        {
+            case KeyEvent.VK_1:
+                this.viewPortSize = new Dimension(852, 480);
+                break;
+            case KeyEvent.VK_2:
+                this.viewPortSize = new Dimension(1280, 720);
+                break;
+            case KeyEvent.VK_3:
+                this.viewPortSize = new Dimension(1920, 1080);
+                break;
+        }
+    }
 
     @Override
     public void paint(Graphics g) {

@@ -48,9 +48,9 @@ public class GameForm
     public void createGUIBinding()
     {
         //Setup scene
-        scene = new GameScene();
+        scene = new GameScene(new Dimension(852, 480));
         scene.setBackgroundColor(Color.black);
-        scene.setSize(new Dimension(600, 400));
+        scene.setSize(new Dimension(852, 480));
         //scene.setSize(this.gamePanel.getPreferredSize());
         //TODO: Bug with set size
 

@@ -27,8 +27,8 @@ public class MenuStory implements GameStory
     {
         FlashingText startText = new FlashingText(engine, "press space to start!");
         startText.setColor(Color.green);
-        startText.setLocation(new Point((this.engine.getScene().getWidth() / 2) - (int)(startText.getSize().width / 2),
-                (int)(this.engine.getScene().getHeight() / 2) - (int)(startText.getSize().height / 2)));
+        startText.setLocation(new Point(((int)this.engine.getScene().getViewPortSize().getWidth() / 2) - (int)(startText.getSize().width / 2),
+                (int)((int)this.engine.getScene().getViewPortSize().getHeight() / 2) - (int)(startText.getSize().height / 2)));
 
         AnimatedStarship animatedStarship = new AnimatedStarship(engine);
         animatedStarship.setLocation(new Point(0 - animatedStarship.getSize().width, 200));
