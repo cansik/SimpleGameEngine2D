@@ -1,5 +1,11 @@
 package ch.nexpose.sge.objects;
 
+import ch.nexpose.sge.Animation;
+import ch.nexpose.sge.SimpleGameEngine2D;
+import sun.java2d.pipe.SpanShapeRenderer;
+
+import java.util.ArrayList;
+
 import java.awt.*;
 
 /**
@@ -7,5 +13,40 @@ import java.awt.*;
  */
 public class AnimatedObject2D extends TexturedObject2D
 {
-    List<Image> animations
+    Animation animation;
+    boolean animated = false;
+
+    public AnimatedObject2D(SimpleGameEngine2D engine, Image texture)
+    {
+        this(engine, texture, new Animation());
+    }
+
+    public AnimatedObject2D(SimpleGameEngine2D engine, Image texture, Animation animation)
+    {
+        super(engine, texture);
+        this.animation = animation;
+    }
+
+    public void playAnimation()
+    {
+        animation.play();
+        animated = true;
+    }
+
+    @Override
+    public void paint(Graphics2D g)
+    {
+        if(animated)
+        {
+            Image frame = animation.next();
+            if(frame != null)
+                g.drawImage(frame, this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height, null);
+            else
+                animated = false;
+        }
+        else
+        {
+            super.paint(g);
+        }
+    }
 }
