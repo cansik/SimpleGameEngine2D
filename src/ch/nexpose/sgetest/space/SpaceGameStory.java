@@ -52,24 +52,12 @@ public class SpaceGameStory implements GameStory
     @Override
     public void nextFrame()
     {
-        if(randInt(0, 20) == 1)
+        if(RandomGenerator.randInt(0, 20) == 1)
         {
             EnemyStarShip enemy = new EnemyStarShip(engine);
-            enemy.setLocation(new Point((int)engine.getScene().getViewPortSize().getWidth(), randInt(enemy.getSize().height, (int)engine.getScene().getViewPortSize().getHeight() - enemy.getSize().height)));
+            enemy.setLocation(new Point((int)engine.getScene().getViewPortSize().getWidth(), RandomGenerator.randInt(enemy.getSize().height, (int)engine.getScene().getViewPortSize().getHeight() - enemy.getSize().height)));
 
             engine.addGameObject(enemy);
         }
-    }
-
-    public int randInt(int min, int max) {
-
-        // Usually this can be a field rather than a method variable
-        Random rand = new Random();
-
-        // nextInt is normally exclusive of the top value,
-        // so add 1 to make it inclusive
-        int randomNum = rand.nextInt((max - min) + 1) + min;
-
-        return randomNum;
     }
 }

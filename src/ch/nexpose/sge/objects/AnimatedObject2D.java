@@ -44,8 +44,11 @@ public class AnimatedObject2D extends TexturedObject2D
 
     public void playAnimation()
     {
-        animation.play();
-        animated = true;
+        if(!animated)
+        {
+            animation.play();
+            animated = true;
+        }
     }
 
     @Override

@@ -8,8 +8,8 @@ import java.util.ArrayList;
  */
 public class Animation
 {
-    int frameIndex = 0;
-    int speedIndex = 0;
+    int frameCounter = 0;
+    int speedCounter = 0;
     int speed = 1;
     ArrayList<Image> frames;
 
@@ -40,24 +40,24 @@ public class Animation
 
     public void play()
     {
-        this.frameIndex = 0;
-        this.speedIndex = 0;
+        this.frameCounter = 0;
+        this.speedCounter = 0;
     }
 
     public Image next()
     {
-        if(++speedIndex > speed)
+        if(++speedCounter > speed)
         {
-            speedIndex = 0;
+            speedCounter = 0;
 
-            if (frameIndex + 1 < frames.size())
-                return frames.get(frameIndex++);
+            if (frameCounter + 1 < frames.size())
+                return frames.get(frameCounter++);
             else
                 return null;
         }
         else
         {
-            return frames.get(frameIndex);
+            return frames.get(frameCounter);
         }
     }
 }
