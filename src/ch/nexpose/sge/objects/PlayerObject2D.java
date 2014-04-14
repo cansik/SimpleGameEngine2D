@@ -23,6 +23,8 @@ public class PlayerObject2D extends MovingObject2D {
 
     public void simpleSteering()
     {
+        this.setDirection(Direction.NONE);
+
         if(getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_LEFT))
             this.setDirection(Direction.LEFT);
         if(getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_RIGHT))
