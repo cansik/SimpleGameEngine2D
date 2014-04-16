@@ -4,6 +4,7 @@ import ch.nexpose.sge.ui.GameScene;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -14,7 +15,7 @@ public class InputTracker
 {
     HashSet<Integer> keyBoardEvents;
     GameScene scene;
-    java.awt.event.KeyAdapter keyAdapter;
+    KeyAdapter keyAdapter;
 
     public InputTracker(GameScene scene)
     {
