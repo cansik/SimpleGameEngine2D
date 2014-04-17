@@ -10,10 +10,17 @@ package ch.nexpose.sge;
  *
  * @author cansik
  */
-public enum Direction {
+public enum Direction
+{
     LEFT,
     RIGHT,
     UP,
     DOWN,
-    NONE
+    NONE;
+
+    public final int flag;
+
+    Direction() {
+        this.flag = 1 << this.ordinal();
+    }
 }

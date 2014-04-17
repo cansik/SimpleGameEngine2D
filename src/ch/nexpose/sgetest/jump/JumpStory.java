@@ -1,4 +1,4 @@
-package ch.nexpose.sgetest.jumpnrun;
+package ch.nexpose.sgetest.jump;
 
 import ch.nexpose.sge.GameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
@@ -6,12 +6,12 @@ import ch.nexpose.sge.SimpleGameEngine2D;
 /**
  * Created by cansik on 10/04/14.
  */
-public class SwordFightStory implements GameStory
+public class JumpStory implements GameStory
 {
     SimpleGameEngine2D engine;
 
 
-    public SwordFightStory(SimpleGameEngine2D engine)
+    public JumpStory(SimpleGameEngine2D engine)
     {
         this.engine = engine;
     }
@@ -25,6 +25,8 @@ public class SwordFightStory implements GameStory
     @Override
     public void runStory()
     {
-
+        Player p = new Player(engine);
+        engine.addGameObject(p);
+        engine.startEngine();
     }
 }

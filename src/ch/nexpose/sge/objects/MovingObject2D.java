@@ -6,6 +6,7 @@
 package ch.nexpose.sge.objects;
 
 import java.awt.*;
+import java.util.HashSet;
 
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
@@ -19,11 +20,18 @@ public class MovingObject2D extends Object2D {
     int speed;
     Direction direction;
     boolean bordercheck;
+    HashSet<Direction> directions;
+
+    public HashSet<Direction> getDirections()
+    {
+        return directions;
+    }
 
     public MovingObject2D(SimpleGameEngine2D engine) {
         super(engine);
         this.direction = Direction.NONE;
         this.speed = 0;
+        directions = new HashSet<Direction>();
     }
 
     @Override
@@ -37,6 +45,7 @@ public class MovingObject2D extends Object2D {
     {
         int dx = 0, dy = 0;
 
+        //OLD
         switch (this.direction) {
             case LEFT:
                 dx = -1 * speed;
@@ -53,6 +62,27 @@ public class MovingObject2D extends Object2D {
             case NONE:
                 //nothing
                 break;
+        }
+
+        //NEW
+        if (this.getDirections().contains(Direction.LEFT))
+        {
+            dx = -1 * speed;
+        }
+
+        if (this.getDirections().contains(Direction.RIGHT))
+        {
+            dx = speed;
+        }
+
+        if (this.getDirections().contains(Direction.UP))
+        {
+            dy = -1 * speed;
+        }
+
+        if (this.getDirections().contains(Direction.DOWN))
+        {
+            dy = speed;
         }
 
         return new Point(this.location.x + dx, this.location.y + dy);
