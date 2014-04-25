@@ -44,10 +44,15 @@ public class GravityStory implements GameStory
     @Override
     public void runStory()
     {
-        p = new GravityObject2D(engine, Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/player.png")));
+        p = new GravityObject2D(engine, Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/ball.png")));
 
         p.setLocation(new Point(200, 300));
-        p.setSize(new Dimension(45, 36));
+        p.setSize(new Dimension(50, 50));
+
+        for(int i = 0; i < 15; i++)
+        {
+            engine.addGameObject(new GravityBall(engine, Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/ballblue.png"))));
+        }
 
         engine.addGameObject(p);
         engine.addGameStory(this);

@@ -23,6 +23,16 @@ public class GravityObject2D extends AnimatedObject2D
         super(engine, texture);
     }
 
+    public double getCounterforce()
+    {
+        return counterforce;
+    }
+
+    public void setCounterforce(double counterforce)
+    {
+        this.counterforce = counterforce;
+    }
+
     public void push(double impact, Direction direction)
     {
         switch (direction) {
