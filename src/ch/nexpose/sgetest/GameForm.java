@@ -3,6 +3,7 @@ package ch.nexpose.sgetest;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.StoryBoard;
 import ch.nexpose.sge.ui.GameScene;
+import ch.nexpose.sgetest.gravity.GravityStory;
 import ch.nexpose.sgetest.jump.JumpStory;
 import ch.nexpose.sgetest.space.MenuStory;
 import ch.nexpose.sgetest.space.SpaceGameStory;
@@ -71,7 +72,9 @@ public class GameForm
         MenuStory menu = new MenuStory(engine, board);
         SpaceGameStory game = new SpaceGameStory(engine, board);
         JumpStory jumpStory = new JumpStory(engine);
+        GravityStory gravityStory = new GravityStory(engine);
 
+        board.addGameStory(gravityStory);
         board.addGameStory(jumpStory);
         board.addGameStory(menu);
         board.addGameStory(game);
