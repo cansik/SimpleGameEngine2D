@@ -8,19 +8,19 @@ import java.util.ArrayList;
 public class StoryBoard
 {
     int currentStory = 0;
-    ArrayList<GameStory> storyBoard;
+    ArrayList<IGameStory> storyBoard;
 
     public StoryBoard()
     {
-        storyBoard = new ArrayList<GameStory>();
+        storyBoard = new ArrayList<IGameStory>();
     }
 
-    public void addGameStory(GameStory story)
+    public void addGameStory(IGameStory story)
     {
         this.storyBoard.add(story);
     }
 
-    public GameStory getNextStory()
+    public IGameStory getNextStory()
     {
         return storyBoard.get(currentStory++);
     }

@@ -1,20 +1,15 @@
 package ch.nexpose.sgetest.space;
 
-import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.GameStory;
 import ch.nexpose.sge.StoryBoard;
-import ch.nexpose.sge.objects.StaticObject2D;
-import ch.nexpose.sge.objects.TexturedObject2D;
-import ch.nexpose.sge.ui.GameScene;
 
 import java.awt.*;
-import java.util.Random;
 
 /**
  * Created by cansik on 08/04/14.
  */
-public class SpaceGameStory implements GameStory
+public class SpaceGameStory implements IGameStory
 {
     StoryBoard storyBoard;
     SimpleGameEngine2D engine;

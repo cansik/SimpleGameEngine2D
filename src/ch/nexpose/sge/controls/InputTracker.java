@@ -16,11 +16,22 @@ public class InputTracker
     HashSet<Integer> keyBoardEvents;
     GameScene scene;
     KeyAdapter keyAdapter;
+    boolean detectionPaused;
 
     public InputTracker(GameScene scene)
     {
         this.scene = scene;
         this.keyBoardEvents = new HashSet<Integer>();
+    }
+
+    public boolean isDetectionPaused()
+    {
+        return detectionPaused;
+    }
+
+    public void setDetectionPaused(boolean detectionPaused)
+    {
+        this.detectionPaused = detectionPaused;
     }
 
     public void openInputManager()
@@ -30,7 +41,8 @@ public class InputTracker
             @Override
             public void keyPressed(java.awt.event.KeyEvent evt)
             {
-                keyBoardEvents.add(evt.getKeyCode());
+                if(!isDetectionPaused())
+                    keyBoardEvents.add(evt.getKeyCode());
             }
 
             @Override
@@ -58,5 +70,4 @@ public class InputTracker
         if(isKeyPressed(keyCode))
             keyBoardEvents.remove(keyCode);
     }
-
 }

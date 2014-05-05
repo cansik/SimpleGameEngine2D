@@ -1,10 +1,9 @@
 package ch.nexpose.sgetest.gravity;
 
 import ch.nexpose.sge.Direction;
-import ch.nexpose.sge.GameStory;
+import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sgetest.jump.Player;
-import javafx.scene.input.KeyCode;
+import ch.nexpose.sge.objects.GravityObject2D;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -12,7 +11,7 @@ import java.awt.event.KeyEvent;
 /**
  * Created by cansik on 18/04/14.
  */
-public class GravityStory implements GameStory
+public class GravityStory implements IGameStory
 {
     SimpleGameEngine2D engine;
     GravityObject2D p;

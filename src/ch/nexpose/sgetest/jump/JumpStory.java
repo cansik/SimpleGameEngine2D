@@ -1,12 +1,12 @@
 package ch.nexpose.sgetest.jump;
 
-import ch.nexpose.sge.GameStory;
+import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 
 /**
  * Created by cansik on 10/04/14.
  */
-public class JumpStory implements GameStory
+public class JumpStory implements IGameStory
 {
     SimpleGameEngine2D engine;
 

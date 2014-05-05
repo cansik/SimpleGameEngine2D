@@ -1,11 +1,11 @@
 package ch.nexpose.sgetest.space;
 
 import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.GameStory;
 import ch.nexpose.sge.StoryBoard;
 import ch.nexpose.sge.objects.AnimatedObject2D;
-import ch.nexpose.sge.objects.TexturedObject2D;
+import ch.nexpose.sge.objects.FlashingText;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -13,7 +13,7 @@ import java.awt.event.KeyEvent;
 /**
  * Created by cansik on 08/04/14.
  */
-public class MenuStory implements GameStory
+public class MenuStory implements IGameStory
 {
     StoryBoard storyBoard;
     SimpleGameEngine2D engine;

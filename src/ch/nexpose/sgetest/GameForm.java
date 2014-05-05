@@ -1,5 +1,8 @@
 package ch.nexpose.sgetest;
 
+import ch.nexpose.deepspace.IntroGameStory;
+import ch.nexpose.deepspace.LevelGameStory;
+import ch.nexpose.deepspace.MenuGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.StoryBoard;
 import ch.nexpose.sge.ui.GameScene;
@@ -69,6 +72,8 @@ public class GameForm
         SimpleGameEngine2D engine = new SimpleGameEngine2D(scene);
         StoryBoard board = new StoryBoard();
 
+        /*
+        //Test Stories
         MenuStory menu = new MenuStory(engine, board);
         SpaceGameStory game = new SpaceGameStory(engine, board);
         JumpStory jumpStory = new JumpStory(engine);
@@ -78,7 +83,14 @@ public class GameForm
         board.addGameStory(jumpStory);
         board.addGameStory(menu);
         board.addGameStory(game);
+        */
 
+        IntroGameStory introStory = new IntroGameStory(engine, board);
+        MenuGameStory menuStory = new MenuGameStory(engine, board);
+
+
+        board.addGameStory(introStory);
+        board.addGameStory(menuStory);
         board.getNextStory().runStory();
     }
 }

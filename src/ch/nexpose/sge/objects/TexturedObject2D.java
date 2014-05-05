@@ -2,6 +2,7 @@ package ch.nexpose.sge.objects;
 
 import ch.nexpose.sge.SimpleGameEngine2D;
 
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -18,6 +19,10 @@ public class TexturedObject2D extends MovingObject2D
     public void setTexture(Image texture)
     {
         this.texture = texture;
+
+        //set size
+        ImageIcon ico = new ImageIcon(texture);
+        this.setSize(new Dimension(ico.getIconWidth(), ico.getIconHeight()));
     }
 
     public TexturedObject2D(SimpleGameEngine2D engine)

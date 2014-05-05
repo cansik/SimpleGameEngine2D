@@ -35,6 +35,7 @@ public abstract class Object2D implements CollisionListener
         this.location = new Point(0, 0);
         this.size = new Dimension(1, 1);
         this.hitbox = null;
+        this.color = Color.white;
         this.engine = engine;
     }
 
@@ -130,6 +131,12 @@ public abstract class Object2D implements CollisionListener
         }
         
         return c;
+    }
+
+    public void center()
+    {
+        this.setLocation(new Point(((int)engine.getScene().getViewPortSize().getWidth() / 2) - (int)(this.getSize().width / 2),
+                (int)((int)engine.getScene().getViewPortSize().getHeight() / 2) - (int)(this.getSize().height / 2)));
     }
 
 

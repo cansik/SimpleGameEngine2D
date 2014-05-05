@@ -3,6 +3,7 @@ package ch.nexpose.sgetest.gravity;
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.collisions.Collision;
+import ch.nexpose.sge.objects.GravityObject2D;
 import ch.nexpose.sge.objects.Object2D;
 import ch.nexpose.sgetest.space.RandomGenerator;
 
@@ -19,10 +20,13 @@ public class GravityBall extends GravityObject2D
     public GravityBall(SimpleGameEngine2D engine, Image texture)
     {
         super(engine, texture);
-        this.setCounterforce(1);
+        this.setCounterforce(0.9999);
 
-        int rndDir = RandomGenerator.randInt(0, 4);
-        this.push(SPEED_INDEX, Direction.values()[rndDir]);
+        int rnd1 = RandomGenerator.randInt(0, 3);
+        int rnd2 = RandomGenerator.randInt(0, 3);
+
+        this.push(RandomGenerator.randInt(0, 3), Direction.values()[rnd1]);
+        this.push(RandomGenerator.randInt(0, 3), Direction.values()[rnd2]);
 
         this.setLocation(new Point(
                 RandomGenerator.randInt(0, engine.getScene().getWidth()),
@@ -43,6 +47,12 @@ public class GravityBall extends GravityObject2D
     @Override
     public void collisionDetected(Collision c)
     {
+       onCollisionEat(c);
+
+    };
+
+    private void onCollisionEat(Collision c)
+    {
         Object2D winner;
         Object2D loser;
 
@@ -59,7 +69,37 @@ public class GravityBall extends GravityObject2D
 
         loser.setAlive(false);
         winner.setSize(new Dimension(
-                winner.getSize().width + (int)(loser.getSize().width * 0.2),
-                winner.getSize().height + (int)(loser.getSize().height * 0.2)));
-    };
+                winner.getSize().width + (int)(loser.getSize().width * 0.3),
+                winner.getSize().height + (int)(loser.getSize().height * 0.3)));
+    }
+
+    @Override
+    public boolean isOnScene()
+    {
+        //check bounds
+        Point futureLocation = this.getNextLocation();
+        Dimension sceneSize = this.getEngine().getScene().getViewPortSize();
+
+        if(futureLocation.x < 0)
+        {
+            this.setVelocityX(getVelocityX() * (-1));
+        }
+
+        if(futureLocation.y < 0)
+        {
+            this.setVelocityY(getVelocityY() * (-1));
+        }
+
+        if(futureLocation.x + this.getSize().width > sceneSize.width)
+        {
+            this.setVelocityX(getVelocityX() * (-1));
+        }
+
+        if(futureLocation.y + this.getSize().height > sceneSize.height)
+        {
+            this.setVelocityY(getVelocityY() * (-1));
+        }
+
+        return true;
+    }
 }

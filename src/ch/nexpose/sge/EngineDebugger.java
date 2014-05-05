@@ -7,7 +7,7 @@ import java.awt.*;
 /**
  * Created by cansik on 09/04/14.
  */
-class EngineDebugger implements GameStory
+class EngineDebugger implements IGameStory
 {
     SimpleGameEngine2D engine;
     TextObject2D debugText;
@@ -20,7 +20,7 @@ class EngineDebugger implements GameStory
 
         debugText = new TextObject2D(engine, "FPS: detecting");
         debugText.setColor(Color.white);
-        debugText.setLocation(new Point(10, 20));
+        debugText.setLocation(new Point(10, 10));
         debugText.setCollisionable(false);
         debugText.setFont(new Font("Verdana", Font.PLAIN, 12));
 

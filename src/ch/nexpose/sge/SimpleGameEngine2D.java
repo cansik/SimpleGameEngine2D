@@ -29,7 +29,7 @@ public class SimpleGameEngine2D implements Runnable {
     GameScene scene;
     BufferedImage frame;
     CollisionDetector collisionDetector;
-    List<GameStory> gameStories;
+    List<IGameStory> gameStories;
     InputTracker inputTracker;
 
     public InputTracker getInputTracker()
@@ -57,7 +57,7 @@ public class SimpleGameEngine2D implements Runnable {
         gameObjects.add(gameObject);
     }
 
-    public void addGameStory(GameStory story) {
+    public void addGameStory(IGameStory story) {
         gameStories.add(story);
     }
     
@@ -70,7 +70,7 @@ public class SimpleGameEngine2D implements Runnable {
 
         gameObjects = new ArrayList<Object2D>();
         collisionDetector = new CollisionDetector();
-        gameStories = new ArrayList<GameStory>();
+        gameStories = new ArrayList<IGameStory>();
         inputTracker = new InputTracker(scene);
     }
     
@@ -123,8 +123,8 @@ public class SimpleGameEngine2D implements Runnable {
         // Notify every game logic attached to this engine
         if(isRunning())
         {
-            for (GameStory gameStory : gameStories)
-                gameStory.nextFrame();
+            for (IGameStory IGameStory : gameStories)
+                IGameStory.nextFrame();
         }
     }
     

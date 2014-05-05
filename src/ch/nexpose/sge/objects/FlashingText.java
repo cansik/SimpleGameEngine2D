@@ -1,4 +1,4 @@
-package ch.nexpose.sgetest.space;
+package ch.nexpose.sge.objects;
 
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.TextObject2D;
@@ -13,6 +13,15 @@ public class FlashingText extends TextObject2D
     int flashSpeed = 10;
     int currentAlpha = 255;
 
+    public int getFlashSpeed()
+    {
+        return flashSpeed;
+    }
+
+    public void setFlashSpeed(int flashSpeed)
+    {
+        this.flashSpeed = flashSpeed;
+    }
 
     public FlashingText(SimpleGameEngine2D engine, String text)
     {

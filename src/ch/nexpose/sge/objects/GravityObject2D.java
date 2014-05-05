@@ -1,4 +1,4 @@
-package ch.nexpose.sgetest.gravity;
+package ch.nexpose.sge.objects;
 
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
@@ -31,6 +31,26 @@ public class GravityObject2D extends AnimatedObject2D
     public void setCounterforce(double counterforce)
     {
         this.counterforce = counterforce;
+    }
+
+    public double getVelocityX()
+    {
+        return velocityX;
+    }
+
+    public void setVelocityX(double velocityX)
+    {
+        this.velocityX = velocityX;
+    }
+
+    public double getVelocityY()
+    {
+        return velocityY;
+    }
+
+    public void setVelocityY(double velocityY)
+    {
+        this.velocityY = velocityY;
     }
 
     public void push(double impact, Direction direction)
@@ -76,4 +96,5 @@ public class GravityObject2D extends AnimatedObject2D
 
         return nextLocation;
     }
+
 }
