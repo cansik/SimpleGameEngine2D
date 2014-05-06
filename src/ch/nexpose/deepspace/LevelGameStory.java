@@ -41,6 +41,9 @@ public class LevelGameStory implements IGameStory
 
         if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_DOWN))
             player.push(PLAYER_SPEED, Direction.DOWN);
+
+        if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_SPACE))
+            player.shoot();
     }
 
     @Override

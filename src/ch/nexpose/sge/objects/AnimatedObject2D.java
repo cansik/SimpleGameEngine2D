@@ -4,6 +4,7 @@ import ch.nexpose.sge.Animation;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import sun.java2d.pipe.SpanShapeRenderer;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 import java.awt.*;
@@ -59,7 +60,11 @@ public class AnimatedObject2D extends TexturedObject2D
             Image frame = animation.next();
             if(frame != null)
             {
-                g.drawImage(frame, this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height, null);
+                ImageIcon ico = new ImageIcon(frame);
+                Dimension frameSize = new Dimension(ico.getIconWidth(), ico.getIconHeight());
+                g.drawImage(frame, this.getLocation().x, this.getLocation().y, frameSize.width, frameSize.height, null);
+
+                //g.drawImage(frame, this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height, null);
             }
             else
             {
