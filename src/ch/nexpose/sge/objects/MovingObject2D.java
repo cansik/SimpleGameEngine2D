@@ -91,6 +91,7 @@ public class MovingObject2D extends Object2D {
     public boolean isOnScene()
     {
         //check bounds
+        //TODO: getNextLocation does decrease speed
         Point futureLocation = this.getNextLocation();
         Dimension sceneSize = this.getEngine().getScene().getViewPortSize();
 

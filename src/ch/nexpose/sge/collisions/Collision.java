@@ -44,4 +44,12 @@ public class Collision {
         this(firstObject, secondObject);
         this.location = location;
     }
+
+    public Object2D getEnemyObject(Object2D mainObject)
+    {
+        if(firstObject.equals(mainObject))
+            return secondObject;
+        else
+            return firstObject;
+    }
 }

@@ -1,11 +1,17 @@
 package ch.nexpose.deepspace;
 
+import ch.nexpose.deepspace.gui.ScoreText;
+import ch.nexpose.deepspace.objects.EnemySpaceShip;
+import ch.nexpose.deepspace.objects.ScoreType;
 import ch.nexpose.deepspace.objects.SpaceShip;
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.StoryBoard;
+import ch.nexpose.sgetest.space.EnemyStarShip;
+import ch.nexpose.sgetest.space.RandomGenerator;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 
 /**
@@ -14,10 +20,12 @@ import java.awt.event.KeyEvent;
 public class LevelGameStory implements IGameStory
 {
     final double PLAYER_SPEED = 1;
+    final double ENEMY_SPEED = 2;
 
     SimpleGameEngine2D _engine;
     StoryBoard _storyBoard;
     SpaceShip player;
+    ScoreText scoreText;
 
     public LevelGameStory(SimpleGameEngine2D engine, StoryBoard storyBoard)
     {
@@ -29,6 +37,60 @@ public class LevelGameStory implements IGameStory
 
     @Override
     public void nextFrame()
+    {
+        playerSteering();
+        objectCreation();
+    }
+
+    @Override
+    public void runStory()
+    {
+        //Initialize Objects
+        player = new SpaceShip(_engine);
+        scoreText = new ScoreText(_engine);
+        scoreText.setLifes(3);
+
+        _engine.addGameObject(scoreText);
+        _engine.addGameObject(player);
+        _engine.startEngine();
+    }
+
+    public void ScorePoint(ScoreType score)
+    {
+        switch(score)
+        {
+            case Kill:
+                scoreText.setPoints(scoreText.getPoints() + 1);
+                break;
+            case Life:
+                scoreText.setLifes(scoreText.getLifes() - 1);
+
+                if(scoreText.getLifes() < 1)
+                {
+                    _engine.stopEngine();
+                    _storyBoard.addGameStory(new MenuGameStory(_engine, _storyBoard));
+                    _storyBoard.getNextStory().runStory();
+                }
+
+                break;
+        }
+    }
+
+    private void objectCreation()
+    {
+        if(RandomGenerator.randInt(0, 30) == 1)
+        {
+            EnemySpaceShip enemy = new EnemySpaceShip(_engine);
+            enemy.setLocation(new Point((int)_engine.getScene().getViewPortSize().getWidth(),
+                    RandomGenerator.randInt(enemy.getSize().height,
+                            (int)_engine.getScene().getViewPortSize().getHeight() - enemy.getSize().height)));
+
+            enemy.push(ENEMY_SPEED, Direction.LEFT);
+            _engine.addGameObject(enemy);
+        }
+    }
+
+    private void playerSteering()
     {
         if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_RIGHT))
             player.push(PLAYER_SPEED, Direction.RIGHT);
@@ -44,15 +106,5 @@ public class LevelGameStory implements IGameStory
 
         if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_SPACE))
             player.shoot();
-    }
-
-    @Override
-    public void runStory()
-    {
-        //Initialize Objects
-        player = new SpaceShip(_engine);
-
-        _engine.addGameObject(player);
-        _engine.startEngine();
     }
 }

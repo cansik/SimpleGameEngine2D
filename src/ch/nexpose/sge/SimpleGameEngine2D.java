@@ -60,7 +60,12 @@ public class SimpleGameEngine2D implements Runnable {
     public void addGameStory(IGameStory story) {
         gameStories.add(story);
     }
-    
+
+    public List<IGameStory> getGameStories()
+    {
+        return gameStories;
+    }
+
     ArrayList<Object2D> gameObjects;
     Thread frameDrawer;
     

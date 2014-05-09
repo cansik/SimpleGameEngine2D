@@ -20,7 +20,7 @@ class EngineDebugger implements IGameStory
 
         debugText = new TextObject2D(engine, "FPS: detecting");
         debugText.setColor(Color.white);
-        debugText.setLocation(new Point(10, 10));
+        debugText.setLocation(new Point(30, 30));
         debugText.setCollisionable(false);
         debugText.setFont(new Font("Verdana", Font.PLAIN, 12));
 

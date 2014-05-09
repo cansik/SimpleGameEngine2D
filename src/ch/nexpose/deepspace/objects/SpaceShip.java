@@ -23,15 +23,19 @@ public class SpaceShip extends GravityObject2D
         shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/spaceship_shot2.png")));
         shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/spaceship_shot3.png")));
         this.setAnimation(shootAnimation);
+
+        this.center();
+        this.setLocation(new Point(0, this.getLocation().y));
+        //this.setBordercheck(true);
     }
 
     public void shoot()
     {
         this.playAnimation();
 
-        Bullet b = new Bullet(getEngine());
+        Bullet b = new Bullet(getEngine(), this);
         b.push(48, Direction.RIGHT);
-        b.setCounterforce(0.9);
+        b.setCounterforce(1);
         b.setLocation(new Point(this.getLocation().x + this.getSize().width, this.getLocation().y + (int)(this.getSize().height / 2) - (int)(b.getSize().height / 2)));
 
         getEngine().addGameObject(b);

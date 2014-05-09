@@ -14,7 +14,19 @@ import java.awt.*;
  */
 public class Bullet extends GravityObject2D
 {
-    public Bullet(SimpleGameEngine2D engine)
+    Object2D parent;
+
+    public Object2D getParent()
+    {
+        return parent;
+    }
+
+    public void setParent(Object2D parent)
+    {
+        this.parent = parent;
+    }
+
+    public Bullet(SimpleGameEngine2D engine, Object2D parent)
     {
         super(engine, null);
         setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/bullet.png")));
@@ -32,29 +44,13 @@ public class Bullet extends GravityObject2D
     @Override
     public void collisionDetected(Collision c)
     {
-        if(c.getFirstObject() instanceof SpaceShip || c.getSecondObject() instanceof SpaceShip)
+        Object2D crashedObject = c.getEnemyObject(this);
+        setAlive(false);
+
+        if(crashedObject instanceof EnemySpaceShip)
         {
-            Object2D ship = c.getFirstObject() instanceof SpaceShip ? c.getFirstObject() : c.getSecondObject();
-
-            if(this.getLocation().getX() > ship.getLocation().x)
-            {
-                this.push(5, Direction.DOWN);
-            }
-
-            if(this.getLocation().getX() < ship.getLocation().x)
-            {
-                this.push(5, Direction.UP);
-            }
-
-            if(this.getLocation().getY() > ship.getLocation().y)
-            {
-                this.push(5, Direction.RIGHT);
-            }
-
-            if(this.getLocation().getY() < ship.getLocation().y)
-            {
-                this.push(5, Direction.LEFT);
-            }
+            EnemySpaceShip enemy = (EnemySpaceShip)crashedObject;
+            enemy.crash();
         }
     }
 }
