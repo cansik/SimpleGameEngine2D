@@ -57,7 +57,7 @@ public class LevelGameStory implements IGameStory
         _engine.startEngine();
     }
 
-    public void ScorePoint(ScoreType score)
+    public void scorePoint(ScoreType score)
     {
         switch(score)
         {
@@ -80,6 +80,7 @@ public class LevelGameStory implements IGameStory
 
     private void objectCreation()
     {
+        //enemy space ship
         if(RandomGenerator.randInt(0, 30) == 1)
         {
             EnemySpaceShip enemy = new EnemySpaceShip(_engine);

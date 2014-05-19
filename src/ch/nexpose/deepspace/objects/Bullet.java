@@ -1,12 +1,10 @@
 package ch.nexpose.deepspace.objects;
 
 import ch.nexpose.deepspace.LevelGameStory;
-import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.objects.GravityObject2D;
 import ch.nexpose.sge.objects.Object2D;
-import ch.nexpose.sgetest.space.RandomGenerator;
 
 import java.awt.*;
 
@@ -65,7 +63,7 @@ public class Bullet extends GravityObject2D
             if(crashedObject instanceof SpaceShip)
             {
                 SpaceShip space = (SpaceShip)crashedObject;
-                getGameStory().ScorePoint(ScoreType.Life);
+                getGameStory().scorePoint(ScoreType.Life);
             }
         }
     }

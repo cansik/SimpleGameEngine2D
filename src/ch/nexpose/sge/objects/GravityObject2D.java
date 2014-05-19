@@ -97,4 +97,23 @@ public class GravityObject2D extends AnimatedObject2D
         return nextLocation;
     }
 
+    @Override
+    public void putOnScene()
+    {
+        super.putOnScene();
+
+        Dimension sceneSize = this.getEngine().getScene().getViewPortSize();
+
+        if(getLocation().x <= 0)
+            velocityX = 0;
+
+        if(getLocation().y <= 0)
+            velocityY = 0;
+
+        if(getLocation().x + this.getSize().width >= sceneSize.width)
+            velocityX = 0;
+
+        if(getLocation().y + this.getSize().height >= sceneSize.height)
+            velocityY = 0;
+    }
 }

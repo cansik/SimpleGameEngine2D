@@ -39,6 +39,8 @@ public class MovingObject2D extends Object2D {
 
         if(!isBordercheck() || isOnScene())
             this.location = getNextLocation();
+        else
+            putOnScene();
     }
 
     public Point getNextLocation()
@@ -51,7 +53,7 @@ public class MovingObject2D extends Object2D {
         int dx = 0, dy = 0;
         int ldx = dx, ldy = dy;
 
-        //OLD
+        //OLD steering approach deprecated!
         switch (this.direction) {
             case LEFT:
                 dx = -1 * speed;
@@ -70,7 +72,7 @@ public class MovingObject2D extends Object2D {
                 break;
         }
 
-        //NEW
+        //NEW steering approach!
         if (this.getDirections().contains(Direction.LEFT))
         {
             dx = -1 * speed;
@@ -102,13 +104,30 @@ public class MovingObject2D extends Object2D {
         return nextPoint;
     }
 
+    public void putOnScene()
+    {
+        Dimension sceneSize = this.getEngine().getScene().getViewPortSize();
+
+        if(getLocation().x < 0)
+            setLocation(new Point(0, getLocation().y));
+
+        if(getLocation().y < 0)
+            setLocation(new Point(getLocation().x, 0));
+
+        if(getLocation().x + this.getSize().width >= sceneSize.width)
+            setLocation(new Point(sceneSize.width - this.getSize().width, getLocation().y));
+
+        if(getLocation().y + this.getSize().height >= sceneSize.height)
+            setLocation(new Point(getLocation().x, sceneSize.height - this.getSize().height));
+    }
+
     public boolean isOnScene()
     {
         //check bounds
-        //TODO: getNextLocation does decrease speed
         Point futureLocation = this.getNextLocation(false);
         Dimension sceneSize = this.getEngine().getScene().getViewPortSize();
 
+        //TODO: check if width <= width is the right comaprer (not only < ?)
         return ((futureLocation.x >= 0 && futureLocation.x + this.getSize().width <= sceneSize.width) &&
                 (futureLocation.y >= 0 && futureLocation.y + this.getSize().height <= sceneSize.height));
     }

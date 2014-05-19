@@ -39,7 +39,7 @@ public class EnemySpaceShip extends GravityObject2D
         setCollisionable(false);
         setCounterforce(0.95);
 
-        getGameStory().ScorePoint(ScoreType.Kill);
+        getGameStory().scorePoint(ScoreType.Kill);
     }
 
     public void shoot()
@@ -71,7 +71,7 @@ public class EnemySpaceShip extends GravityObject2D
         if(this.getLocation().x < (0 - this.getSize().width))
         {
             this.setAlive(false);
-            getGameStory().ScorePoint(ScoreType.Life);
+            getGameStory().scorePoint(ScoreType.Life);
         }
 
 
