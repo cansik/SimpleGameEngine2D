@@ -27,6 +27,8 @@ public class LevelGameStory implements IGameStory
     SpaceShip player;
     ScoreText scoreText;
 
+    boolean shotKeyWasPressed;
+
     public LevelGameStory(SimpleGameEngine2D engine, StoryBoard storyBoard)
     {
         _engine = new SimpleGameEngine2D(engine.getScene());
@@ -104,7 +106,13 @@ public class LevelGameStory implements IGameStory
         if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_DOWN))
             player.push(PLAYER_SPEED, Direction.DOWN);
 
-        if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_SPACE))
-            player.shoot();
+        if (_engine.getInputTracker().isKeyPressed(KeyEvent.VK_SPACE))
+        {
+            if (!shotKeyWasPressed)
+                player.shoot();
+            shotKeyWasPressed = true;
+        }
+        else
+            shotKeyWasPressed = false;
     }
 }

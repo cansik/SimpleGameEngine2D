@@ -39,6 +39,7 @@ public class TexturedObject2D extends MovingObject2D
     @Override
     public void paint(Graphics2D g)
     {
+        //g.drawRect(this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height);
         if(texture != null)
             g.drawImage(texture, this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height, null);
         else

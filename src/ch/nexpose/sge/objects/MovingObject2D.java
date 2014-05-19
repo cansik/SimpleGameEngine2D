@@ -43,7 +43,13 @@ public class MovingObject2D extends Object2D {
 
     public Point getNextLocation()
     {
+        return getNextLocation(true);
+    }
+
+    public Point getNextLocation(boolean track)
+    {
         int dx = 0, dy = 0;
+        int ldx = dx, ldy = dy;
 
         //OLD
         switch (this.direction) {
@@ -85,14 +91,22 @@ public class MovingObject2D extends Object2D {
             dy = speed;
         }
 
-        return new Point(this.location.x + dx, this.location.y + dy);
+        Point nextPoint = new Point(this.location.x + dx, this.location.y + dy);
+
+        if(!track)
+        {
+            dx = ldx;
+            dy = ldy;
+        }
+
+        return nextPoint;
     }
 
     public boolean isOnScene()
     {
         //check bounds
         //TODO: getNextLocation does decrease speed
-        Point futureLocation = this.getNextLocation();
+        Point futureLocation = this.getNextLocation(false);
         Dimension sceneSize = this.getEngine().getScene().getViewPortSize();
 
         return ((futureLocation.x >= 0 && futureLocation.x + this.getSize().width <= sceneSize.width) &&

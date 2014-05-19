@@ -5,6 +5,7 @@ import ch.nexpose.sge.Animation;
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.GravityObject2D;
+import ch.nexpose.sgetest.space.RandomGenerator;
 
 import java.awt.*;
 
@@ -71,6 +72,16 @@ public class EnemySpaceShip extends GravityObject2D
         {
             this.setAlive(false);
             getGameStory().ScorePoint(ScoreType.Life);
+        }
+
+
+        if(RandomGenerator.randInt(0, 150) == 1 && !isCrashing)
+        {
+            //shoot back
+            Bullet b = new Bullet(getEngine(), this);
+            b.push(12, Direction.LEFT);
+
+            getEngine().addGameObject(b);
         }
 
         super.action();

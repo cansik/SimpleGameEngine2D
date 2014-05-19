@@ -1,5 +1,6 @@
 package ch.nexpose.deepspace.objects;
 
+import ch.nexpose.deepspace.LevelGameStory;
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.collisions.Collision;
@@ -29,7 +30,13 @@ public class Bullet extends GravityObject2D
     public Bullet(SimpleGameEngine2D engine, Object2D parent)
     {
         super(engine, null);
+        this.parent = parent;
+
         setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/bullet.png")));
+
+        setCounterforce(1);
+        setLocation(new Point(parent.getLocation().x + parent.getSize().width, parent.getLocation().y + (int) (parent.getSize().height / 2) - (int) (getSize().height / 2)));
+
     }
 
     @Override
@@ -45,12 +52,26 @@ public class Bullet extends GravityObject2D
     public void collisionDetected(Collision c)
     {
         Object2D crashedObject = c.getEnemyObject(this);
-        setAlive(false);
 
-        if(crashedObject instanceof EnemySpaceShip)
+        if(parent != crashedObject)
         {
-            EnemySpaceShip enemy = (EnemySpaceShip)crashedObject;
-            enemy.crash();
+            setAlive(false);
+            if (crashedObject instanceof EnemySpaceShip)
+            {
+                EnemySpaceShip enemy = (EnemySpaceShip) crashedObject;
+                enemy.crash();
+            }
+
+            if(crashedObject instanceof SpaceShip)
+            {
+                SpaceShip space = (SpaceShip)crashedObject;
+                getGameStory().ScorePoint(ScoreType.Life);
+            }
         }
+    }
+
+    private LevelGameStory getGameStory()
+    {
+        return (LevelGameStory)getEngine().getGameStories().get(0);
     }
 }

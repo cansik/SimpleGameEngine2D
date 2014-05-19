@@ -39,7 +39,7 @@ public class IntroGameStory implements IGameStory
     {
         //INTRO TEXT
         FlashingText introText = new FlashingText(_engine, "Deep Space");
-        introText.setColor(Color.blue);
+        introText.setColor(new Color(0, 153, 255));
         introText.setFlashSpeed(5);
         introText.setFont(new Font("Verdana", Font.PLAIN, 50));
         introText.center();
