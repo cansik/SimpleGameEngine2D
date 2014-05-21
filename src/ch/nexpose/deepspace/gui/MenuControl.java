@@ -18,6 +18,8 @@ public class MenuControl extends Object2D
     ArrayList<MenuItem> items;
     int selectedIndex = 0;
     int textSize = 20;
+    boolean keyInputUpHit;
+    boolean keyInputDownHit;
 
     public MenuControl(SimpleGameEngine2D engine)
     {
@@ -76,22 +78,49 @@ public class MenuControl extends Object2D
     @Override
     public void action()
     {
-        if(getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_UP))
+        if (getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_UP))
         {
-            getEngine().getInputTracker().setDetectionPaused(true);
-            if(selectedIndex - 1 >= 0)
-                selectedIndex--;
-            sleep(KEYBUFFER_SLEEP);
-            getEngine().getInputTracker().setDetectionPaused(false);
+            if (!keyInputUpHit)
+            {
+                if(selectedIndex > 0)
+                {
+                    selectedIndex--;
+                }
+                else
+                {
+                    selectedIndex = items.size() - 1;
+                }
+            }
+            keyInputUpHit = true;
+        }
+        else
+        {
+            keyInputUpHit = false;
         }
 
-        if(getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_DOWN))
+        if (getEngine().getInputTracker().isKeyPressed(KeyEvent.VK_DOWN))
         {
-            getEngine().getInputTracker().setDetectionPaused(true);
-            if(selectedIndex + 1 < items.size())
-                selectedIndex++;
-            sleep(KEYBUFFER_SLEEP);
-            getEngine().getInputTracker().setDetectionPaused(false);
+            if (!keyInputDownHit)
+            {
+                if(selectedIndex < items.size() - 1)
+                {
+                    selectedIndex++;
+                }
+                else
+                {
+                    selectedIndex = 0;
+                }
+            }
+            else
+            {
+
+            }
+
+            keyInputDownHit = true;
+        }
+        else
+        {
+            keyInputDownHit = false;
         }
     }
 
@@ -113,14 +142,5 @@ public class MenuControl extends Object2D
         }
 
         return new Dimension(maxWidth, maxHeight);
-    }
-
-    private  void sleep(int milliseconds)
-    {
-        try {
-            Thread.sleep(milliseconds);
-        } catch(InterruptedException ex) {
-            Thread.currentThread().interrupt();
-        }
     }
 }

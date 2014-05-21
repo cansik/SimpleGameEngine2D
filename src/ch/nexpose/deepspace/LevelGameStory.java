@@ -8,6 +8,7 @@ import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.StoryBoard;
+import ch.nexpose.sge.ui.GameScene;
 import ch.nexpose.sgetest.space.EnemyStarShip;
 import ch.nexpose.sgetest.space.RandomGenerator;
 
@@ -29,9 +30,9 @@ public class LevelGameStory implements IGameStory
 
     boolean shotKeyWasPressed;
 
-    public LevelGameStory(SimpleGameEngine2D engine, StoryBoard storyBoard)
+    public LevelGameStory(GameScene scene, StoryBoard storyBoard)
     {
-        _engine = new SimpleGameEngine2D(engine.getScene());
+        _engine = new SimpleGameEngine2D(scene);
         _storyBoard = storyBoard;
 
         _engine.addGameStory(this);
@@ -70,7 +71,6 @@ public class LevelGameStory implements IGameStory
                 if(scoreText.getLifes() < 1)
                 {
                     _engine.stopEngine();
-                    _storyBoard.addGameStory(new MenuGameStory(_engine, _storyBoard));
                     _storyBoard.getNextStory().runStory();
                 }
 

@@ -21,7 +21,6 @@ public class InputTracker
     public InputTracker(GameScene scene)
     {
         this.scene = scene;
-        this.keyBoardEvents = new HashSet<Integer>();
     }
 
     public boolean isDetectionPaused()
@@ -36,6 +35,8 @@ public class InputTracker
 
     public void openInputManager()
     {
+        this.keyBoardEvents = new HashSet<Integer>();
+
         this.keyAdapter = (new java.awt.event.KeyAdapter()
         {
             @Override

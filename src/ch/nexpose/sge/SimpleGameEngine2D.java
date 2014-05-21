@@ -92,6 +92,11 @@ public class SimpleGameEngine2D implements Runnable {
         inputTracker.closeInputManager();
         running = false;
     }
+
+    public void resetEngine()
+    {
+        gameObjects.clear();
+    }
     
     public void run()
     {

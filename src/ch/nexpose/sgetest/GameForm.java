@@ -69,8 +69,7 @@ public class GameForm
 
     public void setupGame()
     {
-        SimpleGameEngine2D engine = new SimpleGameEngine2D(scene);
-        StoryBoard board = new StoryBoard();
+        new IntroGameStory(scene).runStory();
 
         /*
         //Test Stories
@@ -84,13 +83,5 @@ public class GameForm
         board.addGameStory(menu);
         board.addGameStory(game);
         */
-
-        IntroGameStory introStory = new IntroGameStory(engine, board);
-        MenuGameStory menuStory = new MenuGameStory(engine, board);
-
-
-        board.addGameStory(introStory);
-        board.addGameStory(menuStory);
-        board.getNextStory().runStory();
     }
 }

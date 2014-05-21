@@ -58,6 +58,7 @@ public class MenuItem extends TextObject2D
         }
         else
         {
+            //just for debugging
             //g.drawRect(getLocation().x, getLocation().y, getSize().width, getSize().height);
             super.paint(g);
         }

@@ -5,6 +5,7 @@ import ch.nexpose.deepspace.gui.MenuItem;
 import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.StoryBoard;
+import ch.nexpose.sge.ui.GameScene;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -15,14 +16,11 @@ import java.awt.event.KeyEvent;
 public class MenuGameStory implements IGameStory
 {
     SimpleGameEngine2D _engine;
-    StoryBoard _storyBoard;
     MenuControl _menu;
 
-    public MenuGameStory(SimpleGameEngine2D engine, StoryBoard storyBoard)
+    public MenuGameStory(GameScene scene)
     {
-        _engine = new SimpleGameEngine2D(engine.getScene());
-        _storyBoard = storyBoard;
-
+        _engine = new SimpleGameEngine2D(scene);
         _engine.addGameStory(this);
     }
 
@@ -37,6 +35,7 @@ public class MenuGameStory implements IGameStory
                 System.exit(0);
 
             IGameStory story = (IGameStory)_menu.getSelectedItem().getTag();
+            _engine.stopEngine();
             story.runStory();
         }
     }
@@ -44,9 +43,16 @@ public class MenuGameStory implements IGameStory
     @Override
     public void runStory()
     {
+        _engine.resetEngine();
+
+        //Create LevelGameStoryBoard
+        StoryBoard levelGameStoryBoard = new StoryBoard();
+        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard));
+        levelGameStoryBoard.addGameStory(this);
+
         _menu = new MenuControl(_engine);
-        _menu.addItem(new MenuItem(_engine, "New Game", new LevelGameStory(_engine, _storyBoard)));
-        _menu.addItem(new MenuItem(_engine, "About", new LevelGameStory(_engine, _storyBoard)));
+        _menu.addItem(new MenuItem(_engine, "New Game", levelGameStoryBoard.getNextStory()));
+        _menu.addItem(new MenuItem(_engine, "About", new AboutGameStory(_engine.getScene())));
         _menu.addItem(new MenuItem(_engine, "Exit"));
 
         _menu.setColor(Color.white);

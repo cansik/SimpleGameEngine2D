@@ -1,6 +1,8 @@
 package ch.nexpose.deepspace;
 
-import ch.nexpose.sge.*;
+import ch.nexpose.sge.IGameStory;
+import ch.nexpose.sge.SimpleGameEngine2D;
+import ch.nexpose.sge.StoryBoard;
 import ch.nexpose.sge.objects.FlashingText;
 import ch.nexpose.sge.ui.GameScene;
 
@@ -8,23 +10,22 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 /**
- * Created by cansik on 05/05/14.
+ * Created by cansik on 21/05/14.
  */
-public class IntroGameStory implements IGameStory
+public class AboutGameStory implements IGameStory
 {
     private SimpleGameEngine2D _engine;
 
-    public IntroGameStory(GameScene scene)
+    public AboutGameStory(GameScene scene)
     {
         _engine = new SimpleGameEngine2D(scene);
-
         _engine.addGameStory(this);
     }
 
     @Override
     public void nextFrame()
     {
-        //on key hit -> next
+        //on key hit -> go back
         if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_SPACE) ||
                 _engine.getInputTracker().isKeyPressed(KeyEvent.VK_ENTER))
         {
