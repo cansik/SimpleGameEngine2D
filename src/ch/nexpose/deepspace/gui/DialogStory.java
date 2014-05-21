@@ -1,6 +1,6 @@
 package ch.nexpose.deepspace.gui;
 
-import ch.nexpose.sge.IGameStory;
+import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.TextObject2D;
 import ch.nexpose.sge.objects.TexturedObject2D;

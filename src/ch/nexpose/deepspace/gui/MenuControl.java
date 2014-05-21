@@ -1,6 +1,7 @@
 package ch.nexpose.deepspace.gui;
 
 import ch.nexpose.sge.SimpleGameEngine2D;
+import ch.nexpose.sge.fx.SoundPlayer;
 import ch.nexpose.sge.objects.Object2D;
 
 import java.awt.*;
@@ -85,6 +86,7 @@ public class MenuControl extends Object2D
                 if(selectedIndex > 0)
                 {
                     selectedIndex--;
+                    SoundPlayer.playSound(getClass().getResource("/resources/sounds/menu_click.wav"));
                 }
                 else
                 {
@@ -105,6 +107,7 @@ public class MenuControl extends Object2D
                 if(selectedIndex < items.size() - 1)
                 {
                     selectedIndex++;
+                    SoundPlayer.playSound(getClass().getResource("/resources/sounds/menu_click.wav"));
                 }
                 else
                 {

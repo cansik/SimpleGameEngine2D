@@ -7,7 +7,7 @@
 package ch.nexpose.sge.objects;
 
 import java.awt.event.KeyEvent;
-import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 
 /**

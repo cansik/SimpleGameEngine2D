@@ -3,9 +3,9 @@ package ch.nexpose.deepspace;
 import ch.nexpose.deepspace.gui.MenuControl;
 import ch.nexpose.deepspace.gui.MenuItem;
 import ch.nexpose.deepspace.objects.MovingBackground;
-import ch.nexpose.sge.IGameStory;
+import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.StoryBoard;
+import ch.nexpose.sge.story.StoryBoard;
 import ch.nexpose.sge.ui.GameScene;
 
 import java.awt.*;

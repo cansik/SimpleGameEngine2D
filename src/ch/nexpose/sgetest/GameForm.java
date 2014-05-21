@@ -1,15 +1,8 @@
 package ch.nexpose.sgetest;
 
 import ch.nexpose.deepspace.IntroGameStory;
-import ch.nexpose.deepspace.LevelGameStory;
-import ch.nexpose.deepspace.MenuGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.StoryBoard;
 import ch.nexpose.sge.ui.GameScene;
-import ch.nexpose.sgetest.gravity.GravityStory;
-import ch.nexpose.sgetest.jump.JumpStory;
-import ch.nexpose.sgetest.space.MenuStory;
-import ch.nexpose.sgetest.space.SpaceGameStory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,7 +35,7 @@ public class GameForm
 
     public void showForm()
     {
-        frame = new JFrame("Starship Game");
+        frame = new JFrame("Deep Space");
         frame.setContentPane(new GameForm().mainPanel);
         frame.setLocation(300, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

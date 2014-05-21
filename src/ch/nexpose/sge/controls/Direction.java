@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package ch.nexpose.sge;
+package ch.nexpose.sge.controls;
 
 /**
  *

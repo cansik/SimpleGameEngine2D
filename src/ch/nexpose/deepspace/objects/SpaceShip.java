@@ -1,8 +1,9 @@
 package ch.nexpose.deepspace.objects;
 
-import ch.nexpose.sge.Animation;
-import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.fx.Animation;
+import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
+import ch.nexpose.sge.fx.SoundPlayer;
 import ch.nexpose.sge.objects.GravityObject2D;
 
 import java.awt.*;
@@ -32,6 +33,7 @@ public class SpaceShip extends GravityObject2D
     public void shoot()
     {
         this.playAnimation();
+        SoundPlayer.playSound(getClass().getResource("/resources/sounds/laser_shot.wav"));
 
         Bullet b = new Bullet(getEngine(), this);
         b.push(48, Direction.RIGHT);

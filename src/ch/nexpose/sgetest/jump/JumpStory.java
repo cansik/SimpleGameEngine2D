@@ -1,6 +1,6 @@
 package ch.nexpose.sgetest.jump;
 
-import ch.nexpose.sge.IGameStory;
+import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 
 /**

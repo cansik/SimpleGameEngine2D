@@ -1,4 +1,4 @@
-package ch.nexpose.sge;
+package ch.nexpose.sge.story;
 
 /**
  * Created by cansik on 08/04/14.

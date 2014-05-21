@@ -1,9 +1,9 @@
 package ch.nexpose.sgetest.space;
 
-import ch.nexpose.sge.Direction;
-import ch.nexpose.sge.IGameStory;
+import ch.nexpose.sge.controls.Direction;
+import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.StoryBoard;
+import ch.nexpose.sge.story.StoryBoard;
 import ch.nexpose.sge.objects.AnimatedObject2D;
 import ch.nexpose.sge.objects.FlashingText;
 

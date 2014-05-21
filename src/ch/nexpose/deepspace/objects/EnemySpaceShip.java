@@ -2,8 +2,8 @@ package ch.nexpose.deepspace.objects;
 
 import ch.nexpose.deepspace.LevelGameStory;
 import ch.nexpose.deepspace.gui.ScoreType;
-import ch.nexpose.sge.Animation;
-import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.fx.Animation;
+import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.GravityObject2D;
 import ch.nexpose.sgetest.space.RandomGenerator;

@@ -1,4 +1,4 @@
-package ch.nexpose.sge;
+package ch.nexpose.sge.story;
 
 import java.util.ArrayList;
 

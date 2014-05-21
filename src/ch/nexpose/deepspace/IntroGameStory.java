@@ -3,6 +3,7 @@ package ch.nexpose.deepspace;
 import ch.nexpose.deepspace.objects.MovingBackground;
 import ch.nexpose.sge.*;
 import ch.nexpose.sge.objects.FlashingText;
+import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.ui.GameScene;
 
 import java.awt.*;

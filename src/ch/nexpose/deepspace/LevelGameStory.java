@@ -5,15 +5,16 @@ import ch.nexpose.deepspace.gui.InfoText;
 import ch.nexpose.deepspace.gui.ScoreText;
 import ch.nexpose.deepspace.gui.ScoreType;
 import ch.nexpose.deepspace.objects.*;
-import ch.nexpose.sge.Direction;
-import ch.nexpose.sge.IGameStory;
+import ch.nexpose.sge.controls.Direction;
+import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.StoryBoard;
+import ch.nexpose.sge.story.StoryBoard;
 import ch.nexpose.sge.ui.GameScene;
 import ch.nexpose.sgetest.space.RandomGenerator;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by cansik on 05/05/14.
@@ -139,10 +140,11 @@ public class LevelGameStory implements IGameStory
 
         IGameStory nextStory;
         String infoMessage;
+        BufferedImage currentFrame = _engine.getScene().getBackgroundImage();
 
         if(won)
         {
-            infoMessage = "You have won in level " + _levelNumber + "!";
+            infoMessage = "You have reached level " + (_levelNumber + 1) + "!";
             nextStory = _storyBoard.getNextStory();
             nextStory.runStory();
         }
@@ -152,11 +154,11 @@ public class LevelGameStory implements IGameStory
             realMenu.runStory();
 
             nextStory = realMenu;
-            infoMessage = "You have lost in level " + _levelNumber + "!";
+            infoMessage = "You have lost level " + _levelNumber + "!";
         }
 
         DialogStory dialog = new DialogStory(_engine.getScene(), infoMessage, nextStory);
-        dialog.setBackgroundImage(_engine.getScene().getBackgroundImage());
+        dialog.setBackgroundImage(currentFrame);
         dialog.runStory();
     }
 

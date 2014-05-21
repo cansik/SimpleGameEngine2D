@@ -1,6 +1,7 @@
 package ch.nexpose.sge;
 
 import ch.nexpose.sge.objects.TextObject2D;
+import ch.nexpose.sge.story.IGameStory;
 
 import java.awt.*;
 

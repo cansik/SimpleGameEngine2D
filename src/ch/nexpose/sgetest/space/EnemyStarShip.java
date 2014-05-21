@@ -1,8 +1,7 @@
 package ch.nexpose.sgetest.space;
 
-import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.objects.MovingObject2D;
 import ch.nexpose.sge.objects.TexturedObject2D;
 
 import java.awt.*;

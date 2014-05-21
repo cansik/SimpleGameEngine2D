@@ -1,4 +1,4 @@
-package ch.nexpose.sge;
+package ch.nexpose.sge.fx;
 
 import java.awt.*;
 import java.util.ArrayList;

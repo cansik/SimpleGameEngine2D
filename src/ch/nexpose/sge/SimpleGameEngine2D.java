@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.ui.GameScene;
 
 /**

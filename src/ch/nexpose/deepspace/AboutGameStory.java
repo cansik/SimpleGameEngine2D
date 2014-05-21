@@ -1,6 +1,6 @@
 package ch.nexpose.deepspace;
 
-import ch.nexpose.sge.IGameStory;
+import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.FlashingText;
 import ch.nexpose.sge.ui.GameScene;

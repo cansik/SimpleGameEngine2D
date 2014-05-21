@@ -1,9 +1,9 @@
 package ch.nexpose.sgetest.space;
 
 import ch.nexpose.deepspace.objects.MovingBackground;
-import ch.nexpose.sge.IGameStory;
+import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.StoryBoard;
+import ch.nexpose.sge.story.StoryBoard;
 
 import java.awt.*;
 

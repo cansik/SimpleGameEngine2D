@@ -8,7 +8,7 @@ package ch.nexpose.sgetest.space;
 
 import java.awt.*;
 
-import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.objects.MovingObject2D;
 import ch.nexpose.sge.objects.Object2D;

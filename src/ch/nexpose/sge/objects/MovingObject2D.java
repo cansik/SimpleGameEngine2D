@@ -8,7 +8,7 @@ package ch.nexpose.sge.objects;
 import java.awt.*;
 import java.util.HashSet;
 
-import ch.nexpose.sge.Direction;
+import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 
 /**

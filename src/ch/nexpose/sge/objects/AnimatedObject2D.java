@@ -1,11 +1,9 @@
 package ch.nexpose.sge.objects;
 
-import ch.nexpose.sge.Animation;
+import ch.nexpose.sge.fx.Animation;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import sun.java2d.pipe.SpanShapeRenderer;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 import java.awt.*;
 
