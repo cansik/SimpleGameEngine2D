@@ -3,6 +3,7 @@ package ch.nexpose.deepspace;
 import ch.nexpose.deepspace.gui.MenuControl;
 import ch.nexpose.deepspace.gui.MenuItem;
 import ch.nexpose.deepspace.objects.MovingBackground;
+import ch.nexpose.sge.fx.SoundPlayer;
 import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.story.StoryBoard;
@@ -30,13 +31,20 @@ public class MenuGameStory implements IGameStory
     {
         if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_ENTER))
         {
-            _engine.stopEngine();
-
             if(_menu.getSelectedItem().getTag() == null)
                 System.exit(0);
 
-            IGameStory story = (IGameStory)_menu.getSelectedItem().getTag();
-            story.runStory();
+            if(_menu.getSelectedItem().getText().startsWith("Mute"))
+            {
+                SoundPlayer.isMute = !SoundPlayer.isMute;
+                _menu.getSelectedItem().setText("Mute " + SoundPlayer.isMute);
+            }
+            else
+            {
+                _engine.stopEngine();
+                IGameStory story = (IGameStory)_menu.getSelectedItem().getTag();
+                story.runStory();
+            }
         }
     }
 
@@ -55,6 +63,7 @@ public class MenuGameStory implements IGameStory
         _menu = new MenuControl(_engine);
         _menu.addItem(new MenuItem(_engine, "New Game", levelGameStoryBoard.getNextStory()));
         _menu.addItem(new MenuItem(_engine, "About", new AboutGameStory(_engine.getScene())));
+        _menu.addItem(new MenuItem(_engine, "Mute true", "bla"));
         _menu.addItem(new MenuItem(_engine, "Exit"));
 
         _menu.setColor(Color.white);

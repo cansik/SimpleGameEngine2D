@@ -151,16 +151,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextObject2D.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/objects/TextObject2D.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="302" max-vertical-offset="1020">
-              <caret line="61" column="68" selection-start-line="61" selection-start-column="68" selection-end-line="61" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DialogStory.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/gui/DialogStory.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -238,21 +228,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuGameStory.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MenuGameStory.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/MenuGameStory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1140">
-              <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.80421686" vertical-offset="24" max-vertical-offset="1350">
+              <caret line="65" column="65" selection-start-line="65" selection-start-column="65" selection-end-line="65" selection-end-column="65" />
+              <folding>
+                <element signature="e#2767#2768#0" expanded="true" />
+                <element signature="e#2804#2805#0" expanded="true" />
+                <element signature="e#2853#2854#0" expanded="true" />
+                <element signature="e#2889#2890#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuItem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/gui/MenuItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MenuControl.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MenuControl.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/gui/MenuControl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22590362" vertical-offset="660" max-vertical-offset="1965">
-              <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1965">
+              <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -318,7 +323,6 @@
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/space/SpaceGameStory.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/jump/JumpStory.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sgetest/gravity/GravityStory.java" />
-        <option value="$PROJECT_DIR$/src/ch/nexpose/deepspace/MenuGameStory.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/objects/TexturedObject2D.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/objects/Object2D.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/deepspace/gui/DialogStory.java" />
@@ -329,6 +333,7 @@
         <option value="$PROJECT_DIR$/src/ch/nexpose/sge/fx/SoundPlayer.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/deepspace/objects/SpaceShip.java" />
         <option value="$PROJECT_DIR$/src/ch/nexpose/deepspace/gui/MenuControl.java" />
+        <option value="$PROJECT_DIR$/src/ch/nexpose/deepspace/MenuGameStory.java" />
       </list>
     </option>
   </component>
@@ -1028,14 +1033,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/gui/MenuItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="915">
-          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/gui/ScoreText.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="795">
@@ -1305,14 +1302,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/MenuGameStory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="1230">
-          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/sge/fx/SoundPlayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
@@ -1336,9 +1325,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/gui/MenuControl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22590362" vertical-offset="660" max-vertical-offset="1965">
-          <caret line="83" column="31" selection-start-line="83" selection-start-column="31" selection-end-line="83" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1965">
+          <caret line="93" column="17" selection-start-line="93" selection-start-column="17" selection-end-line="93" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/gui/MenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ch/nexpose/deepspace/MenuGameStory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.80421686" vertical-offset="24" max-vertical-offset="1350">
+          <caret line="65" column="65" selection-start-line="65" selection-start-column="65" selection-end-line="65" selection-end-column="65" />
+          <folding>
+            <element signature="e#2767#2768#0" expanded="true" />
+            <element signature="e#2804#2805#0" expanded="true" />
+            <element signature="e#2853#2854#0" expanded="true" />
+            <element signature="e#2889#2890#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
