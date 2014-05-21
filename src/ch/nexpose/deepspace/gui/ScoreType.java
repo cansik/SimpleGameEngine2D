@@ -1,4 +1,4 @@
-package ch.nexpose.deepspace.objects;
+package ch.nexpose.deepspace.gui;
 
 /**
  * Created by cansik on 09/05/14.

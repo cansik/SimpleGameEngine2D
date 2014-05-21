@@ -29,4 +29,16 @@ public class JumpStory implements IGameStory
         engine.addGameObject(p);
         engine.startEngine();
     }
+
+    @Override
+    public void resumeStory()
+    {
+        engine.startEngine();
+    }
+
+    @Override
+    public void stopStory()
+    {
+        engine.stopEngine();
+    }
 }

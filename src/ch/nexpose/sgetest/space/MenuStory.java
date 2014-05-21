@@ -80,4 +80,16 @@ public class MenuStory implements IGameStory
             aniDemo.playAnimation();
         }
     }
+
+    @Override
+    public void resumeStory()
+    {
+        engine.startEngine();
+    }
+
+    @Override
+    public void stopStory()
+    {
+        engine.stopEngine();
+    }
 }

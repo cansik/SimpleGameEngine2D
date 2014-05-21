@@ -49,4 +49,16 @@ class EngineDebugger implements IGameStory
     {
 
     }
+
+    @Override
+    public void resumeStory()
+    {
+        engine.startEngine();
+    }
+
+    @Override
+    public void stopStory()
+    {
+        engine.stopEngine();
+    }
 }

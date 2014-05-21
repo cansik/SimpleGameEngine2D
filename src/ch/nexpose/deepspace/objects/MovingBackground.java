@@ -1,4 +1,4 @@
-package ch.nexpose.sgetest.space;
+package ch.nexpose.deepspace.objects;
 
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;

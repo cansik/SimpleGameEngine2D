@@ -24,7 +24,7 @@ public class SpaceShip extends GravityObject2D
         shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/spaceship_shot3.png")));
         this.setAnimation(shootAnimation);
 
-        this.center();
+        this.centerOnScene();
         this.setLocation(new Point(0, this.getLocation().y));
         this.setBordercheck(true);
     }

@@ -1,6 +1,7 @@
 package ch.nexpose.deepspace.objects;
 
 import ch.nexpose.deepspace.LevelGameStory;
+import ch.nexpose.deepspace.gui.ScoreType;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.objects.GravityObject2D;

@@ -1,5 +1,6 @@
 package ch.nexpose.sgetest.space;
 
+import ch.nexpose.deepspace.objects.MovingBackground;
 import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.StoryBoard;
@@ -54,5 +55,17 @@ public class SpaceGameStory implements IGameStory
 
             engine.addGameObject(enemy);
         }
+    }
+
+    @Override
+    public void resumeStory()
+    {
+        engine.startEngine();
+    }
+
+    @Override
+    public void stopStory()
+    {
+        engine.stopEngine();
     }
 }

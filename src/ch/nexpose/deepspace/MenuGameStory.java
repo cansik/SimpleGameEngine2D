@@ -2,6 +2,7 @@ package ch.nexpose.deepspace;
 
 import ch.nexpose.deepspace.gui.MenuControl;
 import ch.nexpose.deepspace.gui.MenuItem;
+import ch.nexpose.deepspace.objects.MovingBackground;
 import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.StoryBoard;
@@ -35,7 +36,6 @@ public class MenuGameStory implements IGameStory
                 System.exit(0);
 
             IGameStory story = (IGameStory)_menu.getSelectedItem().getTag();
-            _engine.stopEngine();
             story.runStory();
         }
     }
@@ -46,8 +46,10 @@ public class MenuGameStory implements IGameStory
         _engine.resetEngine();
 
         //Create LevelGameStoryBoard
+        int levelNumber = 1;
         StoryBoard levelGameStoryBoard = new StoryBoard();
-        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard));
+        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, 2, false, 20));
+        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, 2, true, 20));
         levelGameStoryBoard.addGameStory(this);
 
         _menu = new MenuControl(_engine);
@@ -57,10 +59,27 @@ public class MenuGameStory implements IGameStory
 
         _menu.setColor(Color.white);
         _menu.setTextSize(35);
-        _menu.center();
+        _menu.centerOnScene();
+
+        //Background
+        Image bg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/background.png"));
+        MovingBackground background = new MovingBackground(_engine, bg, new Dimension(1000, 480));
 
         //add game objects
+        _engine.addGameObject(background);
         _engine.addGameObject(_menu);
         _engine.startEngine();
+    }
+
+    @Override
+    public void resumeStory()
+    {
+        _engine.startEngine();
+    }
+
+    @Override
+    public void stopStory()
+    {
+        _engine.stopEngine();
     }
 }

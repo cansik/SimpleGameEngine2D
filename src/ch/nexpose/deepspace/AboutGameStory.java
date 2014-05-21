@@ -2,7 +2,6 @@ package ch.nexpose.deepspace;
 
 import ch.nexpose.sge.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.StoryBoard;
 import ch.nexpose.sge.objects.FlashingText;
 import ch.nexpose.sge.ui.GameScene;
 
@@ -32,21 +31,35 @@ public class AboutGameStory implements IGameStory
             _engine.stopEngine();
             new MenuGameStory(_engine.getScene()).runStory();
         }
+
+
     }
 
     @Override
     public void runStory()
     {
         //INTRO TEXT
-        FlashingText introText = new FlashingText(_engine, "Deep Space");
-        introText.setColor(new Color(0, 153, 255));
+        FlashingText introText = new FlashingText(_engine, "Developed by Florian Bruggisser");
+        introText.setColor(new Color(147, 255, 133));
         introText.setFlashSpeed(5);
-        introText.setFont(new Font("Verdana", Font.PLAIN, 50));
-        introText.center();
+        introText.setFont(new Font("Verdana", Font.PLAIN, 30));
+        introText.centerOnScene();
 
 
         //add game objects
         _engine.addGameObject(introText);
         _engine.startEngine();
+    }
+
+    @Override
+    public void resumeStory()
+    {
+        _engine.startEngine();
+    }
+
+    @Override
+    public void stopStory()
+    {
+        _engine.stopEngine();
     }
 }

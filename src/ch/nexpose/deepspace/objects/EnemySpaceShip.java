@@ -1,6 +1,7 @@
 package ch.nexpose.deepspace.objects;
 
 import ch.nexpose.deepspace.LevelGameStory;
+import ch.nexpose.deepspace.gui.ScoreType;
 import ch.nexpose.sge.Animation;
 import ch.nexpose.sge.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
@@ -16,12 +17,15 @@ public class EnemySpaceShip extends GravityObject2D
 {
     boolean isCrashing;
     int animationCounter = 0;
+    boolean canShoot;
 
-    public EnemySpaceShip(SimpleGameEngine2D engine)
+    public EnemySpaceShip(SimpleGameEngine2D engine, boolean canShoot)
     {
         super(engine, null);
         setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship.png")));
         setCounterforce(1);
+
+        this.canShoot = canShoot;
 
         Animation shootAnimation = new Animation();
         shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash1.png")));
@@ -83,11 +87,14 @@ public class EnemySpaceShip extends GravityObject2D
         //Shoot
         if(RandomGenerator.randInt(0, 150) == 1 && !isCrashing)
         {
-            //shoot back
-            Bullet b = new Bullet(getEngine(), this);
-            b.push(12, Direction.LEFT);
+            if(canShoot)
+            {
+                //shoot back
+                Bullet b = new Bullet(getEngine(), this);
+                b.push(12, Direction.LEFT);
 
-            getEngine().addGameObject(b);
+                getEngine().addGameObject(b);
+            }
         }
 
         super.action();

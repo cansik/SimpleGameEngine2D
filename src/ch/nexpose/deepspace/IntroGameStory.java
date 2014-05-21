@@ -1,5 +1,6 @@
 package ch.nexpose.deepspace;
 
+import ch.nexpose.deepspace.objects.MovingBackground;
 import ch.nexpose.sge.*;
 import ch.nexpose.sge.objects.FlashingText;
 import ch.nexpose.sge.ui.GameScene;
@@ -41,11 +42,27 @@ public class IntroGameStory implements IGameStory
         introText.setColor(new Color(0, 153, 255));
         introText.setFlashSpeed(5);
         introText.setFont(new Font("Verdana", Font.PLAIN, 50));
-        introText.center();
+        introText.centerOnScene();
 
+        //Background
+        Image bg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/background.png"));
+        MovingBackground background = new MovingBackground(_engine, bg, new Dimension(1000, 480));
 
         //add game objects
+        _engine.addGameObject(background);
         _engine.addGameObject(introText);
         _engine.startEngine();
+    }
+
+    @Override
+    public void resumeStory()
+    {
+        _engine.startEngine();
+    }
+
+    @Override
+    public void stopStory()
+    {
+        _engine.stopEngine();
     }
 }

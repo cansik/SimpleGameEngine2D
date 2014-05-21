@@ -1,6 +1,5 @@
 package ch.nexpose.deepspace.gui;
 
-import ch.nexpose.deepspace.objects.ScoreType;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.TextObject2D;
 
@@ -11,7 +10,18 @@ public class ScoreText extends TextObject2D
 {
     int points;
     int lifes;
+    int level;
     StringBuilder builder;
+
+    public int getLevel()
+    {
+        return level;
+    }
+
+    public void setLevel(int level)
+    {
+        this.level = level;
+    }
 
     public int getLifes()
     {
@@ -43,6 +53,7 @@ public class ScoreText extends TextObject2D
     {
         builder = new StringBuilder();
 
+        builder.append("Level: " + level + " | ");
         builder.append("Points: " + points + " | ");
         for(int i = 0; i < lifes; i++)
             builder.append("\u2665");

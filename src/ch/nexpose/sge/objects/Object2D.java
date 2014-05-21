@@ -101,7 +101,9 @@ public abstract class Object2D implements CollisionListener
 
     public Point getCenterLocation()
     {
-        return new Point(location.x + (int)(size.width / 2), location.y + (int)(size.height / 2));
+        Point l = getLocation();
+        Dimension s = getSize();
+        return new Point(l.x + (int)(s.width / 2), l.y + (int)(s.height / 2));
     }
     
     public void paint(Graphics2D g)
@@ -133,7 +135,7 @@ public abstract class Object2D implements CollisionListener
         return c;
     }
 
-    public void center()
+    public void centerOnScene()
     {
         this.setLocation(new Point(((int)engine.getScene().getViewPortSize().getWidth() / 2) - (int)(this.getSize().width / 2),
                 (int)((int)engine.getScene().getViewPortSize().getHeight() / 2) - (int)(this.getSize().height / 2)));
