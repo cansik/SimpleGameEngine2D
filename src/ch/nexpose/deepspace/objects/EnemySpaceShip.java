@@ -15,6 +15,7 @@ import java.awt.*;
 public class EnemySpaceShip extends GravityObject2D
 {
     boolean isCrashing;
+    int animationCounter = 0;
 
     public EnemySpaceShip(SimpleGameEngine2D engine)
     {
@@ -62,19 +63,24 @@ public class EnemySpaceShip extends GravityObject2D
     @Override
     public void action()
     {
+        //While crashing
         if(isCrashing)
         {
-            if(!isAnimated())
+            //fixed flicker bug while crashing
+            if(!isAnimated() || animationCounter == getAnimation().getFrames().size() - 1)
                 this.setAlive(false);
+
+            animationCounter++;
         }
 
+        //Check out of scene
         if(this.getLocation().x < (0 - this.getSize().width))
         {
             this.setAlive(false);
             getGameStory().scorePoint(ScoreType.Life);
         }
 
-
+        //Shoot
         if(RandomGenerator.randInt(0, 150) == 1 && !isCrashing)
         {
             //shoot back
