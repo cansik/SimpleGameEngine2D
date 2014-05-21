@@ -19,13 +19,22 @@ public class EnemySpaceShip extends GravityObject2D
     int animationCounter = 0;
     boolean canShoot;
 
-    public EnemySpaceShip(SimpleGameEngine2D engine, boolean canShoot)
+    public EnemySpaceShip(SimpleGameEngine2D engine, boolean canShoot, boolean isSpeeding)
     {
         super(engine, null);
-        setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship.png")));
         setCounterforce(1);
-
         this.canShoot = canShoot;
+
+        if(canShoot)
+            setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_shooting.png")));
+        else if(isSpeeding)
+        {
+            setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_speeding.png")));
+            //Todo: just a workaround, use default speed of spaceship
+            this.push(2, Direction.LEFT);
+        }
+        else
+            setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship.png")));
 
         Animation shootAnimation = new Animation();
         shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash1.png")));

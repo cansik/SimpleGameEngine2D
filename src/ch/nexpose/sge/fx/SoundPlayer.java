@@ -11,7 +11,7 @@ import javax.sound.sampled.LineEvent.Type;
  */
 public class SoundPlayer
 {
-    public static boolean isMute;
+    public static boolean isMute = true;
 
     public static void playSound(URL soundFilePath)
     {

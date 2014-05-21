@@ -22,28 +22,32 @@ import java.awt.image.BufferedImage;
 public class LevelGameStory implements IGameStory
 {
     final double PLAYER_SPEED = 1;
+    final double ENEMY_SPEED = 2;
+    final int ENEMY_SPAWN_CHANCE = 30;
 
     SimpleGameEngine2D _engine;
     StoryBoard _storyBoard;
     SpaceShip player;
     ScoreText scoreText;
 
-    int _enemySpeed;
-    boolean _enemyShoot;
     int _scoreGoal;
     int _levelNumber;
 
+    int _enemySpeedingChance;
+    int _enemyShootingChance;
+
     boolean shotKeyWasPressed;
 
-    public LevelGameStory(GameScene scene, StoryBoard storyBoard, int levelNumber, int enemySpeed, boolean enemyShoot, int scoreGoal)
+    public LevelGameStory(GameScene scene, StoryBoard storyBoard, int levelNumber, int scoreGoal, int enemySpeedingChance, int enemyShootingChance)
     {
         _engine = new SimpleGameEngine2D(scene);
         _storyBoard = storyBoard;
 
         _scoreGoal = scoreGoal;
-        _enemyShoot = enemyShoot;
-        _enemySpeed = enemySpeed;
         _levelNumber = levelNumber;
+
+        _enemyShootingChance = enemyShootingChance;
+        _enemySpeedingChance = enemySpeedingChance;
 
         _engine.addGameStory(this);
     }
@@ -165,14 +169,17 @@ public class LevelGameStory implements IGameStory
     private void objectCreation()
     {
         //enemy space ship
-        if(RandomGenerator.randInt(0, 30) == 1)
+        if(RandomGenerator.getBooleanByChance(ENEMY_SPAWN_CHANCE))
         {
-            EnemySpaceShip enemy = new EnemySpaceShip(_engine, _enemyShoot);
+            EnemySpaceShip enemy = new EnemySpaceShip(_engine, RandomGenerator.getBooleanByChance(_enemyShootingChance),
+                    RandomGenerator.getBooleanByChance(_enemySpeedingChance));
+
             enemy.setLocation(new Point((int)_engine.getScene().getViewPortSize().getWidth(),
                     RandomGenerator.randInt(enemy.getSize().height,
                             (int)_engine.getScene().getViewPortSize().getHeight() - enemy.getSize().height)));
 
-            enemy.push(_enemySpeed, Direction.LEFT);
+            enemy.push(ENEMY_SPEED, Direction.LEFT);
+
             _engine.addGameObject(enemy);
         }
     }
