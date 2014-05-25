@@ -2,7 +2,7 @@ package ch.nexpose.deepspace.gui;
 
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.fx.SoundPlayer;
-import ch.nexpose.sge.objects.Object2D;
+import ch.nexpose.sge.objects.BaseObject2D;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 /**
  * Created by cansik on 05/05/14.
  */
-public class MenuControl extends Object2D
+public class MenuControl extends BaseObject2D
 {
     final int KEYBUFFER_SLEEP = 100;
 

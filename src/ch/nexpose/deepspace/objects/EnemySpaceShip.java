@@ -6,7 +6,7 @@ import ch.nexpose.sge.fx.Animation;
 import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.GravityObject2D;
-import ch.nexpose.sgetest.space.RandomGenerator;
+import ch.nexpose.deepspace.screen.RandomGenerator;
 
 import java.awt.*;
 
@@ -18,42 +18,70 @@ public class EnemySpaceShip extends GravityObject2D
     boolean isCrashing;
     int animationCounter = 0;
     boolean canShoot;
+    int protection;
+
+    Animation crashAnimation;
+    Animation burningAnimation;
 
     public EnemySpaceShip(SimpleGameEngine2D engine, boolean canShoot, boolean isSpeeding)
     {
         super(engine, null);
         setCounterforce(1);
         this.canShoot = canShoot;
+        this.protection = 2;
 
         if(canShoot)
+        {
             setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_shooting.png")));
+            protection++;
+        }
         else if(isSpeeding)
         {
             setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_speeding.png")));
             //Todo: just a workaround, use default speed of spaceship
             this.push(2, Direction.LEFT);
+            this.protection--;
         }
         else
+        {
             setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship.png")));
+        }
 
-        Animation shootAnimation = new Animation();
-        shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash1.png")));
-        shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash2.png")));
-        shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash3.png")));
-        shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash4.png")));
-        shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash5.png")));
-        shootAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash6.png")));
-        this.setAnimation(shootAnimation);
+        crashAnimation = new Animation();
+        crashAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash1.png")));
+        crashAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash2.png")));
+        crashAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash3.png")));
+        crashAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash4.png")));
+        crashAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash5.png")));
+        crashAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash6.png")));
+
+        burningAnimation = new Animation();
+        burningAnimation.setLooping(true);
+        burningAnimation.setOverlay(true);
+
+        burningAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_burning1.png")));
+        burningAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_burning2.png")));
+        burningAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_burning3.png")));
+        burningAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_burning4.png")));
     }
 
     public void crash()
     {
-        playAnimation();
-        isCrashing = true;
-        setCollisionable(false);
-        setCounterforce(0.95);
+        if(--protection <= 0)
+        {
+            this.setAnimation(crashAnimation);
+            playAnimation();
+            isCrashing = true;
+            setCollisionable(false);
+            setCounterforce(0.95);
 
-        getGameStory().scorePoint(ScoreType.Kill);
+            getGameStory().scorePoint(ScoreType.Kill);
+        }
+        else
+        {
+            setAnimation(burningAnimation);
+            playAnimation();
+        }
     }
 
     public void shoot()

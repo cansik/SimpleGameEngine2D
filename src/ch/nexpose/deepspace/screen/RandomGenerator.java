@@ -1,4 +1,4 @@
-package ch.nexpose.sgetest.space;
+package ch.nexpose.deepspace.screen;
 
 import java.util.Random;
 
@@ -7,6 +7,12 @@ import java.util.Random;
  */
 public class RandomGenerator
 {
+    /**
+     * Returns a random integer between min and max value.
+     * @param min
+     * @param max
+     * @return
+     */
     public static int randInt(int min, int max)
     {
 
@@ -20,6 +26,11 @@ public class RandomGenerator
         return randomNum;
     }
 
+    /**
+     * Returns a random boolean by the given chance.
+     * @param chance
+     * @return
+     */
     public static boolean getBooleanByChance(int chance)
     {
         if(chance > 0)

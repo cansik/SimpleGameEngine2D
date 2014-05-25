@@ -10,8 +10,8 @@ import java.awt.*;
 
 import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.collisions.Collision;
+import ch.nexpose.sge.objects.BaseObject2D;
 import ch.nexpose.sge.objects.MovingObject2D;
-import ch.nexpose.sge.objects.Object2D;
 
 /**
  *
@@ -19,7 +19,7 @@ import ch.nexpose.sge.objects.Object2D;
  */
 public class Bullet extends MovingObject2D {
     
-    public Bullet(Object2D shooter)
+    public Bullet(BaseObject2D shooter)
     {
         super(shooter.getEngine());
         this.setColor(Color.yellow);

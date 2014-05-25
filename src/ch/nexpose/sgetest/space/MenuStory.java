@@ -5,7 +5,7 @@ import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.story.StoryBoard;
 import ch.nexpose.sge.objects.AnimatedObject2D;
-import ch.nexpose.sge.objects.FlashingText;
+import ch.nexpose.deepspace.gui.FlashingText;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

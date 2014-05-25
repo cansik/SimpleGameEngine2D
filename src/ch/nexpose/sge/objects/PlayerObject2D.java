@@ -13,6 +13,7 @@ import ch.nexpose.sge.SimpleGameEngine2D;
 /**
  *
  * @author cansik
+ * @deprecated use a {@link ch.nexpose.sge.story.IGameStory} to implement player interaction instead.
  */
 public class PlayerObject2D extends MovingObject2D {
 

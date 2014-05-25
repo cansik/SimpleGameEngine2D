@@ -13,6 +13,10 @@ public class SoundPlayer
 {
     public static boolean isMute = true;
 
+    /**
+     * Creates a new thread to play the given sound file.
+     * @param soundFilePath
+     */
     public static void playSound(URL soundFilePath)
     {
         if(!isMute)

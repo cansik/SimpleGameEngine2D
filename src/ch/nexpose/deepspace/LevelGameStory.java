@@ -10,7 +10,7 @@ import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.story.StoryBoard;
 import ch.nexpose.sge.ui.GameScene;
-import ch.nexpose.sgetest.space.RandomGenerator;
+import ch.nexpose.deepspace.screen.RandomGenerator;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -23,7 +23,6 @@ public class LevelGameStory implements IGameStory
 {
     final double PLAYER_SPEED = 1;
     final double ENEMY_SPEED = 2;
-    final int ENEMY_SPAWN_CHANCE = 30;
 
     SimpleGameEngine2D _engine;
     StoryBoard _storyBoard;
@@ -35,10 +34,11 @@ public class LevelGameStory implements IGameStory
 
     int _enemySpeedingChance;
     int _enemyShootingChance;
+    int _enemySpawnChance;
 
     boolean shotKeyWasPressed;
 
-    public LevelGameStory(GameScene scene, StoryBoard storyBoard, int levelNumber, int scoreGoal, int enemySpeedingChance, int enemyShootingChance)
+    public LevelGameStory(GameScene scene, StoryBoard storyBoard, int levelNumber, int enemySpawnChance, int scoreGoal, int enemySpeedingChance, int enemyShootingChance)
     {
         _engine = new SimpleGameEngine2D(scene);
         _storyBoard = storyBoard;
@@ -48,6 +48,7 @@ public class LevelGameStory implements IGameStory
 
         _enemyShootingChance = enemyShootingChance;
         _enemySpeedingChance = enemySpeedingChance;
+        _enemySpawnChance = enemySpawnChance;
 
         _engine.addGameStory(this);
     }
@@ -169,7 +170,7 @@ public class LevelGameStory implements IGameStory
     private void objectCreation()
     {
         //enemy space ship
-        if(RandomGenerator.getBooleanByChance(ENEMY_SPAWN_CHANCE))
+        if(RandomGenerator.getBooleanByChance(_enemySpawnChance))
         {
             EnemySpaceShip enemy = new EnemySpaceShip(_engine, RandomGenerator.getBooleanByChance(_enemyShootingChance),
                     RandomGenerator.getBooleanByChance(_enemySpeedingChance));

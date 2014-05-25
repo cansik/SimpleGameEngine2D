@@ -1,4 +1,4 @@
-package ch.nexpose.sge.objects;
+package ch.nexpose.deepspace.gui;
 
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.objects.TextObject2D;
@@ -38,12 +38,12 @@ public class FlashingText extends TextObject2D
 
         super.paint(g);
 
-        if(currentAlpha + flashSpeed < 0 || currentAlpha + flashSpeed > 255)
+        if (currentAlpha + flashSpeed < 0 || currentAlpha + flashSpeed > 255)
         {
             flashSpeed = flashSpeed * (-1);
         }
 
-            currentAlpha += flashSpeed;
+        currentAlpha += flashSpeed;
     }
 
 }

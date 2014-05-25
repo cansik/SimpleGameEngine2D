@@ -17,6 +17,9 @@ public class AudioFile extends Thread
         this.clipFile = clipFile;
     }
 
+    /**
+     * Thread run function.
+     */
     @Override
     public void run()
     {
@@ -30,6 +33,13 @@ public class AudioFile extends Thread
         }
     }
 
+    /**
+     * Plays a sound and waits for the sound to stop.
+     * @throws IOException
+     * @throws UnsupportedAudioFileException
+     * @throws LineUnavailableException
+     * @throws InterruptedException
+     */
     private void playSound() throws IOException,
             UnsupportedAudioFileException, LineUnavailableException, InterruptedException
     {

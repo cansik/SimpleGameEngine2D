@@ -12,6 +12,18 @@ public class Animation
     int speedCounter = 0;
     int speed = 1;
     ArrayList<Image> frames;
+    boolean looping = false;
+    boolean overlay;
+
+    public boolean isOverlay()
+    {
+        return overlay;
+    }
+
+    public void setOverlay(boolean overlay)
+    {
+        this.overlay = overlay;
+    }
 
     public int getSpeed()
     {
@@ -33,17 +45,34 @@ public class Animation
         this.frames = frames;
     }
 
+    public boolean isLooping()
+    {
+        return looping;
+    }
+
+    public void setLooping(boolean looping)
+    {
+        this.looping = looping;
+    }
+
     public Animation()
     {
         frames = new ArrayList<Image>();
     }
 
+    /**
+     * Plays the animation.
+     */
     public void play()
     {
         this.frameCounter = 0;
         this.speedCounter = 0;
     }
 
+    /**
+     * Returns the next frame of the animation.
+     * @return
+     */
     public Image next()
     {
         if(++speedCounter > speed)

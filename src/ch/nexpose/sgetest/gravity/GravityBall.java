@@ -3,9 +3,9 @@ package ch.nexpose.sgetest.gravity;
 import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.collisions.Collision;
+import ch.nexpose.sge.objects.BaseObject2D;
 import ch.nexpose.sge.objects.GravityObject2D;
-import ch.nexpose.sge.objects.Object2D;
-import ch.nexpose.sgetest.space.RandomGenerator;
+import ch.nexpose.deepspace.screen.RandomGenerator;
 
 import java.awt.*;
 
@@ -53,8 +53,8 @@ public class GravityBall extends GravityObject2D
 
     private void onCollisionEat(Collision c)
     {
-        Object2D winner;
-        Object2D loser;
+        BaseObject2D winner;
+        BaseObject2D loser;
 
         if(c.getSecondObject().getSize().width < c.getFirstObject().getSize().width)
         {

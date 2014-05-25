@@ -52,6 +52,11 @@ public class GravityObject2D extends AnimatedObject2D
         this.velocityY = velocityY;
     }
 
+    /**
+     * Push the object into a specific direction.
+     * @param impact
+     * @param direction
+     */
     public void push(double impact, Direction direction)
     {
         switch (direction) {

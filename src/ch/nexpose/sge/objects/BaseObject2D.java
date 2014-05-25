@@ -13,10 +13,10 @@ import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.collisions.CollisionListener;
 
 /**
- *
+ * Base game object which implements all the stuff of every game object.
  * @author cansik
  */
-public abstract class Object2D implements CollisionListener
+public abstract class BaseObject2D implements CollisionListener
 {
 
     boolean alive;
@@ -28,7 +28,7 @@ public abstract class Object2D implements CollisionListener
     boolean collisionable;
 
     
-    public Object2D(SimpleGameEngine2D engine)
+    public BaseObject2D(SimpleGameEngine2D engine)
     {
         this.alive = true;
         this.collisionable = true;
@@ -99,20 +99,33 @@ public abstract class Object2D implements CollisionListener
         this.location = location;
     }
 
+    /**
+     * Returns the center location of the object (default x+w / 2, y+h / 2).
+     * @return
+     */
     public Point getCenterLocation()
     {
         Point l = getLocation();
         Dimension s = getSize();
         return new Point(l.x + (int)(s.width / 2), l.y + (int)(s.height / 2));
     }
-    
+
+    /**
+     * Paints the graphics onto the frame.
+     * @param g
+     */
     public void paint(Graphics2D g)
     {
         g.setColor(color);
         g.drawRect(this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height);
     }
-    
-    public Collision detectCollision(Object2D object)
+
+    /**
+     * Algorithm to detect, if the object has hit another object.
+     * @param object
+     * @return
+     */
+    public Collision detectCollision(BaseObject2D object)
     {
         Collision c = null;
         Rectangle localHitbox = new Rectangle(this.getLocation(), this.getSize());
@@ -135,14 +148,23 @@ public abstract class Object2D implements CollisionListener
         return c;
     }
 
+    /**
+     * Centers the object on the screen by x and y.
+     */
     public void centerOnScene()
     {
         this.setLocation(new Point(((int)engine.getScene().getViewPortSize().getWidth() / 2) - (int)(this.getSize().width / 2),
                 (int)((int)engine.getScene().getViewPortSize().getHeight() / 2) - (int)(this.getSize().height / 2)));
     }
 
-
+    /**
+     * Implement your game object logic here.
+     */
     public void action() {};
 
+    /**
+     * Fires if the object was hit by another object.
+     * @param c
+     */
     public void collisionDetected(Collision c) {};
 }

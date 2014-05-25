@@ -41,6 +41,9 @@ public class AnimatedObject2D extends TexturedObject2D
         this.animation = animation;
     }
 
+    /**
+     * Plays the animation.
+     */
     public void playAnimation()
     {
         if(!animated)
@@ -60,14 +63,28 @@ public class AnimatedObject2D extends TexturedObject2D
             {
                 ImageIcon ico = new ImageIcon(frame);
                 Dimension frameSize = new Dimension(ico.getIconWidth(), ico.getIconHeight());
+
+                //draw original texture
+                if(animation.isOverlay())
+                    g.drawImage(texture, this.getLocation().x, this.getLocation().y, frameSize.width, frameSize.height, null);
+
+                //draw animation
                 g.drawImage(frame, this.getLocation().x, this.getLocation().y, frameSize.width, frameSize.height, null);
 
                 //g.drawImage(frame, this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height, null);
             }
             else
             {
-                animated = false;
-                super.paint(g);
+                if(animation.isLooping())
+                {
+                    animation.play();
+                    super.paint(g);
+                }
+                else
+                {
+                    animated = false;
+                    super.paint(g);
+                }
             }
 
         }

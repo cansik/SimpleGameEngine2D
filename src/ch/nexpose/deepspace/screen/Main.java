@@ -1,4 +1,4 @@
-package ch.nexpose.sgetest;
+package ch.nexpose.deepspace.screen;
 
 public class Main {
 

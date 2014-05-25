@@ -28,6 +28,10 @@ public class TexturedObject2D extends MovingObject2D
         this.opacity = opacity;
     }
 
+    /**
+     * Sets the new texture of the object and resize the object to the texture size.
+     * @param texture
+     */
     public void setTexture(Image texture)
     {
         this.texture = texture;

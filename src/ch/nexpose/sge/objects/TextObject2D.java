@@ -58,6 +58,11 @@ public class TextObject2D extends MovingObject2D
         return new Dimension(width, Math.round(getTextHeight(this.text)));
     }
 
+    /**
+     * Returns the height of the text depending on the scene metrics.
+     * @param label
+     * @return
+     */
     private float getTextHeight(String label) {
         Graphics2D g2 = (Graphics2D)engine.getScene().getGraphics();
         FontRenderContext frc = g2.getFontRenderContext();

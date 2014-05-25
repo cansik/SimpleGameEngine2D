@@ -4,8 +4,8 @@ import ch.nexpose.deepspace.LevelGameStory;
 import ch.nexpose.deepspace.gui.ScoreType;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.collisions.Collision;
+import ch.nexpose.sge.objects.BaseObject2D;
 import ch.nexpose.sge.objects.GravityObject2D;
-import ch.nexpose.sge.objects.Object2D;
 
 import java.awt.*;
 
@@ -14,19 +14,19 @@ import java.awt.*;
  */
 public class Bullet extends GravityObject2D
 {
-    Object2D parent;
+    BaseObject2D parent;
 
-    public Object2D getParent()
+    public BaseObject2D getParent()
     {
         return parent;
     }
 
-    public void setParent(Object2D parent)
+    public void setParent(BaseObject2D parent)
     {
         this.parent = parent;
     }
 
-    public Bullet(SimpleGameEngine2D engine, Object2D parent)
+    public Bullet(SimpleGameEngine2D engine, BaseObject2D parent)
     {
         super(engine, null);
         this.parent = parent;
@@ -50,7 +50,7 @@ public class Bullet extends GravityObject2D
     @Override
     public void collisionDetected(Collision c)
     {
-        Object2D crashedObject = c.getEnemyObject(this);
+        BaseObject2D crashedObject = c.getEnemyObject(this);
 
         if(parent != crashedObject)
         {

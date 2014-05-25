@@ -6,7 +6,8 @@
 
 package ch.nexpose.sge.collisions;
 
-import ch.nexpose.sge.objects.Object2D;
+import ch.nexpose.sge.objects.BaseObject2D;
+
 import java.util.ArrayList;
 
 /**
@@ -15,7 +16,11 @@ import java.util.ArrayList;
  */
 public class CollisionDetector {
 
-    public void detectCollisions(ArrayList<Object2D> objects)
+    /**
+     * Detects if a collision between two objects happened.
+     * @param objects
+     */
+    public void detectCollisions(ArrayList<BaseObject2D> objects)
     {
         for(int c = 0; c < objects.size(); c++)
         {

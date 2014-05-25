@@ -18,16 +18,6 @@ class EngineDebugger implements IGameStory
     public EngineDebugger(SimpleGameEngine2D engine)
     {
         this.engine = engine;
-
-        debugText = new TextObject2D(engine, "FPS: detecting");
-        debugText.setColor(Color.white);
-        debugText.setLocation(new Point(30, 30));
-        debugText.setCollisionable(false);
-        debugText.setFont(new Font("Verdana", Font.PLAIN, 12));
-
-        this.engine.addGameObject(debugText);
-
-        frameCounterStartTime = System.currentTimeMillis();
     }
 
     @Override
@@ -48,7 +38,15 @@ class EngineDebugger implements IGameStory
     @Override
     public void runStory()
     {
+        debugText = new TextObject2D(engine, "FPS: detecting");
+        debugText.setColor(Color.white);
+        debugText.setLocation(new Point(30, 30));
+        debugText.setCollisionable(false);
+        debugText.setFont(new Font("Verdana", Font.PLAIN, 12));
 
+        this.engine.addGameObject(debugText);
+
+        frameCounterStartTime = System.currentTimeMillis();
     }
 
     @Override

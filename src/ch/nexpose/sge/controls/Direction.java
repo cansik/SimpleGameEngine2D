@@ -7,7 +7,7 @@
 package ch.nexpose.sge.controls;
 
 /**
- *
+ * Moving direction of an object.
  * @author cansik
  */
 public enum Direction

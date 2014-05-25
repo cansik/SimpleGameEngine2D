@@ -6,46 +6,52 @@
 
 package ch.nexpose.sge.collisions;
 
-import ch.nexpose.sge.objects.Object2D;
+import ch.nexpose.sge.objects.BaseObject2D;
+
 import java.awt.Point;
 
 /**
- *
+ * Represents a collision of two objects.
  * @author cansik
  */
 public class Collision {
     Point location;
-    Object2D firstObject;
-    Object2D secondObject;
+    BaseObject2D firstObject;
+    BaseObject2D secondObject;
 
     public Point getLocation()
     {
         return location;
     }
 
-    public Object2D getFirstObject()
+    public BaseObject2D getFirstObject()
     {
         return firstObject;
     }
 
-    public Object2D getSecondObject()
+    public BaseObject2D getSecondObject()
     {
         return secondObject;
     }
 
-    public Collision(Object2D firstObject, Object2D secondObject)
+    public Collision(BaseObject2D firstObject, BaseObject2D secondObject)
     {
         this.firstObject = firstObject;
         this.secondObject = secondObject;
     }
     
-    public Collision(Object2D firstObject, Object2D secondObject, Point location)
+    public Collision(BaseObject2D firstObject, BaseObject2D secondObject, Point location)
     {
         this(firstObject, secondObject);
         this.location = location;
     }
 
-    public Object2D getEnemyObject(Object2D mainObject)
+    /**
+     * Returns the other object of the collision.
+     * @param mainObject
+     * @return
+     */
+    public BaseObject2D getEnemyObject(BaseObject2D mainObject)
     {
         if(firstObject.equals(mainObject))
             return secondObject;

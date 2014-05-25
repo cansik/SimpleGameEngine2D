@@ -33,6 +33,9 @@ public class InputTracker
         this.detectionPaused = detectionPaused;
     }
 
+    /**
+     * Opens the input manager to listen on events.
+     */
     public void openInputManager()
     {
         this.keyBoardEvents = new HashSet<Integer>();
@@ -56,16 +59,28 @@ public class InputTracker
         scene.addKeyListener(keyAdapter);
     }
 
+    /**
+     * Close the input manager.
+     */
     public void closeInputManager()
     {
         scene.removeKeyListener(keyAdapter);
     }
 
+    /**
+     * Check if key is currently pressed.
+     * @param keyCode
+     * @return
+     */
     public boolean isKeyPressed(int keyCode)
     {
         return keyBoardEvents.contains(keyCode);
     }
 
+    /**
+     * Releases a key even if it is currently pressed.
+     * @param keyCode
+     */
     public void releaseKey(int keyCode)
     {
         if(isKeyPressed(keyCode))

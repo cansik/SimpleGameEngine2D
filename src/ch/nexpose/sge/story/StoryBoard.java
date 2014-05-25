@@ -15,11 +15,19 @@ public class StoryBoard
         storyBoard = new ArrayList<IGameStory>();
     }
 
+    /**
+     * Adds a story to the storyboard.
+     * @param story
+     */
     public void addGameStory(IGameStory story)
     {
         this.storyBoard.add(story);
     }
 
+    /**
+     * Returns the next story from the storyboard.
+     * @return
+     */
     public IGameStory getNextStory()
     {
         return storyBoard.get(currentStory++);

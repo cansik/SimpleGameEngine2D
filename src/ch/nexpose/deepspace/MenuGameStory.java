@@ -57,12 +57,12 @@ public class MenuGameStory implements IGameStory
         int levelNumber = 1;
         StoryBoard levelGameStoryBoard = new StoryBoard();
 
-        int levelGoal = 5;
+        int levelGoal = 30;
 
-        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 0, 0));
-        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 0, 15));
-        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 15, 0));
-        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 15, 15));
+        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 50, 0, 0));
+        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 40, 0, 3));
+        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 30, 3, 0));
+        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 30, 3, 3));
         levelGameStoryBoard.addGameStory(this);
 
         _menu = new MenuControl(_engine);

@@ -1,4 +1,4 @@
-package ch.nexpose.sgetest;
+package ch.nexpose.deepspace.screen;
 
 import ch.nexpose.deepspace.IntroGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
