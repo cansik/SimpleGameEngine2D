@@ -48,6 +48,7 @@ public class EnemySpaceShip extends GravityObject2D
         }
 
         crashAnimation = new Animation();
+        //Todo: batch import of images to animation.
         crashAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash1.png")));
         crashAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash2.png")));
         crashAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_crash3.png")));
@@ -65,10 +66,14 @@ public class EnemySpaceShip extends GravityObject2D
         burningAnimation.getFrames().add(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_burning4.png")));
     }
 
-    public void crash()
+    /**
+     * Hit the space ship.
+     */
+    public void hit()
     {
         if(--protection <= 0)
         {
+            //crashing
             this.setAnimation(crashAnimation);
             playAnimation();
             isCrashing = true;
@@ -84,6 +89,9 @@ public class EnemySpaceShip extends GravityObject2D
         }
     }
 
+    /**
+     * Shoot a shot.
+     */
     public void shoot()
     {
         this.playAnimation();
@@ -96,6 +104,10 @@ public class EnemySpaceShip extends GravityObject2D
         getEngine().addGameObject(b);
     }
 
+    /**
+     * Returns the current game story.
+     * @return
+     */
     private LevelGameStory getGameStory()
     {
         return (LevelGameStory)getEngine().getGameStories().get(0);

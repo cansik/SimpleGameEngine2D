@@ -58,7 +58,7 @@ public class Bullet extends GravityObject2D
             if (crashedObject instanceof EnemySpaceShip)
             {
                 EnemySpaceShip enemy = (EnemySpaceShip) crashedObject;
-                enemy.crash();
+                enemy.hit();
             }
 
             if(crashedObject instanceof SpaceShip)
@@ -69,6 +69,10 @@ public class Bullet extends GravityObject2D
         }
     }
 
+    /**
+     * Returns the current game story.
+     * @return
+     */
     private LevelGameStory getGameStory()
     {
         return (LevelGameStory)getEngine().getGameStories().get(0);

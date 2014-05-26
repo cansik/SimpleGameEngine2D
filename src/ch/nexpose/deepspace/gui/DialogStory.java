@@ -11,6 +11,7 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 /**
+ * Dialog hud over the screen.
  * Created by cansik on 21/05/14.
  */
 public class DialogStory implements IGameStory

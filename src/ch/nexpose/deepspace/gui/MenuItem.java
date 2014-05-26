@@ -64,6 +64,11 @@ public class MenuItem extends TextObject2D
         }
     }
 
+    /**
+     * Negates a given color.
+     * @param c
+     * @return
+     */
     private Color negateColor(Color c)
     {
         return new Color(255 - c.getRed(),

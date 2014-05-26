@@ -30,6 +30,9 @@ public class SpaceShip extends GravityObject2D
         this.setBordercheck(true);
     }
 
+    /**
+     * Shoot a shot from the spaceship.
+     */
     public void shoot()
     {
         this.playAnimation();

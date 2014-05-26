@@ -13,9 +13,6 @@ import java.util.ArrayList;
  */
 public class MenuControl extends BaseObject2D
 {
-    final int KEYBUFFER_SLEEP = 100;
-
-
     ArrayList<MenuItem> items;
     int selectedIndex = 0;
     int textSize = 20;
@@ -28,6 +25,10 @@ public class MenuControl extends BaseObject2D
         items = new ArrayList<MenuItem>();
     }
 
+    /**
+     * Adds a new menu item to the menu.
+     * @param item
+     */
     public void addItem(MenuItem item)
     {
         items.add(item);

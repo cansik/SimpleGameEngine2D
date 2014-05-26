@@ -101,6 +101,9 @@ public class LevelGameStory implements IGameStory
         _engine.startEngine();
     }
 
+    /**
+     * Shows that the player was hit in a hud.
+     */
     private void showHitInfo()
     {
         InfoText levelInfo = new InfoText(_engine, "You lost a life!", 20);
@@ -112,6 +115,10 @@ public class LevelGameStory implements IGameStory
         _engine.addGameObject(levelInfo);
     }
 
+    /**
+     * Fire if a new point has been scored.
+     * @param score
+     */
     public void scorePoint(ScoreType score)
     {
         switch(score)
@@ -139,6 +146,10 @@ public class LevelGameStory implements IGameStory
         }
     }
 
+    /**
+     * Shows win or lose screen.
+     * @param won
+     */
     private void showWinLoseScreen(boolean won)
     {
         _engine.stopEngine();
@@ -167,6 +178,9 @@ public class LevelGameStory implements IGameStory
         dialog.runStory();
     }
 
+    /**
+     * Creates spawn obejcts like enemy spaceships.
+     */
     private void objectCreation()
     {
         //enemy space ship
@@ -185,6 +199,9 @@ public class LevelGameStory implements IGameStory
         }
     }
 
+    /**
+     * Handles player interaction.
+     */
     private void playerSteering()
     {
         if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_RIGHT))

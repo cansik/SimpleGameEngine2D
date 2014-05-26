@@ -37,6 +37,11 @@ public class MovingBackground extends TexturedObject2D
         //Todo: get image size doesn't work!
     }
 
+    /**
+     * Switches location of two images.
+     * @param object1
+     * @param object2
+     */
     private void setLocationOrder(TexturedObject2D object1, TexturedObject2D object2)
     {
         object1.setLocation(new Point(0, 0));
