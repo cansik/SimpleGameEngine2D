@@ -3,6 +3,7 @@ package ch.nexpose.deepspace;
 import ch.nexpose.deepspace.objects.MovingBackground;
 import ch.nexpose.sge.*;
 import ch.nexpose.deepspace.gui.FlashingText;
+import ch.nexpose.sge.fx.SoundPlayer;
 import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.ui.GameScene;
 
@@ -20,7 +21,7 @@ public class IntroGameStory implements IGameStory
     {
         _engine = new SimpleGameEngine2D(scene);
 
-        _engine.addGameStory(this);
+        _engine.addNextFrameListener(this);
     }
 
     @Override
@@ -47,7 +48,11 @@ public class IntroGameStory implements IGameStory
 
         //Background
         Image bg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/background.png"));
-        MovingBackground background = new MovingBackground(_engine, bg, new Dimension(1000, 480));
+        MovingBackground background = new MovingBackground(_engine, bg);
+
+        //BackgroundMusic
+        //SoundPlayer.isMute = false;
+        SoundPlayer.playSound(getClass().getResourceAsStream("/resources/sounds/background_music.wav"), true);
 
         //add game objects
         _engine.addGameObject(background);

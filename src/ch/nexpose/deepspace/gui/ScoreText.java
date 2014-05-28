@@ -11,6 +11,7 @@ public class ScoreText extends TextObject2D
     int points;
     int lifes;
     int level;
+    int maxlifes;
     StringBuilder builder;
 
     public int getLevel()
@@ -43,6 +44,16 @@ public class ScoreText extends TextObject2D
         this.points = points;
     }
 
+    public int getMaxlifes()
+    {
+        return maxlifes;
+    }
+
+    public void setMaxlifes(int maxlifes)
+    {
+        this.maxlifes = maxlifes;
+    }
+
     public ScoreText(SimpleGameEngine2D engine)
     {
         super(engine);
@@ -55,8 +66,17 @@ public class ScoreText extends TextObject2D
 
         builder.append("Level: " + level + " | ");
         builder.append("Points: " + points + " | ");
-        for(int i = 0; i < lifes; i++)
-            builder.append("\u2665");
+        builder.append("Life: [");
+
+        for (int i = 0; i < maxlifes; i++)
+        {
+            if (i + 1 <= lifes)
+                builder.append("=");
+            else
+                builder.append("  ");
+        }
+        builder.append("]");
+        //builder.append("\u2665");
 
         this.setText(builder.toString());
     }

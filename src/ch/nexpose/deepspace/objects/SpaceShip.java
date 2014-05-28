@@ -1,5 +1,8 @@
 package ch.nexpose.deepspace.objects;
 
+import ch.nexpose.deepspace.LevelGameStory;
+import ch.nexpose.deepspace.gui.ScoreType;
+import ch.nexpose.sge.collisions.Collision;
 import ch.nexpose.sge.fx.Animation;
 import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
@@ -36,11 +39,32 @@ public class SpaceShip extends GravityObject2D
     public void shoot()
     {
         this.playAnimation();
-        SoundPlayer.playSound(getClass().getResource("/resources/sounds/laser_shot.wav"));
+        SoundPlayer.playSound(getClass().getResourceAsStream("/resources/sounds/laser_shot.wav"));
 
         Bullet b = new Bullet(getEngine(), this);
         b.push(48, Direction.RIGHT);
 
         getEngine().addGameObject(b);
+    }
+
+    /**
+     * Returns the current game story.
+     * @return
+     */
+    private LevelGameStory getGameStory()
+    {
+        return (LevelGameStory)getEngine().getNextFrameListener().get(0);
+    }
+
+    @Override
+    public void collisionDetected(Collision c)
+    {
+        if(c.getEnemyObject(this) instanceof  EnemySpaceShip)
+        {
+            EnemySpaceShip enemy = (EnemySpaceShip)c.getEnemyObject(this);
+            enemy.crash();
+
+            getGameStory().scorePoint(ScoreType.Life);
+        }
     }
 }

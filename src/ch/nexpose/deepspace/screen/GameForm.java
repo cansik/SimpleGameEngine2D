@@ -71,10 +71,10 @@ public class GameForm
         JumpStory jumpStory = new JumpStory(engine);
         GravityStory gravityStory = new GravityStory(engine);
 
-        board.addGameStory(gravityStory);
-        board.addGameStory(jumpStory);
-        board.addGameStory(menu);
-        board.addGameStory(game);
+        board.addNextFrameListener(gravityStory);
+        board.addNextFrameListener(jumpStory);
+        board.addNextFrameListener(menu);
+        board.addNextFrameListener(game);
         */
     }
 }

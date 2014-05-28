@@ -28,6 +28,7 @@ public class TextObject2D extends MovingObject2D
         this.font = new Font(DEFAULT_FONT, Font.PLAIN, 20);
 
         this.setLocation(new Point(0, 0));
+        this.setCollisionable(false);
     }
 
     public Font getFont()

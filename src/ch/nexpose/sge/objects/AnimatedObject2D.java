@@ -35,6 +35,11 @@ public class AnimatedObject2D extends TexturedObject2D
         this(engine, texture, new Animation());
     }
 
+    public AnimatedObject2D(SimpleGameEngine2D engine)
+    {
+        this(engine, null);
+    }
+
     public AnimatedObject2D(SimpleGameEngine2D engine, Image texture, Animation animation)
     {
         super(engine, texture);

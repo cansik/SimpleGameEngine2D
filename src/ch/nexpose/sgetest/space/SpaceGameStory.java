@@ -31,12 +31,12 @@ public class SpaceGameStory implements IGameStory
                 (int)(this.engine.getScene().getViewPortSize().getHeight() / 2) - (int)(ship.getSize().height / 2)));
 
         Image bg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/background.png"));
-        MovingBackground background = new MovingBackground(engine, bg, new Dimension(1000, 480));
+        MovingBackground background = new MovingBackground(engine, bg);
 
         engine.addGameObject(background);
         engine.addGameObject(ship);
 
-        this.engine.addGameStory(this);
+        this.engine.addNextFrameListener(this);
     }
 
     @Override

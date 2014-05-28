@@ -23,7 +23,7 @@ public class EnemySpaceShip extends GravityObject2D
     Animation crashAnimation;
     Animation burningAnimation;
 
-    public EnemySpaceShip(SimpleGameEngine2D engine, boolean canShoot, boolean isSpeeding)
+    public EnemySpaceShip(SimpleGameEngine2D engine, double speed, boolean canShoot, boolean isSpeeding)
     {
         super(engine, null);
         setCounterforce(1);
@@ -34,18 +34,20 @@ public class EnemySpaceShip extends GravityObject2D
         {
             setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_shooting.png")));
             protection++;
+            speed *= 0.5;
         }
         else if(isSpeeding)
         {
             setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_speeding.png")));
-            //Todo: just a workaround, use default speed of spaceship
-            this.push(2, Direction.LEFT);
             this.protection--;
+            speed *= 2;
         }
         else
         {
             setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship.png")));
         }
+
+        this.push(speed, Direction.LEFT);
 
         crashAnimation = new Animation();
         //Todo: batch import of images to animation.
@@ -73,20 +75,27 @@ public class EnemySpaceShip extends GravityObject2D
     {
         if(--protection <= 0)
         {
-            //crashing
-            this.setAnimation(crashAnimation);
-            playAnimation();
-            isCrashing = true;
-            setCollisionable(false);
-            setCounterforce(0.95);
-
-            getGameStory().scorePoint(ScoreType.Kill);
+            crash();
         }
         else
         {
             setAnimation(burningAnimation);
             playAnimation();
         }
+    }
+
+    /**
+     * Crashes the spaceship.
+     */
+    public void crash()
+    {
+        this.setAnimation(crashAnimation);
+        playAnimation();
+        isCrashing = true;
+        setCollisionable(false);
+        setCounterforce(0.95);
+
+        getGameStory().scorePoint(ScoreType.Kill);
     }
 
     /**
@@ -110,7 +119,7 @@ public class EnemySpaceShip extends GravityObject2D
      */
     private LevelGameStory getGameStory()
     {
-        return (LevelGameStory)getEngine().getGameStories().get(0);
+        return (LevelGameStory)getEngine().getNextFrameListener().get(0);
     }
 
     @Override

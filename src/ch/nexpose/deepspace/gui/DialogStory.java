@@ -44,7 +44,7 @@ public class DialogStory implements IGameStory
     public DialogStory(GameScene scene, String message, IGameStory nextStoryYes, IGameStory nextStoryNo)
     {
         _engine = new SimpleGameEngine2D(scene);
-        _engine.addGameStory(this);
+        _engine.addNextFrameListener(this);
 
         _message = message;
         _nextStoryYes = nextStoryYes;

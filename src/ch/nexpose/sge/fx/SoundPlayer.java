@@ -3,6 +3,7 @@ package ch.nexpose.sge.fx;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import javax.sound.sampled.LineEvent.Type;
 
@@ -15,14 +16,19 @@ public class SoundPlayer
 
     /**
      * Creates a new thread to play the given sound file.
-     * @param soundFilePath
+     * @param soundFileStream
      */
-    public static void playSound(URL soundFilePath)
+    public static void playSound(InputStream soundFileStream, boolean loop)
     {
         if(!isMute)
         {
-            AudioFile sound = new AudioFile(new File(soundFilePath.getPath()));
+            AudioFile sound = new AudioFile(soundFileStream, loop);
             sound.start();
         }
+    }
+
+    public static void playSound(InputStream soundFileStream)
+    {
+        playSound(soundFileStream, false);
     }
 }

@@ -1,4 +1,4 @@
-package ch.nexpose.sgetest.gravity;
+package ch.nexpose.deepspace.objects;
 
 import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.SimpleGameEngine2D;
@@ -17,10 +17,12 @@ public class GravityBall extends GravityObject2D
     final int GROWTH_INDEX = 10;
     final int SPEED_INDEX = 1;
 
+    int deathCounter = 0;
+
     public GravityBall(SimpleGameEngine2D engine, Image texture)
     {
         super(engine, texture);
-        this.setCounterforce(0.9999);
+        this.setCounterforce(0.9);
 
         int rnd1 = RandomGenerator.randInt(0, 3);
         int rnd2 = RandomGenerator.randInt(0, 3);
@@ -32,23 +34,41 @@ public class GravityBall extends GravityObject2D
                 RandomGenerator.randInt(0, engine.getScene().getWidth()),
                 RandomGenerator.randInt(0, engine.getScene().getHeight())));
 
-        this.setSize(new Dimension(50, 50));
-
         this.setBordercheck(true);
+        this.setOpacity((float)Math.random());
+
+        if(!super.isOnScene())
+            putOnScene();
     }
 
     @Override
     public void action()
     {
-
         super.action();
+
+        //gravity
+        if(this.getLocation().y > 0)
+            this.push(0.5, Direction.UP);
+        else
+            deathCounter++;
+
+        setAlive(!(deathCounter == 24));
     }
 
     @Override
     public void collisionDetected(Collision c)
     {
-       onCollisionEat(c);
+        //onCollisionEat(c);
+        BaseObject2D enemy = (BaseObject2D)c.getEnemyObject(this);
 
+        if(enemy.getLocation().y < this.getLocation().y && this.getVelocityX() == 0)
+        {
+            //object is upon this
+            this.setVelocityY(0);
+
+            int rnd = RandomGenerator.randInt(0, 1);
+            this.push(Math.random(), Direction.values()[rnd]);
+        }
     };
 
     private void onCollisionEat(Collision c)
@@ -76,7 +96,7 @@ public class GravityBall extends GravityObject2D
     @Override
     public boolean isOnScene()
     {
-        //check bounds
+        /*//check bounds
         Point futureLocation = this.getNextLocation();
         Dimension sceneSize = this.getEngine().getScene().getViewPortSize();
 
@@ -99,7 +119,8 @@ public class GravityBall extends GravityObject2D
         {
             this.setVelocityY(getVelocityY() * (-1));
         }
+        */
 
-        return true;
+        return super.isOnScene();
     }
 }

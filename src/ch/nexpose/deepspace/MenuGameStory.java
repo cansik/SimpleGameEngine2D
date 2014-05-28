@@ -3,6 +3,7 @@ package ch.nexpose.deepspace;
 import ch.nexpose.deepspace.gui.MenuControl;
 import ch.nexpose.deepspace.gui.MenuItem;
 import ch.nexpose.deepspace.objects.MovingBackground;
+import ch.nexpose.deepspace.screen.LevelParser;
 import ch.nexpose.sge.fx.SoundPlayer;
 import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
@@ -23,7 +24,7 @@ public class MenuGameStory implements IGameStory
     public MenuGameStory(GameScene scene)
     {
         _engine = new SimpleGameEngine2D(scene);
-        _engine.addGameStory(this);
+        _engine.addNextFrameListener(this);
     }
 
     @Override
@@ -54,15 +55,8 @@ public class MenuGameStory implements IGameStory
         _engine.resetEngine();
 
         //Create LevelGameStoryBoard
-        int levelNumber = 1;
-        StoryBoard levelGameStoryBoard = new StoryBoard();
-
-        int levelGoal = 30;
-
-        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 50, 0, 0));
-        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 40, 0, 3));
-        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 30, 3, 0));
-        levelGameStoryBoard.addGameStory(new LevelGameStory(_engine.getScene(), levelGameStoryBoard, levelNumber++, levelGoal, 30, 3, 3));
+        LevelParser parser = new LevelParser();
+        StoryBoard levelGameStoryBoard = parser.ReadLevels(_engine.getScene());
         levelGameStoryBoard.addGameStory(this);
 
         _menu = new MenuControl(_engine);
@@ -77,7 +71,7 @@ public class MenuGameStory implements IGameStory
 
         //Background
         Image bg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/background.png"));
-        MovingBackground background = new MovingBackground(_engine, bg, new Dimension(1000, 480));
+        MovingBackground background = new MovingBackground(_engine, bg);
 
         //add game objects
         _engine.addGameObject(background);

@@ -87,7 +87,7 @@ public class MenuControl extends BaseObject2D
                 if(selectedIndex > 0)
                 {
                     selectedIndex--;
-                    SoundPlayer.playSound(getClass().getResource("/resources/sounds/menu_click.wav"));
+                    SoundPlayer.playSound(getClass().getResourceAsStream("/resources/sounds/menu_click.wav"));
                 }
                 else
                 {
@@ -108,7 +108,7 @@ public class MenuControl extends BaseObject2D
                 if(selectedIndex < items.size() - 1)
                 {
                     selectedIndex++;
-                    SoundPlayer.playSound(getClass().getResource("/resources/sounds/menu_click.wav"));
+                    SoundPlayer.playSound(getClass().getResourceAsStream("/resources/sounds/menu_click.wav"));
                 }
                 else
                 {

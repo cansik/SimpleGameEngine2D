@@ -37,8 +37,11 @@ public class TexturedObject2D extends MovingObject2D
         this.texture = texture;
 
         //set size
-        ImageIcon ico = new ImageIcon(texture);
-        this.setSize(new Dimension(ico.getIconWidth(), ico.getIconHeight()));
+        if (texture != null)
+        {
+            ImageIcon ico = new ImageIcon(texture);
+            this.setSize(new Dimension(ico.getIconWidth(), ico.getIconHeight()));
+        }
     }
 
     public TexturedObject2D(SimpleGameEngine2D engine)
@@ -52,6 +55,7 @@ public class TexturedObject2D extends MovingObject2D
 
         //Todo: use setTexture to set size of the texture => bug
         this.texture = texture;
+        this.setTexture(texture);
     }
 
     @Override
@@ -60,13 +64,15 @@ public class TexturedObject2D extends MovingObject2D
         //Show rectangle for debugging
         //g.drawRect(this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height);
 
-        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity));
+        if(opacity != 1f)
+            g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity));
 
         if(texture != null)
             g.drawImage(texture, this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height, null);
         else
             super.paint(g);
 
-        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        if(opacity != 1f)
+            g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
     }
 }

@@ -22,35 +22,69 @@ import java.awt.image.BufferedImage;
 public class LevelGameStory implements IGameStory
 {
     final double PLAYER_SPEED = 1;
-    final double ENEMY_SPEED = 2;
+    final double ENEMY_SPEED = 2.5;
 
     SimpleGameEngine2D _engine;
     StoryBoard _storyBoard;
     SpaceShip player;
     ScoreText scoreText;
 
-    int _scoreGoal;
     int _levelNumber;
 
-    int _enemySpeedingChance;
-    int _enemyShootingChance;
-    int _enemySpawnChance;
+    int scoreGoal;
+    int enemySpeedingChance;
+    int enemyShootingChance;
+    int enemySpawnChance;
 
     boolean shotKeyWasPressed;
 
-    public LevelGameStory(GameScene scene, StoryBoard storyBoard, int levelNumber, int enemySpawnChance, int scoreGoal, int enemySpeedingChance, int enemyShootingChance)
+    public LevelGameStory(GameScene scene, StoryBoard storyBoard, int levelNumber)
     {
         _engine = new SimpleGameEngine2D(scene);
         _storyBoard = storyBoard;
 
-        _scoreGoal = scoreGoal;
         _levelNumber = levelNumber;
+        _engine.addNextFrameListener(this);
+    }
 
-        _enemyShootingChance = enemyShootingChance;
-        _enemySpeedingChance = enemySpeedingChance;
-        _enemySpawnChance = enemySpawnChance;
+    public int getEnemySpeedingChance()
+    {
+        return enemySpeedingChance;
+    }
 
-        _engine.addGameStory(this);
+    public void setEnemySpeedingChance(int enemySpeedingChance)
+    {
+        this.enemySpeedingChance = enemySpeedingChance;
+    }
+
+    public int getEnemyShootingChance()
+    {
+        return enemyShootingChance;
+    }
+
+    public void setEnemyShootingChance(int enemyShootingChance)
+    {
+        this.enemyShootingChance = enemyShootingChance;
+    }
+
+    public int getEnemySpawnChance()
+    {
+        return enemySpawnChance;
+    }
+
+    public void setEnemySpawnChance(int enemySpawnChance)
+    {
+        this.enemySpawnChance = enemySpawnChance;
+    }
+
+    public int getScoreGoal()
+    {
+        return scoreGoal;
+    }
+
+    public void setScoreGoal(int scoreGoal)
+    {
+        this.scoreGoal = scoreGoal;
     }
 
     @Override
@@ -79,7 +113,8 @@ public class LevelGameStory implements IGameStory
 
         //score text
         scoreText = new ScoreText(_engine);
-        scoreText.setLifes(3);
+        scoreText.setLifes(5);
+        scoreText.setMaxlifes(10);
         scoreText.setLevel(_levelNumber);
 
         //info text
@@ -91,7 +126,7 @@ public class LevelGameStory implements IGameStory
 
         //Background
         Image bg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/background.png"));
-        MovingBackground background = new MovingBackground(_engine, bg, new Dimension(1000, 480));
+        MovingBackground background = new MovingBackground(_engine, bg);
 
         //add objects
         _engine.addGameObject(background);
@@ -126,7 +161,7 @@ public class LevelGameStory implements IGameStory
             case Kill:
                 scoreText.setPoints(scoreText.getPoints() + 1);
 
-                if(scoreText.getPoints() == _scoreGoal)
+                if(scoreText.getPoints() == scoreGoal)
                 {
                     //win
                     showWinLoseScreen(true);
@@ -184,16 +219,14 @@ public class LevelGameStory implements IGameStory
     private void objectCreation()
     {
         //enemy space ship
-        if(RandomGenerator.getBooleanByChance(_enemySpawnChance))
+        if(RandomGenerator.getBooleanByChance(enemySpawnChance))
         {
-            EnemySpaceShip enemy = new EnemySpaceShip(_engine, RandomGenerator.getBooleanByChance(_enemyShootingChance),
-                    RandomGenerator.getBooleanByChance(_enemySpeedingChance));
+            EnemySpaceShip enemy = new EnemySpaceShip(_engine, ENEMY_SPEED, RandomGenerator.getBooleanByChance(enemyShootingChance),
+                    RandomGenerator.getBooleanByChance(enemySpeedingChance));
 
             enemy.setLocation(new Point((int)_engine.getScene().getViewPortSize().getWidth(),
                     RandomGenerator.randInt(enemy.getSize().height,
                             (int)_engine.getScene().getViewPortSize().getHeight() - enemy.getSize().height)));
-
-            enemy.push(ENEMY_SPEED, Direction.LEFT);
 
             _engine.addGameObject(enemy);
         }

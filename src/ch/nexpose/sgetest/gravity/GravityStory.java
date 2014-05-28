@@ -1,5 +1,6 @@
 package ch.nexpose.sgetest.gravity;
 
+import ch.nexpose.deepspace.objects.GravityBall;
 import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
@@ -54,7 +55,7 @@ public class GravityStory implements IGameStory
         }
 
         engine.addGameObject(p);
-        engine.addGameStory(this);
+        engine.addNextFrameListener(this);
         engine.startEngine();
     }
 

@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.ui.GameScene;
 
 /**
@@ -31,7 +30,7 @@ public class SimpleGameEngine2D implements Runnable {
     GameScene scene;
     BufferedImage frame;
     CollisionDetector collisionDetector;
-    List<IGameStory> gameStories;
+    List<INextFrameListener> nextFrameListener;
     InputTracker inputTracker;
     ArrayList<BaseObject2D> gameObjects;
     Thread frameDrawer;
@@ -61,13 +60,18 @@ public class SimpleGameEngine2D implements Runnable {
         gameObjects.add(gameObject);
     }
 
-    public void addGameStory(IGameStory story) {
-        gameStories.add(story);
+    public void addNextFrameListener(INextFrameListener listener) {
+        nextFrameListener.add(listener);
     }
 
-    public List<IGameStory> getGameStories()
+    public ArrayList<BaseObject2D> getGameObjects()
     {
-        return gameStories;
+        return gameObjects;
+    }
+
+    public List<INextFrameListener> getNextFrameListener()
+    {
+        return nextFrameListener;
     }
     
     public SimpleGameEngine2D(GameScene scene)
@@ -76,7 +80,7 @@ public class SimpleGameEngine2D implements Runnable {
 
         gameObjects = new ArrayList<BaseObject2D>();
         collisionDetector = new CollisionDetector();
-        gameStories = new ArrayList<IGameStory>();
+        nextFrameListener = new ArrayList<INextFrameListener>();
         inputTracker = new InputTracker(scene);
     }
 
@@ -116,7 +120,7 @@ public class SimpleGameEngine2D implements Runnable {
     {
         //debug
         EngineDebugger debugger = new EngineDebugger(this);
-        this.addGameStory(debugger);
+        this.addNextFrameListener(debugger);
         debugger.runStory();
 
         while(running)
@@ -125,7 +129,7 @@ public class SimpleGameEngine2D implements Runnable {
             collisionDetector.detectCollisions(gameObjects);
 
             //run gamelogic
-            notifyGameLogic();
+            notifyNextFrameListener();
 
             //repainting
             Graphics2D g = this.getFrame();
@@ -146,13 +150,13 @@ public class SimpleGameEngine2D implements Runnable {
     /**
      * Notify all associated gamelogics.
      */
-    private void notifyGameLogic()
+    private void notifyNextFrameListener()
     {
         // Notify every game logic attached to this engine
         if(isRunning())
         {
-            for (IGameStory IGameStory : gameStories)
-                IGameStory.nextFrame();
+            for (INextFrameListener listener : nextFrameListener)
+                listener.nextFrame();
         }
     }
 

@@ -55,7 +55,7 @@ public class MenuStory implements IGameStory
         engine.addGameObject(startText);
         engine.addGameObject(aniDemo);
 
-        engine.addGameStory(this);
+        engine.addNextFrameListener(this);
     }
 
     @Override

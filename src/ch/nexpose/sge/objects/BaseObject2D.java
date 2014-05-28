@@ -116,7 +116,7 @@ public abstract class BaseObject2D implements CollisionListener
      */
     public void paint(Graphics2D g)
     {
-        g.setColor(color);
+        g.setColor(getColor());
         g.drawRect(this.getLocation().x, this.getLocation().y, this.getSize().width, this.getSize().height);
     }
 

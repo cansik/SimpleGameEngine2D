@@ -3,18 +3,27 @@ package ch.nexpose.sge.fx;
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by cansik on 21/05/14.
  */
 public class AudioFile extends Thread
 {
-    File clipFile;
+    InputStream clipStream;
+    boolean loop;
 
-    public AudioFile(File clipFile)
+    public AudioFile(InputStream clipStream, boolean loop)
     {
         super();
-        this.clipFile = clipFile;
+        this.clipStream = clipStream;
+        this.loop = loop;
+
+    }
+
+    public AudioFile(InputStream clipStream)
+    {
+        this(clipStream, false);
     }
 
     /**
@@ -67,7 +76,7 @@ public class AudioFile extends Thread
             }
         }
         AudioListener listener = new AudioListener();
-        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(clipFile);
+        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(clipStream);
         try
         {
             Clip clip = AudioSystem.getClip();
@@ -75,6 +84,9 @@ public class AudioFile extends Thread
             clip.open(audioInputStream);
             try
             {
+                if(loop)
+                    clip.loop(Integer.MAX_VALUE);
+
                 clip.start();
                 listener.waitUntilDone();
             } finally

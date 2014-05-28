@@ -13,13 +13,12 @@ public class MovingBackground extends TexturedObject2D
 {
     TexturedObject2D cloneImage;
 
-    public MovingBackground(SimpleGameEngine2D engine, Image backgroundImage, Dimension textureSize)
+    public MovingBackground(SimpleGameEngine2D engine, Image backgroundImage)
     {
         super(engine, backgroundImage);
         this.setDirection(Direction.LEFT);
         this.setSpeed(1);
         //this.setSize(new Dimension(backgroundImage.getWidth(engine.getScene()), backgroundImage.getHeight(engine.getScene())));
-        this.setSize(textureSize);
         this.setCollisionable(false);
         this.setColor(Color.MAGENTA);
 
@@ -28,7 +27,6 @@ public class MovingBackground extends TexturedObject2D
         cloneImage.setSpeed(1);
         cloneImage.setCollisionable(false);
         //cloneImage.setSize(new Dimension(backgroundImage.getWidth(engine.getScene()), backgroundImage.getHeight(engine.getScene())));
-        cloneImage.setSize(textureSize);
         this.setColor(Color.blue);
 
         engine.addGameObject(cloneImage);

@@ -1,6 +1,7 @@
 package ch.nexpose.sge.fx;
 
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 
 /**

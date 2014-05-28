@@ -66,7 +66,6 @@ public class MovingObject2D extends BaseObject2D
     @Override
     public void action()
     {
-
         if (!isBordercheck() || isOnScene())
             this.location = getNextLocation();
         else

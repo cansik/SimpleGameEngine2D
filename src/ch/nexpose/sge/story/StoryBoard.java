@@ -15,6 +15,11 @@ public class StoryBoard
         storyBoard = new ArrayList<IGameStory>();
     }
 
+    public ArrayList<IGameStory> getStoryBoard()
+    {
+        return storyBoard;
+    }
+
     /**
      * Adds a story to the storyboard.
      * @param story

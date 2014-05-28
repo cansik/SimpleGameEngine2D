@@ -75,6 +75,6 @@ public class Bullet extends GravityObject2D
      */
     private LevelGameStory getGameStory()
     {
-        return (LevelGameStory)getEngine().getGameStories().get(0);
+        return (LevelGameStory)getEngine().getNextFrameListener().get(0);
     }
 }
