@@ -97,17 +97,29 @@ public class DollyProperty
         this.methodName = methodName;
     }
 
+    public void reset()
+    {
+        currentValue = startValue;
+        if(startValue - endValue > 0)
+            speed *= (-1);
+    }
+
     /**
      * Runs the next step of the dolly animation.
      */
     public void nextStep()
     {
-        this.currentValue += speed;
+        int currentValueAsInt = Math.round(currentValue);
+        if(Math.abs(currentValueAsInt - endValue) > 0)
+        {
+            //next movement
+            this.currentValue += speed;
 
-        if(methodName.equals(""))
-            setValue(mainObject, Math.round(currentValue));
-        else
-            setValue(runMethodOnObject(), Math.round(currentValue));
+            if (methodName.equals(""))
+                setValue(mainObject, currentValueAsInt);
+            else
+                setValue(runMethodOnObject(), currentValueAsInt);
+        }
     }
 
     /**

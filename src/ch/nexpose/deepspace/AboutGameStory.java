@@ -46,8 +46,6 @@ public class AboutGameStory implements IGameStory
         //create new balls
         if(RandomGenerator.getBooleanByChance(10))
             _engine.addGameObject(new GravityBall(_engine, Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/ballblue.png"))));
-
-        System.out.println(introText.getLocation().toString());
     }
 
     public void pushAllBalls(double impact, Direction direction)
@@ -68,9 +66,9 @@ public class AboutGameStory implements IGameStory
         introText.centerOnScene();
 
         Dolly dolly = new Dolly(introText);
-        dolly.addProperty(new DollyProperty("x", "getLocation", 1f, 50, 100));
-        dolly.addProperty(new DollyProperty("y", "getLocation", 1f, 50, 100));
-        dolly.setMoving(true);
+        dolly.addProperty(new DollyProperty("x", "getLocation", 1f, 50, 300));
+        dolly.addProperty(new DollyProperty("y", "getLocation", 1f, 50, 300));
+        dolly.move();
 
         //Background
         Image bg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/background_water.png"));

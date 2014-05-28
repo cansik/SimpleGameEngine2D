@@ -60,6 +60,14 @@ public class Dolly implements INextFrameListener
         this.properties.add(property);
     }
 
+    public void move()
+    {
+        setMoving(true);
+
+        for (DollyProperty property : properties)
+            property.reset();
+    }
+
     @Override
     public void nextFrame()
     {
