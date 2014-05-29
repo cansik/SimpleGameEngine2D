@@ -34,7 +34,7 @@ public class EnemySpaceShip extends GravityObject2D
         {
             setTexture(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/resources/enemyspaceship_shooting.png")));
             protection++;
-            speed *= 0.5;
+            speed *= 0.75;
         }
         else if(isSpeeding)
         {

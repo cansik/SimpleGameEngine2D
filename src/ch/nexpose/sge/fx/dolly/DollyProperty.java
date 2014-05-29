@@ -11,11 +11,15 @@ public class DollyProperty
 {
     String fieldName;
     String methodName;
+
     float speed;
+    float currentValue;
+
     int time;
     int startValue;
     int endValue;
-    float currentValue;
+    int delay;
+    int frameCounter;
 
     Object mainObject;
 
@@ -26,18 +30,49 @@ public class DollyProperty
 
     public DollyProperty(String fieldName,  int time, int startValue, int endValue)
     {
-        this(fieldName, "", time, startValue, endValue);
+        this(fieldName, time, startValue, endValue, 0);
+    }
+
+    public DollyProperty(String fieldName,  int time, int startValue, int endValue, int delay)
+    {
+        this(fieldName, "", time, startValue, endValue, delay);
     }
 
     public DollyProperty(String fieldName, String methodName,  int time, int startValue, int endValue)
+    {
+        this(fieldName, methodName, time, startValue, endValue, 0);
+    }
+
+    public DollyProperty(String fieldName, String methodName,  int time, int startValue, int endValue, int delay)
     {
         this.fieldName = fieldName;
         this.time = time;
         this.startValue = startValue;
         this.endValue = endValue;
         this.methodName = methodName;
+        this.delay = delay;
 
-        this.speed = Math.abs(startValue - endValue) / time;
+        this.speed = Math.abs(startValue - endValue) / (float)time;
+    }
+
+    public int getTime()
+    {
+        return time;
+    }
+
+    public void setTime(int time)
+    {
+        this.time = time;
+    }
+
+    public int getDelay()
+    {
+        return delay;
+    }
+
+    public void setDelay(int delay)
+    {
+        this.delay = delay;
     }
 
     public Object getMainObject()
@@ -102,6 +137,7 @@ public class DollyProperty
 
     public void reset()
     {
+        frameCounter = 0;
         currentValue = startValue;
         if(startValue - endValue > 0)
             speed *= (-1);
@@ -113,7 +149,8 @@ public class DollyProperty
     public void nextStep()
     {
         int currentValueAsInt = Math.round(currentValue);
-        if(Math.abs(currentValueAsInt - endValue) > 0)
+
+        if(frameCounter++ <= time)
         {
             //next movement
             this.currentValue += speed;

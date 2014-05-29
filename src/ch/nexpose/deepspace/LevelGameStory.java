@@ -195,7 +195,7 @@ public class LevelGameStory implements IGameStory
 
         if(won)
         {
-            infoMessage = "You have reached level " + (_levelNumber + 1) + "!";
+            infoMessage = "You finished level " + (_levelNumber) + "!";
             nextStory = _storyBoard.getNextStory();
             nextStory.runStory();
         }

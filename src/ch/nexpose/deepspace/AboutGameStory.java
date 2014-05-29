@@ -6,6 +6,7 @@ import ch.nexpose.sge.controls.Direction;
 import ch.nexpose.sge.fx.dolly.Dolly;
 import ch.nexpose.sge.fx.dolly.DollyProperty;
 import ch.nexpose.sge.objects.BaseObject2D;
+import ch.nexpose.sge.objects.TextObject2D;
 import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.deepspace.gui.FlashingText;
@@ -21,12 +22,13 @@ import java.awt.event.KeyEvent;
 public class AboutGameStory implements IGameStory
 {
     private SimpleGameEngine2D _engine;
-    private FlashingText introText;
+    private boolean gameFinish;
 
-    public AboutGameStory(GameScene scene)
+    public AboutGameStory(GameScene scene, boolean gameFinish)
     {
         _engine = new SimpleGameEngine2D(scene);
         _engine.addNextFrameListener(this);
+        this.gameFinish = gameFinish;
     }
 
     @Override
@@ -58,22 +60,38 @@ public class AboutGameStory implements IGameStory
     @Override
     public void runStory()
     {
-        //INTRO TEXT
-        introText = new FlashingText(_engine, "Developed by Florian Bruggisser");
-        introText.setColor(new Color(147, 255, 133));
-        introText.setFlashSpeed(5);
-        introText.setFont(new Font("Verdana", Font.PLAIN, 30));
-        introText.centerOnScene();
-
-        Dolly dolly = new Dolly(introText);
-        dolly.addProperty(new DollyProperty("x", "getLocation", _engine.FRAMERATE * 4, 50, 300));
-        dolly.addProperty(new DollyProperty("y", "getLocation", _engine.FRAMERATE * 4, 50, 300));
-        dolly.move();
-
         //Background
         Image bg = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/background_water.png"));
         MovingBackground background = new MovingBackground(_engine, bg);
         _engine.addGameObject(background);
+
+
+        TextObject2D title = new TextObject2D(_engine, "Deep Space");
+        if(gameFinish)
+            title.setText("You finished Deep Space!");
+        title.setColor(new Color(163, 248, 255));
+        title.setFont(new Font("Verdana", Font.PLAIN, 50));
+        title.centerOnScene();
+        title.setLocation(new Point(title.getLocation().x, title.getLocation().y  - 40));
+
+        int time = 24;
+        Dolly dolly = new Dolly(new TextObject2D(_engine));
+        time = AddTitle("developed by Florian", dolly, time);
+        time = AddTitle("music by Pascal", dolly, time);
+        time = AddTitle("tested by Roman", dolly, time);
+        time = AddTitle("supported by Sara", dolly, time);
+        time = AddTitle("FHNW Informatik 2014", dolly, time);
+        time = AddTitle("www.yarx.ch", dolly, time);
+        dolly.move();
+
+        /*
+        //Move In
+        dolly.addProperty(new DollyProperty("x", "getLocation", 48 * 2, -500, 120, 48));
+        //Slow Movement
+        dolly.addProperty(new DollyProperty("x", "getLocation", 48 * 2, 120, 250, 48 * 3));
+        //Move Out
+        dolly.addProperty(new DollyProperty("x", "getLocation", 48 * 2, 250, 852, 48 * 5));
+        */
 
         for(int i = 0; i < 10; i++)
         {
@@ -81,8 +99,32 @@ public class AboutGameStory implements IGameStory
         }
 
         //add game objects
-        _engine.addGameObject(introText);
+        _engine.addGameObject(title);
         _engine.startEngine();
+    }
+
+    private int AddTitle(String message, Dolly dolly, int time)
+    {
+        //Text
+        TextObject2D text = new TextObject2D(_engine, message);
+        text.setColor(new Color(163, 248, 255));
+        text.setFont(new Font("Verdana", Font.PLAIN, 30));
+        text.centerOnScene();
+        int xmiddle = text.getLocation().x;
+        text.setLocation(new Point(-1000, text.getLocation().y + 40));
+        _engine.addGameObject(text);
+
+        dolly.setMountedObject(text);
+
+        //Movement
+        //Move In
+        dolly.addProperty(new DollyProperty("x", "getLocation", 48 * 2, -500, xmiddle - 60, time));
+        //Slow Movement
+        dolly.addProperty(new DollyProperty("x", "getLocation", 48 * 2, xmiddle - 60, xmiddle + 60, (time += 48 * 2)));
+        //Move Out
+        dolly.addProperty(new DollyProperty("x", "getLocation", 48 * 2, xmiddle + 60, 852 + 500, (time += 48 * 2)));
+
+        return time;
     }
 
     @Override

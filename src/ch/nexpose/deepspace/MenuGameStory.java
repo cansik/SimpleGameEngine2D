@@ -57,11 +57,11 @@ public class MenuGameStory implements IGameStory
         //Create LevelGameStoryBoard
         LevelParser parser = new LevelParser();
         StoryBoard levelGameStoryBoard = parser.ReadLevels(_engine.getScene());
-        levelGameStoryBoard.addGameStory(this);
+        levelGameStoryBoard.addGameStory(new AboutGameStory(_engine.getScene(), true));
 
         _menu = new MenuControl(_engine);
         _menu.addItem(new MenuItem(_engine, "New Game", levelGameStoryBoard.getNextStory()));
-        _menu.addItem(new MenuItem(_engine, "About", new AboutGameStory(_engine.getScene())));
+        _menu.addItem(new MenuItem(_engine, "About", new AboutGameStory(_engine.getScene(), false)));
         _menu.addItem(new MenuItem(_engine, "Mute true", "bla"));
         _menu.addItem(new MenuItem(_engine, "Exit"));
 

@@ -16,6 +16,7 @@ public class Dolly implements INextFrameListener
     ArrayList<DollyProperty> properties;
     BaseObject2D mountedObject;
     boolean moving;
+    int currentTime = 0;
 
     public Dolly(BaseObject2D mountedObject)
     {
@@ -64,6 +65,8 @@ public class Dolly implements INextFrameListener
     {
         setMoving(true);
 
+        currentTime = 0;
+
         for (DollyProperty property : properties)
             property.reset();
     }
@@ -74,13 +77,15 @@ public class Dolly implements INextFrameListener
         if(isMoving())
         {
             nextStep();
+            currentTime++;
         }
     }
 
     public void nextStep()
     {
         for (DollyProperty property : properties)
-            property.nextStep();
+            if(property.getDelay() <= currentTime)
+                property.nextStep();
     }
 
 }
