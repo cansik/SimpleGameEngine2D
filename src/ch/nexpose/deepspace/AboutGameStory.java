@@ -66,8 +66,8 @@ public class AboutGameStory implements IGameStory
         introText.centerOnScene();
 
         Dolly dolly = new Dolly(introText);
-        dolly.addProperty(new DollyProperty("x", "getLocation", 1f, 50, 300));
-        dolly.addProperty(new DollyProperty("y", "getLocation", 1f, 50, 300));
+        dolly.addProperty(new DollyProperty("x", "getLocation", _engine.FRAMERATE * 4, 50, 300));
+        dolly.addProperty(new DollyProperty("y", "getLocation", _engine.FRAMERATE * 4, 50, 300));
         dolly.move();
 
         //Background

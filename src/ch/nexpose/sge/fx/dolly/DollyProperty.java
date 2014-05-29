@@ -12,6 +12,7 @@ public class DollyProperty
     String fieldName;
     String methodName;
     float speed;
+    int time;
     int startValue;
     int endValue;
     float currentValue;
@@ -23,18 +24,20 @@ public class DollyProperty
 
     }
 
-    public DollyProperty(String fieldName,  float speed, int startValue, int endValue)
+    public DollyProperty(String fieldName,  int time, int startValue, int endValue)
     {
-        this(fieldName, "", speed, startValue, endValue);
+        this(fieldName, "", time, startValue, endValue);
     }
 
-    public DollyProperty(String fieldName, String methodName,  float speed, int startValue, int endValue)
+    public DollyProperty(String fieldName, String methodName,  int time, int startValue, int endValue)
     {
         this.fieldName = fieldName;
-        this.speed = speed;
+        this.time = time;
         this.startValue = startValue;
         this.endValue = endValue;
         this.methodName = methodName;
+
+        this.speed = Math.abs(startValue - endValue) / time;
     }
 
     public Object getMainObject()
