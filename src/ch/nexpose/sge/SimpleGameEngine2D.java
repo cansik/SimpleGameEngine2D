@@ -133,7 +133,7 @@ public class SimpleGameEngine2D implements Runnable {
 
             //repainting
             Graphics2D g = this.getFrame();
-            repaint(g);
+            repaint(g, true);
             g.dispose();
            
             scene.setBackgroundImage(frame);
@@ -174,13 +174,15 @@ public class SimpleGameEngine2D implements Runnable {
      * Paint the gameobjects onto the frame.
      * @param g
      */
-    private void repaint(Graphics2D g)
+    private void repaint(Graphics2D g, boolean doAction)
     {
         for(int i = 0; i < gameObjects.size(); i++)
         {
             if(gameObjects.get(i).isAlive())
             {
-                gameObjects.get(i).action();
+                if(doAction)
+                    gameObjects.get(i).action();
+
                 gameObjects.get(i).paint(g);
             }
             else
@@ -189,5 +191,14 @@ public class SimpleGameEngine2D implements Runnable {
                 i--;
             }
         }
+    }
+
+    public BufferedImage GetCurrentFrame()
+    {
+        Graphics2D g = this.getFrame();
+        repaint(g, false);
+        g.dispose();
+
+        return frame;
     }
 }

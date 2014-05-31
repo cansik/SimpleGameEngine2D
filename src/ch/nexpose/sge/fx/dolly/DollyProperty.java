@@ -21,6 +21,8 @@ public class DollyProperty
     int delay;
     int frameCounter;
 
+    LoopType loopType;
+
     Object mainObject;
 
     public DollyProperty()
@@ -53,6 +55,18 @@ public class DollyProperty
         this.delay = delay;
 
         this.speed = Math.abs(startValue - endValue) / (float)time;
+
+        this.loopType = LoopType.NoLoop;
+    }
+
+    public LoopType getLoopType()
+    {
+        return loopType;
+    }
+
+    public void setLoopType(LoopType loopType)
+    {
+        this.loopType = loopType;
     }
 
     public int getTime()
@@ -159,6 +173,30 @@ public class DollyProperty
                 setValue(mainObject, currentValueAsInt);
             else
                 setValue(runMethodOnObject(), currentValueAsInt);
+        }
+        else
+        {
+            //finished
+            switch (loopType)
+            {
+                case NoLoop:
+                    //do nothing
+                    //Todo: implement is running!
+                    break;
+
+                case Forward:
+                    reset();
+                    break;
+
+                case PingPong:
+                    int tempEndValue = endValue;
+                    endValue = startValue;
+                    startValue = tempEndValue;
+
+                    reset();
+
+                    break;
+            }
         }
     }
 

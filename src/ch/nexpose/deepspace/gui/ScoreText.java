@@ -66,8 +66,12 @@ public class ScoreText extends TextObject2D
 
         builder.append("Level: " + level + " | ");
         builder.append("Points: " + points + " | ");
-        builder.append("Life: [");
+        builder.append("Life: ");
 
+        for(int i = 0; i < lifes; i++)
+            builder.append("\u2665");
+
+        /*
         for (int i = 0; i < maxlifes; i++)
         {
             if (i + 1 <= lifes)
@@ -76,6 +80,7 @@ public class ScoreText extends TextObject2D
                 builder.append("  ");
         }
         builder.append("]");
+        */
         //builder.append("\u2665");
 
         this.setText(builder.toString());

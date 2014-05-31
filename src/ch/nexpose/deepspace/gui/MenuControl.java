@@ -1,7 +1,7 @@
 package ch.nexpose.deepspace.gui;
 
 import ch.nexpose.sge.SimpleGameEngine2D;
-import ch.nexpose.sge.fx.SoundPlayer;
+import ch.nexpose.sge.fx.audio.SoundPlayer;
 import ch.nexpose.sge.objects.BaseObject2D;
 
 import java.awt.*;

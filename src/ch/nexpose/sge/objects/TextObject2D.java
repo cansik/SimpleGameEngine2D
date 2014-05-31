@@ -5,6 +5,7 @@ import com.sun.prism.*;
 
 import java.awt.*;
 import java.awt.font.FontRenderContext;
+import java.awt.image.BufferedImage;
 
 /**
  * Created by cansik on 08/04/14.
@@ -85,6 +86,25 @@ public class TextObject2D extends MovingObject2D
         //fixes bug that a drawn text has 0,0 not left-top -> STILL NOT EXACTLY
         g.drawString(this.text, this.getLocation().x,
                 this.getLocation().y + getSize().height);
+    }
+
+    /**
+     * Creates an image of the text.
+     * @return
+     */
+    public BufferedImage toImage()
+    {
+        //Todo: fix border correction bug
+        int borderCorrection = 10;
+        BufferedImage textImage = new BufferedImage(this.getSize().width, this.getSize().height + borderCorrection, BufferedImage.TYPE_INT_ARGB);
+
+        Dimension currentDimension = getSize();
+        setSize(new Dimension(0, getSize().height + borderCorrection));
+
+        paint(textImage.createGraphics());
+
+        setSize(currentDimension);
+        return textImage;
     }
 
 }

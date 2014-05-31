@@ -1,6 +1,6 @@
 package ch.nexpose.deepspace.screen;
 
-import ch.nexpose.deepspace.LevelGameStory;
+import ch.nexpose.deepspace.stories.LevelGameStory;
 import ch.nexpose.sge.story.StoryBoard;
 import ch.nexpose.sge.ui.GameScene;
 import org.w3c.dom.Document;
@@ -11,8 +11,6 @@ import org.w3c.dom.NodeList;
 import javax.swing.*;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.awt.*;
-import java.io.File;
 
 /**
  * Created by cansik on 27/05/14.

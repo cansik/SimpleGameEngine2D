@@ -1,6 +1,6 @@
 package ch.nexpose.sgetest.space;
 
-import ch.nexpose.deepspace.objects.MovingBackground;
+import ch.nexpose.deepspace.gui.MovingBackground;
 import ch.nexpose.deepspace.screen.RandomGenerator;
 import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;

@@ -35,7 +35,7 @@ public class FlashingText extends TextObject2D
                 this.getColor().getGreen(),
                 this.getColor().getBlue(),
                 currentAlpha));
-
+        
         super.paint(g);
 
         if (currentAlpha + flashSpeed < 0 || currentAlpha + flashSpeed > 255)

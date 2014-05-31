@@ -53,7 +53,6 @@ public class TexturedObject2D extends MovingObject2D
     {
         super(engine);
 
-        //Todo: use setTexture to set size of the texture => bug
         this.texture = texture;
         this.setTexture(texture);
     }

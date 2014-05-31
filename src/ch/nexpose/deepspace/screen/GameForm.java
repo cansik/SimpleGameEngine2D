@@ -1,6 +1,6 @@
 package ch.nexpose.deepspace.screen;
 
-import ch.nexpose.deepspace.IntroGameStory;
+import ch.nexpose.deepspace.stories.IntroGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.ui.GameScene;
 
