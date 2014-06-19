@@ -3,6 +3,7 @@ package ch.nexpose.deepspace.screen;
 import ch.nexpose.deepspace.stories.IntroGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.ui.GameScene;
+import ch.nexpose.soccer.stories.MatchStory;
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,7 +63,11 @@ public class GameForm
 
     public void setupGame()
     {
-        new IntroGameStory(scene).runStory();
+        //soccer
+        new MatchStory(scene).runStory();
+
+        //deep space
+        //new IntroGameStory(scene).runStory();
 
         /*
         //Test Stories
