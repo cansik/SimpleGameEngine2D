@@ -52,6 +52,15 @@ public class MenuGameStory implements IGameStory
                 story.runStory();
             }
         }
+
+        //easteregg
+        if (_engine.getInputTracker().isKeyPressed(KeyEvent.VK_S) &&
+                _engine.getInputTracker().isKeyPressed(KeyEvent.VK_R) &&
+                _engine.getInputTracker().isKeyPressed(KeyEvent.VK_A))
+        {
+            _engine.stopEngine();
+
+        }
     }
 
     @Override

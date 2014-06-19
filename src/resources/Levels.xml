@@ -1,33 +1,35 @@
 <?xml version="1.0"?>
 <levels>
     <level>
-        <scoreGoal>20</scoreGoal>
+        <scoreGoal>10</scoreGoal>
         <enemySpawnChance>30</enemySpawnChance>
         <enemySpeedingChance>0</enemySpeedingChance>
         <enemyShootingChance>0</enemyShootingChance>
     </level>
     <level>
-        <scoreGoal>20</scoreGoal>
+        <scoreGoal>10</scoreGoal>
         <enemySpawnChance>30</enemySpawnChance>
-        <enemySpeedingChance>3</enemySpeedingChance>
+        <enemySpeedingChance>2</enemySpeedingChance>
         <enemyShootingChance>0</enemyShootingChance>
     </level>
     <level>
-        <scoreGoal>20</scoreGoal>
+        <scoreGoal>10</scoreGoal>
         <enemySpawnChance>30</enemySpawnChance>
         <enemySpeedingChance>0</enemySpeedingChance>
-        <enemyShootingChance>3</enemyShootingChance>
+        <enemyShootingChance>2</enemyShootingChance>
     </level>
-    <level>
-        <scoreGoal>20</scoreGoal>
-        <enemySpawnChance>30</enemySpawnChance>
-        <enemySpeedingChance>3</enemySpeedingChance>
-        <enemyShootingChance>3</enemyShootingChance>
-    </level>
-    <level>
-        <scoreGoal>20</scoreGoal>
-        <enemySpawnChance>30</enemySpawnChance>
-        <enemySpeedingChance>1</enemySpeedingChance>
-        <enemyShootingChance>1</enemyShootingChance>
-    </level>
+    <!--
+<level>
+    <scoreGoal>10</scoreGoal>
+    <enemySpawnChance>30</enemySpawnChance>
+    <enemySpeedingChance>3</enemySpeedingChance>
+    <enemyShootingChance>3</enemyShootingChance>
+</level>
+<level>
+    <scoreGoal>10</scoreGoal>
+    <enemySpawnChance>30</enemySpawnChance>
+    <enemySpeedingChance>1</enemySpeedingChance>
+    <enemyShootingChance>1</enemyShootingChance>
+</level>
+-->
 </levels>

@@ -123,28 +123,28 @@ public class SimpleGameEngine2D implements Runnable {
         this.addNextFrameListener(debugger);
         debugger.runStory();
 
-        while(running)
-        {
-            //collision detection
-            collisionDetector.detectCollisions(gameObjects);
+while(running)
+{
+    //collision detection
+    collisionDetector.detectCollisions(gameObjects);
 
-            //run gamelogic
-            notifyNextFrameListener();
+    //run gamelogic
+    notifyNextFrameListener();
 
-            //repainting
-            Graphics2D g = this.getFrame();
-            repaint(g, true);
-            g.dispose();
-           
-            scene.setBackgroundImage(frame);
-            scene.repaint();
-            
-            try {
-                Thread.sleep((int)1000 / FRAMERATE);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(SimpleGameEngine2D.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+    //repainting
+    Graphics2D g = this.getFrame();
+    repaint(g, true);
+    g.dispose();
+
+    scene.setBackgroundImage(frame);
+    scene.repaint();
+
+    try {
+        Thread.sleep((int)1000 / FRAMERATE);
+    } catch (InterruptedException ex) {
+        Logger.getLogger(SimpleGameEngine2D.class.getName()).log(Level.SEVERE, null, ex);
+    }
+}
     }
 
     /**
@@ -174,24 +174,24 @@ public class SimpleGameEngine2D implements Runnable {
      * Paint the gameobjects onto the frame.
      * @param g
      */
-    private void repaint(Graphics2D g, boolean doAction)
+private void repaint(Graphics2D g, boolean doAction)
+{
+    for(int i = 0; i < gameObjects.size(); i++)
     {
-        for(int i = 0; i < gameObjects.size(); i++)
+        if(gameObjects.get(i).isAlive())
         {
-            if(gameObjects.get(i).isAlive())
-            {
-                if(doAction)
-                    gameObjects.get(i).action();
+            if(doAction)
+                gameObjects.get(i).action();
 
-                gameObjects.get(i).paint(g);
-            }
-            else
-            {
-                gameObjects.remove(gameObjects.get(i));
-                i--;
-            }
+            gameObjects.get(i).paint(g);
+        }
+        else
+        {
+            gameObjects.remove(gameObjects.get(i));
+            i--;
         }
     }
+}
 
     public BufferedImage GetCurrentFrame()
     {

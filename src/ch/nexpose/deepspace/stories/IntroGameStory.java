@@ -69,7 +69,7 @@ public class IntroGameStory implements IGameStory
         MovingBackground background = new MovingBackground(_engine, bg);
 
         //BackgroundMusic
-        SoundPlayer.isMute = false;
+        //SoundPlayer.isMute = false;
         SoundPlayer.playSound(getClass().getResourceAsStream("/resources/sounds/background_music.wav"), true);
 
         //add game objects

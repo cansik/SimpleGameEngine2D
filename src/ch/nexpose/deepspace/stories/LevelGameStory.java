@@ -94,7 +94,7 @@ public class LevelGameStory implements IGameStory
         objectCreation();
 
         //show in game Menu (pause)
-        if(_engine.getInputTracker().isKeyPressed(KeyEvent.VK_ESCAPE))
+        if (_engine.getInputTracker().isKeyPressed(KeyEvent.VK_ESCAPE))
         {
             MenuGameStory realMenu = new MenuGameStory(_engine.getScene());
             realMenu.runStory();
