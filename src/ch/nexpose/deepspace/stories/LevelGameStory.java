@@ -6,13 +6,18 @@ import ch.nexpose.deepspace.gui.ScoreText;
 import ch.nexpose.deepspace.gui.ScoreType;
 import ch.nexpose.deepspace.objects.*;
 import ch.nexpose.sge.controls.Direction;
+import ch.nexpose.sge.controls.leap.LeapMotionTracker;
 import ch.nexpose.sge.story.IGameStory;
 import ch.nexpose.sge.SimpleGameEngine2D;
 import ch.nexpose.sge.story.StoryBoard;
 import ch.nexpose.sge.ui.GameScene;
 import ch.nexpose.deepspace.screen.RandomGenerator;
+import com.leapmotion.leap.*;
+import javafx.util.Pair;
 
 import java.awt.*;
+import java.awt.Frame;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
@@ -37,6 +42,7 @@ public class LevelGameStory implements IGameStory
     int enemySpawnChance;
 
     boolean shotKeyWasPressed;
+    boolean shotKeyWasPressedByLeap;
 
     public LevelGameStory(GameScene scene, StoryBoard storyBoard, int levelNumber)
     {
@@ -257,6 +263,71 @@ public class LevelGameStory implements IGameStory
         }
         else
             shotKeyWasPressed = false;
+
+        handleLeapMotionSteering();
+    }
+
+    private void handleLeapMotionSteering()
+    {
+        com.leapmotion.leap.Frame frame = _engine.getInputTracker().getLeapTracker().getLastFrame();
+
+        if(frame == null)
+            return;
+
+        if(frame.hands().count() == 0)
+            return;
+
+        //get position of index finger
+        Hand hand = frame.hands().rightmost();
+        Finger finger = hand.fingers().fingerType(Finger.Type.TYPE_INDEX).get(0);
+        //Vector indexFinger = finger.jointPosition(Finger.Joint.JOINT_DIP);
+        Vector handPoint = hand.sphereCenter();
+
+        //shooting
+        if (hand.grabStrength() < 0.1)
+        {
+            if (!shotKeyWasPressedByLeap)
+                player.shoot();
+            shotKeyWasPressedByLeap = true;
+        }
+        else
+            shotKeyWasPressedByLeap = false;
+
+        //position tracking
+        Pair<Double, Double> v = getGamePointFromLeapMotion(handPoint, frame, _engine.getScene().getSize());
+
+        //get position of player
+        Point p = player.getCenterLocation();
+
+        //move to position
+        float easingX = 0.05f, easingY = 0.05f;
+
+        double targetX = v.getKey(), targetY = v.getValue(), playerX = p.getX(), playerY = p.getY();
+
+        //System.out.println(frame.currentFramesPerSecond() + ": {" + v.getKey() + ", " + v.getValue() + "}");
+
+        playerX+=(targetX-playerX)*easingX;
+        playerY+=(targetY-playerY)*easingY;
+
+        //set position
+        player.setLocation(new Point((int) playerX, (int) playerY));
+    }
+
+    private Pair<Double, Double> getGamePointFromLeapMotion(Vector leapPoint, com.leapmotion.leap.Frame frame, Dimension appSize)
+    {
+        InteractionBox iBox = frame.interactionBox();
+        Vector normalizedPoint = iBox.normalizePoint(leapPoint, false);
+
+        double appX = normalizedPoint.getX() * appSize.getWidth();
+        //use z for more elegant moving
+        double appY = normalizedPoint.getZ() * appSize.getHeight();
+        //double appY = (1 - normalizedPoint.getY()) * appSize.getHeight();
+
+        //ugly parameter coordinate hacking
+        appX -= _engine.getScene().getWidth() - 50;
+        appY -= _engine.getScene().getHeight() / 2;
+
+        return new Pair<Double, Double>(appX, appY);
     }
 
     @Override

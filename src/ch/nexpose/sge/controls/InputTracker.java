@@ -1,5 +1,6 @@
 package ch.nexpose.sge.controls;
 
+import ch.nexpose.sge.controls.leap.LeapMotionTracker;
 import ch.nexpose.sge.ui.GameScene;
 
 import java.awt.event.KeyAdapter;
@@ -17,10 +18,12 @@ public class InputTracker
     GameScene scene;
     KeyAdapter keyAdapter;
     boolean detectionPaused;
+    LeapMotionTracker leapTracker;
 
     public InputTracker(GameScene scene)
     {
         this.scene = scene;
+        leapTracker = new LeapMotionTracker();
     }
 
     public boolean isDetectionPaused()
@@ -31,6 +34,10 @@ public class InputTracker
     public void setDetectionPaused(boolean detectionPaused)
     {
         this.detectionPaused = detectionPaused;
+    }
+
+    public LeapMotionTracker getLeapTracker() {
+        return leapTracker;
     }
 
     /**
@@ -57,6 +64,7 @@ public class InputTracker
         });
 
         scene.addKeyListener(keyAdapter);
+        leapTracker.startTracker();
     }
 
     /**
@@ -65,6 +73,7 @@ public class InputTracker
     public void closeInputManager()
     {
         scene.removeKeyListener(keyAdapter);
+        leapTracker.stopTracker();
     }
 
     /**
