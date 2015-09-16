@@ -94,6 +94,8 @@ public class EnemySpaceShip extends GravityObject2D
         isCrashing = true;
         setCollisionable(false);
         setCounterforce(0.95);
+        push(1, Direction.UP);
+        push(1, Direction.LEFT);
 
         getGameStory().scorePoint(ScoreType.Kill);
     }

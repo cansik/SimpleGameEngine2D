@@ -45,7 +45,7 @@ public class AboutGameStory implements IGameStory
             pushAllBalls(1, Direction.DOWN);
 
         //create new balls
-        if(RandomGenerator.getBooleanByChance(10))
+        if(RandomGenerator.getBooleanByChance(5))
             _engine.addGameObject(new GravityBall(_engine, Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/ballblue.png"))));
     }
 
@@ -80,7 +80,7 @@ public class AboutGameStory implements IGameStory
         time = AddTitle("tested by Roman", dolly, time);
         time = AddTitle("supported by Sara", dolly, time);
         time = AddTitle("FHNW Informatik 2014", dolly, time);
-        time = AddTitle("www.yarx.ch", dolly, time);
+        time = AddTitle("www.easyguet.ch", dolly, time);
         dolly.move();
 
         /*

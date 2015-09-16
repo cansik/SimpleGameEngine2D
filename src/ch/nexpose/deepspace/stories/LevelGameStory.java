@@ -278,13 +278,15 @@ public class LevelGameStory implements IGameStory
             return;
 
         //get position of index finger
-        Hand hand = frame.hands().rightmost();
-        Finger finger = hand.fingers().fingerType(Finger.Type.TYPE_INDEX).get(0);
+        Hand leftHand = frame.hands().leftmost();
+        Hand rightHand = frame.hands().rightmost();
+
+        Finger finger = rightHand.fingers().fingerType(Finger.Type.TYPE_INDEX).get(0);
         //Vector indexFinger = finger.jointPosition(Finger.Joint.JOINT_DIP);
-        Vector handPoint = hand.sphereCenter();
+        Vector handPoint = leftHand.sphereCenter();
 
         //shooting
-        if (hand.grabStrength() < 0.1)
+        if (finger.jointPosition(Finger.Joint.JOINT_DIP).getZ() > -30)
         {
             if (!shotKeyWasPressedByLeap)
                 player.shoot();

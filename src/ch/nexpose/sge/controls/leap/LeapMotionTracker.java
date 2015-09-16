@@ -34,6 +34,7 @@ public class LeapMotionTracker  extends Listener {
     }
 
     public Frame getLastFrame() {
+        lastFrame = lastFrame;
         return lastFrame;
     }
 }
